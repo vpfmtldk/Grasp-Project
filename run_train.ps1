@@ -20,6 +20,7 @@ param(
     [string] $Dataset      = 'cornell',
     [int]    $UseRgb       = 0,
     [int]    $UseDepth     = 1,
+    [double] $DsRotate     = 0.0,
     [int]    $Epochs       = 50,
     [int]    $NumWorkers   = 0,          # 0 = safest on Windows
     [int]    $StaleMinutes = 20,
@@ -49,6 +50,7 @@ $commonArgs = @(
     '--dataset-path', $DatasetPath,
     '--use-rgb',      "$UseRgb",
     '--use-depth',    "$UseDepth",
+    '--ds-rotate',    "$DsRotate",
     '--num-workers',  "$NumWorkers",
     '--epochs',       "$Epochs"
 )
