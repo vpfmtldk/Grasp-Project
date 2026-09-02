@@ -3,11 +3,28 @@ import logging
 
 import torch.utils.data
 
+from models import get_network
 from models.common import post_process_output
 from utils.dataset_processing import evaluation, grasp
 from utils.data import get_dataset
 
 logging.basicConfig(level=logging.INFO)
+
+
+def _v(t):
+    """Unwrap a 1-element tensor/array to a Python scalar (DataLoader collates idx/rot/zoom)."""
+    return t.item() if hasattr(t, 'item') else t
+
+
+def load_network(path, input_channels=1, network='ggcnn'):
+    """Load a network saved either as a full pickled model, a plain state_dict, or a training checkpoint dict."""
+    loaded = torch.load(path, map_location='cpu', weights_only=False)
+    if isinstance(loaded, torch.nn.Module):
+        return loaded
+    state = loaded['model_state_dict'] if isinstance(loaded, dict) and 'model_state_dict' in loaded else loaded
+    net = get_network(network)(input_channels=input_channels)
+    net.load_state_dict(state)
+    return net
 
 
 def parse_args():
@@ -46,8 +63,11 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Load Network
-    net = torch.load(args.network)
     device = torch.device("cuda:0")
+    input_channels = 1 * args.use_depth + 3 * args.use_rgb
+    net = load_network(args.network, input_channels=input_channels)
+    net = net.to(device)
+    net.eval()
 
     # Load Dataset
     logging.info('Loading {} Dataset...'.format(args.dataset.title()))
@@ -81,7 +101,8 @@ if __name__ == '__main__':
                                                         lossd['pred']['sin'], lossd['pred']['width'])
 
             if args.iou_eval:
-                s = evaluation.calculate_iou_match(q_img, ang_img, test_data.dataset.get_gtbb(didx, rot, zoom),
+                s = evaluation.calculate_iou_match(q_img, ang_img,
+                                                   test_data.dataset.get_gtbb(_v(didx), _v(rot), _v(zoom)),
                                                    no_grasps=args.n_grasps,
                                                    grasp_width=width_img,
                                                    )
@@ -98,8 +119,8 @@ if __name__ == '__main__':
                         f.write(g.to_jacquard(scale=1024 / 300) + '\n')
 
             if args.vis:
-                evaluation.plot_output(test_data.dataset.get_rgb(didx, rot, zoom, normalise=False),
-                                       test_data.dataset.get_depth(didx, rot, zoom), q_img,
+                evaluation.plot_output(test_data.dataset.get_rgb(_v(didx), _v(rot), _v(zoom), normalise=False),
+                                       test_data.dataset.get_depth(_v(didx), _v(rot), _v(zoom)), q_img,
                                        ang_img, no_grasps=args.n_grasps, grasp_width_img=width_img)
 
     if args.iou_eval:

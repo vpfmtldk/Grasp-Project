@@ -44,6 +44,14 @@ def parse_args():
     parser.add_argument('--batches-per-epoch', type=int, default=1000, help='Batches per Epoch')
     parser.add_argument('--val-batches', type=int, default=250, help='Validation Batches')
 
+    # Resume
+    parser.add_argument('--resume', type=str, default='',
+                        help='Path to a checkpoint to resume from. "ckpt_last.pt" restores model+optimizer+epoch; '
+                             'a "*_statedict.pt" or full pickled model restores weights only (use --start-epoch). '
+                             'Training continues into that checkpoint\'s folder.')
+    parser.add_argument('--start-epoch', type=int, default=0,
+                        help='Epoch to resume from when --resume points to a weights-only file.')
+
     # Logging etc.
     parser.add_argument('--description', type=str, default='', help='Training description')
     parser.add_argument('--outdir', type=str, default='output/models/', help='Training Output Directory')
@@ -100,7 +108,7 @@ def validate(net, device, val_data, batches_per_epoch):
                                                             lossd['pred']['sin'], lossd['pred']['width'])
 
                 s = evaluation.calculate_iou_match(q_out, ang_out,
-                                                   val_data.dataset.get_gtbb(didx, rot, zoom_factor),
+                                                   val_data.dataset.get_gtbb(didx, rot.item() if hasattr(rot, 'item') else rot, zoom_factor.item() if hasattr(zoom_factor, 'item') else zoom_factor),
                                                    no_grasps=1,
                                                    grasp_width=w_out,
                                                    )
@@ -186,11 +194,16 @@ def run():
     if args.vis:
         cv2.namedWindow('Display', cv2.WINDOW_NORMAL)
 
-    # Set-up output directories
-    dt = datetime.datetime.now().strftime('%y%m%d_%H%M')
-    net_desc = '{}_{}'.format(dt, '_'.join(args.description.split()))
+    # Set-up output directories.  When resuming, keep writing into the existing run folder.
+    if args.resume:
+        save_folder = os.path.dirname(os.path.abspath(args.resume))
+        net_desc = os.path.basename(save_folder)
+        logging.info('Resuming run "%s" from %s', net_desc, args.resume)
+    else:
+        dt = datetime.datetime.now().strftime('%y%m%d_%H%M')
+        net_desc = '{}_{}'.format(dt, '_'.join(args.description.split()))
+        save_folder = os.path.join(args.outdir, net_desc)
 
-    save_folder = os.path.join(args.outdir, net_desc)
     if not os.path.exists(save_folder):
         os.makedirs(save_folder)
     tb = tensorboardX.SummaryWriter(os.path.join(args.logdir, net_desc))
@@ -230,6 +243,33 @@ def run():
     optimizer = optim.Adam(net.parameters())
     logging.info('Done')
 
+    # Optionally resume from a checkpoint.
+    start_epoch = args.start_epoch
+    resumed_best_iou = None
+    if args.resume:
+        logging.info('Loading checkpoint %s', args.resume)
+        ckpt = torch.load(args.resume, map_location=device)
+        if isinstance(ckpt, dict) and 'model_state_dict' in ckpt:
+            net.load_state_dict(ckpt['model_state_dict'])
+            if ckpt.get('optimizer_state_dict') is not None:
+                optimizer.load_state_dict(ckpt['optimizer_state_dict'])
+            start_epoch = int(ckpt.get('epoch', -1)) + 1
+            resumed_best_iou = ckpt.get('best_iou', None)
+            logging.info('Full checkpoint loaded; optimizer state restored.')
+        elif isinstance(ckpt, dict):
+            net.load_state_dict(ckpt)
+            logging.info('Weights-only state dict loaded; optimizer starts fresh.')
+        else:
+            net = ckpt.to(device)
+            optimizer = optim.Adam(net.parameters())
+            logging.info('Full pickled model loaded; optimizer starts fresh.')
+        logging.info('Resuming at epoch %d', start_epoch)
+
+    if start_epoch >= args.epochs:
+        logging.info('Nothing to do: start epoch %d >= total epochs %d. Training already complete.',
+                     start_epoch, args.epochs)
+        return
+
     # Print model architecture.
     summary(net, (input_channels, 300, 300))
     f = open(os.path.join(save_folder, 'arch.txt'), 'w')
@@ -238,8 +278,8 @@ def run():
     sys.stdout = sys.__stdout__
     f.close()
 
-    best_iou = 0.0
-    for epoch in range(args.epochs):
+    best_iou = resumed_best_iou if resumed_best_iou is not None else 0.0
+    for epoch in range(start_epoch, args.epochs):
         logging.info('Beginning Epoch {:02d}'.format(epoch))
         train_results = train(epoch, net, device, train_data, optimizer, args.batches_per_epoch, vis=args.vis)
 
@@ -267,6 +307,15 @@ def run():
             torch.save(net.state_dict(), os.path.join(save_folder, 'epoch_%02d_iou_%0.2f_statedict.pt' % (epoch, iou)))
             best_iou = iou
 
+        # Always save a rolling checkpoint so training can be resumed after a crash.
+        torch.save({
+            'epoch': epoch,
+            'model_state_dict': net.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'best_iou': best_iou,
+        }, os.path.join(save_folder, 'ckpt_last.pt'))
+
 
 if __name__ == '__main__':
     run()
+
