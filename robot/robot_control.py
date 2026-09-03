@@ -79,15 +79,19 @@ class Config:
     arm_series: str = "sts"                      # SO-101 = STS3215
 
     # --- AmazingHand (Feetech SC090 / SCS-series, 1024 steps/rev) -----------
-    hand_port: str = "COM8"                      # confirmed: hand bus (ids 1,2 seen; scan the rest)
-    hand_baud: int = 1_000_000                   # TODO SC090 default is often 1M; check
+    hand_port: str = "COM8"                      # confirmed: hand bus
+    hand_baud: int = 1_000_000                   # confirmed (wiggle worked at 1M)
     hand_series: str = "scs"
-    hand_servo_ids: list = field(default_factory=lambda: [10, 11, 12, 13, 14, 15, 16, 17])  # TODO 8 = 4 fingers x 2
-    # preset name -> {servo_id: angle_deg}. Tune these by hand.
+    # confirmed on COM8: index=1,2  middle=3,4  ring=5,6  thumb=7,8
+    hand_servo_ids: list = field(default_factory=lambda: [1, 2, 3, 4, 5, 6, 7, 8])
+    # preset name -> {servo_id: angle_deg from that servo's centre}. STARTING GUESSES --
+    # tune signs/magnitudes by hand (demo_move.py --hand-only, then edit).
     hand_presets: dict = field(default_factory=lambda: {
-        "open":  {i: 0.0 for i in [10, 11, 12, 13, 14, 15, 16, 17]},             # TODO
-        "pinch": {10: 35, 11: 40, 12: 35, 13: 40, 14: 35, 15: 40, 16: 0, 17: 0}, # TODO
-        "power": {i: 60.0 for i in [10, 11, 12, 13, 14, 15, 16, 17]},            # TODO
+        "open":  {i: 0.0 for i in [1, 2, 3, 4, 5, 6, 7, 8]},
+        # thumb (7,8) opposes index (1,2); middle/ring lightly curled
+        "pinch": {1: 40, 2: 40, 3: 15, 4: 15, 5: 15, 6: 15, 7: 45, 8: 45},
+        # all four fingers curl in
+        "power": {i: 55.0 for i in [1, 2, 3, 4, 5, 6, 7, 8]},
     })
     # which preset to use for a given target opening width (metres)
     width_to_preset: list = field(default_factory=lambda: [
