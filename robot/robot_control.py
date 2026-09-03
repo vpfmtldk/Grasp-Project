@@ -298,20 +298,29 @@ def list_ports():
 
 
 def scan_ids(port, baud, series="sts", lo=1, hi=30):
-    """Ping every id in [lo, hi] on a port and report which servos answer."""
+    """Read Present_Position for every id in [lo, hi]; report which servos answer.
+
+    Avoids packet_handler.ping() -- some scservo_sdk builds crash on a no-reply.
+    A sane position (0..4095 for STS, 0..1023 for SC090) means the series /
+    protocol_end are right; wild values mean flip SERIES[...]['protocol_end'].
+    """
     if not _HAVE_SCS:
         print("pip install feetech-servo-sdk"); return
     ph = scs.PortHandler(port)
     pk = scs.PacketHandler(SERIES[series]["protocol_end"])
     if not ph.openPort() or not ph.setBaudRate(baud):
         print(f"cannot open {port} @ {baud}"); return
-    print(f"scanning {port} @ {baud} ({series}) ids {lo}..{hi}")
+    rev = SERIES[series]["steps_per_rev"]
+    print(f"scanning {port} @ {baud} ({series}, {rev} steps/rev) ids {lo}..{hi}")
     found = []
     for i in range(lo, hi + 1):
-        _, res, err = pk.ping(ph, i)
-        if res == 0:
-            pos = pk.read2ByteTxRx(ph, i, ADDR_PRESENT_POSITION)[0]
-            print(f"  id {i:3d}  present_position={pos}")
+        try:
+            pos, res, err = pk.read2ByteTxRx(ph, i, ADDR_PRESENT_POSITION)
+        except Exception:
+            continue
+        if res == scs.COMM_SUCCESS:
+            flag = "" if 0 <= pos < rev else "  <-- out of range: wrong series/protocol_end?"
+            print(f"  id {i:3d}  present_position={pos}{flag}")
             found.append(i)
     ph.closePort()
     print("found:", found or "(none)")
