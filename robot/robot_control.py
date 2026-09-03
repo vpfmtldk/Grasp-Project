@@ -367,6 +367,31 @@ def scan_ids(port, baud, series="sts", lo=1, hi=30, proto=None):
     print("found:", found or "(none)")
 
 
+def check_arm(cfg, step_deg=10.0):
+    """Read the arm, then nudge each joint +step_deg/-step_deg (small, safe) so you
+    can confirm the id->joint map and the sign. Edit CONFIG from what you see."""
+    arm = SO101(cfg)
+    arm.connect()
+    try:
+        cur = arm.read_joints_deg()
+        print("current joints (deg):",
+              [None if v is None else round(v, 1) for v in cur])
+        for k, j in enumerate(arm.joints):
+            if cur[k] is None:
+                print(f"  {j.name} (id {j.servo_id}): no read, skipping"); continue
+            input(f"  Enter to nudge {j.name} (id {j.servo_id}) +-{step_deg} deg ...")
+            base = list(cur)
+            for d in (step_deg, -step_deg, 0.0):
+                tgt = list(base)
+                tgt[k] = cur[k] + d
+                arm.move_joints_deg(tgt, secs=1.0)
+            note = input(f"    which joint moved, and did + go the expected way? ")
+            if note:
+                print(f"      {j.name} id {j.servo_id}: {note}")
+    finally:
+        arm.disconnect()
+
+
 def wiggle(port, baud, ids, series="sts", proto=None, amp=80, reps=3):
     """
     Write-only: nudge each id back and forth so you can SEE which joint/finger it
@@ -422,6 +447,7 @@ if __name__ == "__main__":
     p.add_argument("--proto", type=int, choices=[0, 1], default=None,
                    help="override protocol_end (0=STS byte order, 1=SC090)")
     p.add_argument("--calibrate", action="store_true", help="record arm home_steps")
+    p.add_argument("--check-arm", action="store_true", help="small +-10 deg nudge per arm joint")
     a = p.parse_args()
     cfg = Config()
 
@@ -440,6 +466,8 @@ if __name__ == "__main__":
         scan_ids(a.scan, a.baud, a.series, proto=a.proto)
     elif a.wiggle:
         wiggle(a.wiggle, a.baud, parse_ids(a.ids), a.series, proto=a.proto, amp=a.amp)
+    elif a.check_arm:
+        check_arm(cfg)
     elif a.calibrate:
         calibrate(cfg)
     else:
