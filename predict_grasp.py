@@ -179,6 +179,7 @@ def parse_args():
                    help='Native centre-crop size (default 300, matches Cornell). 0 = largest square then resize.')
     p.add_argument('--vis', action='store_true', help='Show / save an overlay of the predicted grasp')
     p.add_argument('--out', type=str, default='', help='Save the overlay here instead of showing it')
+    p.add_argument('--json', type=str, default='', help='Write the grasp dict(s) to this JSON file (feeds pixel_to_world.py)')
     return p.parse_args()
 
 
@@ -192,6 +193,12 @@ if __name__ == '__main__':
     for i, g in enumerate(grasps):
         print('grasp %d: x=%.1f y=%.1f  angle=%.1f deg  width=%.1f px  quality=%.3f'
               % (i, g['x'], g['y'], g['angle_deg'], g['width_px'], g['quality']))
+
+    if args.json:
+        import json
+        with open(args.json, 'w') as f:
+            json.dump(grasps if len(grasps) != 1 else grasps[0], f, indent=2)
+        print('wrote', args.json)
 
     if args.vis or args.out:
         base = img.astype(np.uint8) if not args.use_depth else img
