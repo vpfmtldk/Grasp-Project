@@ -285,14 +285,54 @@ def calibrate(cfg: Config):
     bus.disconnect()
 
 
+def list_ports():
+    try:
+        from serial.tools import list_ports as lp
+    except ImportError:
+        print("pip install pyserial"); return
+    ports = list(lp.comports())
+    if not ports:
+        print("no serial ports found"); return
+    for p in ports:
+        print(f"  {p.device:10s}  {p.description}")
+
+
+def scan_ids(port, baud, series="sts", lo=1, hi=30):
+    """Ping every id in [lo, hi] on a port and report which servos answer."""
+    if not _HAVE_SCS:
+        print("pip install feetech-servo-sdk"); return
+    ph = scs.PortHandler(port)
+    pk = scs.PacketHandler(SERIES[series]["protocol_end"])
+    if not ph.openPort() or not ph.setBaudRate(baud):
+        print(f"cannot open {port} @ {baud}"); return
+    print(f"scanning {port} @ {baud} ({series}) ids {lo}..{hi}")
+    found = []
+    for i in range(lo, hi + 1):
+        _, res, err = pk.ping(ph, i)
+        if res == 0:
+            pos = pk.read2ByteTxRx(ph, i, ADDR_PRESENT_POSITION)[0]
+            print(f"  id {i:3d}  present_position={pos}")
+            found.append(i)
+    ph.closePort()
+    print("found:", found or "(none)")
+
+
 if __name__ == "__main__":
     import argparse
-    p = argparse.ArgumentParser(description="SO-101 + AmazingHand smoke driver")
-    p.add_argument("--calibrate", action="store_true")
-    p.add_argument("--dry-run", action="store_true")
+    p = argparse.ArgumentParser(description="SO-101 + AmazingHand serial driver utils")
+    p.add_argument("--list-ports", action="store_true", help="list COM ports")
+    p.add_argument("--scan", metavar="PORT", help="ping servo ids on PORT")
+    p.add_argument("--baud", type=int, default=1_000_000)
+    p.add_argument("--series", choices=["sts", "scs"], default="sts")
+    p.add_argument("--calibrate", action="store_true", help="record arm home_steps")
     a = p.parse_args()
     cfg = Config()
-    if a.calibrate:
+    if a.list_ports:
+        list_ports()
+    elif a.scan:
+        scan_ids(a.scan, a.baud, a.series)
+    elif a.calibrate:
         calibrate(cfg)
     else:
-        print("import this module, or run demo_move.py")
+        print("use --list-ports, --scan PORT [--baud N --series scs], --calibrate, "
+              "or run demo_move.py")
