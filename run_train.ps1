@@ -52,7 +52,8 @@ $commonArgs = @(
     '--use-depth',    "$UseDepth",
     '--ds-rotate',    "$DsRotate",
     '--num-workers',  "$NumWorkers",
-    '--epochs',       "$Epochs"
+    '--epochs',       "$Epochs",
+    '--save-folder',  $RunDir           # train_ggcnn.py writes here and auto-resumes from RunDir\ckpt_last.pt
 )
 
 function Get-ResumeArgs {

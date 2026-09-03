@@ -51,6 +51,9 @@ def parse_args():
                              'Training continues into that checkpoint\'s folder.')
     parser.add_argument('--start-epoch', type=int, default=0,
                         help='Epoch to resume from when --resume points to a weights-only file.')
+    parser.add_argument('--save-folder', type=str, default='',
+                        help='Exact output folder (overrides the timestamped default). If it already '
+                             'contains ckpt_last.pt, training auto-resumes from it.')
 
     # Logging etc.
     parser.add_argument('--description', type=str, default='', help='Training description')
@@ -195,7 +198,14 @@ def run():
         cv2.namedWindow('Display', cv2.WINDOW_NORMAL)
 
     # Set-up output directories.  When resuming, keep writing into the existing run folder.
-    if args.resume:
+    if args.save_folder:
+        save_folder = args.save_folder
+        net_desc = os.path.basename(os.path.normpath(save_folder))
+        auto = os.path.join(save_folder, 'ckpt_last.pt')
+        if not args.resume and os.path.isfile(auto):
+            args.resume = auto
+            logging.info('Auto-resuming from %s', auto)
+    elif args.resume:
         save_folder = os.path.dirname(os.path.abspath(args.resume))
         net_desc = os.path.basename(save_folder)
         logging.info('Resuming run "%s" from %s', net_desc, args.resume)
