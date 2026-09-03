@@ -373,9 +373,12 @@ def read_pose(cfg, hz=2.0):
     bus = FeetechBus(cfg.arm_port, cfg.arm_baud, [j.servo_id for j in cfg.arm_joints],
                      series=cfg.arm_series)
     bus.connect()
-    for i in bus.ids:                       # make it back-drivable
-        bus._pk.write1ByteTxRx(bus._ph, i, ADDR_TORQUE_ENABLE, 0)
-    print("torque OFF -- move the arm by hand. Ctrl+C to stop.")
+    for _ in range(5):                      # retry -- the disable write can be lost on a noisy bus
+        for i in bus.ids:
+            bus._pk.write1ByteTxRx(bus._ph, i, ADDR_TORQUE_ENABLE, 0)
+        time.sleep(0.05)
+    print("torque OFF (sent x5) -- the arm should now be loose. Move it by hand. Ctrl+C to stop.")
+    print("if it is still stiff: cut servo power briefly, or a servo's disable didn't land.")
     try:
         while True:
             raw = bus.read_steps()
