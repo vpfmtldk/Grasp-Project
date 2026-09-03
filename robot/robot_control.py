@@ -73,7 +73,7 @@ class Config:
         JointCfg("wrist_roll",    5, min_deg=-160, max_deg=160),
     ])
     # a safe stow pose and the fixed pose used to photograph the table
-    home_deg: list = field(default_factory=lambda: [0, -90, 90, 0, 0])           # TODO tune
+    home_deg: list = field(default_factory=lambda: [0, -88, 89, -93, 154])       # measured via --jog (stow)
     look_deg: list = field(default_factory=lambda: [0, -60, 70, -55, 0])         # TODO tune
 
     arm_series: str = "sts"                      # SO-101 = STS3215
