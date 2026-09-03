@@ -401,35 +401,53 @@ def jog(cfg):
     home_deg / look_deg. Small moves only, so it stays inside the safety guard."""
     arm = SO101(cfg)
     arm.connect()
+    names = [j.name for j in arm.joints]
     try:
-        pose = arm.read_joints_deg()
-        if any(p is None for p in pose):
-            print("could not read all joints:", pose, "-- fix the bus first"); return
-        names = [j.name for j in arm.joints]
+        # hard-retry an initial read; joints that never answer are tracked from 0
+        pose = []
+        for j in arm.joints:
+            s = None
+            for _ in range(25):
+                s = arm.bus.read_one(j.servo_id, retries=1)
+                if s is not None:
+                    break
+            pose.append(0.0 if s is None else arm._steps_to_deg(j, s))
+            if s is None:
+                print(f"  (!) {j.name} id {j.servo_id} not reading -- tracked from 0, may drift")
+
+        print("\n  TYPE e.g.  '2 -10'  then ENTER  (joint 2 by -10 deg). "
+              "Enter alone = re-read. 'q' = quit.\n")
         while True:
-            print("  pose:", "  ".join(f"{n}={p:.1f}" for n, p in zip(names, pose)))
-            s = input("  joint amount (e.g. '2 -5'), Enter=reprint, q=quit: ").strip()
+            print("  pose:", "  ".join(f"{n}={p:6.1f}" for n, p in zip(names, pose)))
+            s = input("  > ").strip()
             if s.lower() == "q":
                 break
             if not s:
-                pose = arm.read_joints_deg(); continue
+                r = arm.read_joints_deg()
+                pose = [pose[i] if r[i] is None else r[i] for i in range(len(pose))]
+                continue
+            parts = s.split()
+            if len(parts) != 2:
+                print("  format: <joint 1-5> <degrees>,  e.g.  4 8"); continue
             try:
-                k, amt = s.split()
-                k = int(k) - 1
-                amt = float(amt)
+                k = int(parts[0]) - 1
+                amt = float(parts[1])
             except ValueError:
-                print("  format: <joint 1-5> <degrees>, e.g.  4 8"); continue
+                print("  numbers only, e.g.  3 -12"); continue
             if not 0 <= k < len(pose):
-                print("  joint out of range"); continue
+                print("  joint must be 1-5"); continue
             tgt = list(pose)
             tgt[k] = pose[k] + amt
-            arm.move_joints_deg(tgt, secs=max(0.4, abs(amt) / 20))
-            pose = arm.read_joints_deg()
+            arm.move_joints_deg(tgt, secs=max(0.4, abs(amt) / 20), max_step_deg=45)
+            pose[k] = tgt[k]                         # track commanded value
+            r = arm.read_joints_deg()
+            for i in range(len(pose)):
+                if r[i] is not None:
+                    pose[i] = r[i]
     finally:
         arm.disconnect()
     print("\nfinal pose (deg):", [round(p, 1) for p in pose])
-    print("paste into Config as home_deg or look_deg:",
-          "[" + ", ".join(f"{p:.0f}" for p in pose) + "]")
+    print("paste into Config:  [" + ", ".join(f"{p:.0f}" for p in pose) + "]")
 
 
 def check_arm(cfg, step_deg=10.0):
