@@ -43,7 +43,7 @@ LEN_POSITION = 2
 # flip its protocol_end to 1.
 SERIES = {
     "sts": {"steps_per_rev": 4096, "protocol_end": 0},
-    "scs": {"steps_per_rev": 1024, "protocol_end": 0},
+    "scs": {"steps_per_rev": 1024, "protocol_end": 1},   # SC090 reads byte-swapped under 0
 }
 
 
@@ -297,7 +297,7 @@ def list_ports():
         print(f"  {p.device:10s}  {p.description}")
 
 
-def scan_ids(port, baud, series="sts", lo=1, hi=30):
+def scan_ids(port, baud, series="sts", lo=1, hi=30, proto=None):
     """Read Present_Position for every id in [lo, hi]; report which servos answer.
 
     Avoids packet_handler.ping() -- some scservo_sdk builds crash on a no-reply.
@@ -306,12 +306,13 @@ def scan_ids(port, baud, series="sts", lo=1, hi=30):
     """
     if not _HAVE_SCS:
         print("pip install feetech-servo-sdk"); return
+    pe = SERIES[series]["protocol_end"] if proto is None else proto
     ph = scs.PortHandler(port)
-    pk = scs.PacketHandler(SERIES[series]["protocol_end"])
+    pk = scs.PacketHandler(pe)
     if not ph.openPort() or not ph.setBaudRate(baud):
         print(f"cannot open {port} @ {baud}"); return
     rev = SERIES[series]["steps_per_rev"]
-    print(f"scanning {port} @ {baud} ({series}, {rev} steps/rev) ids {lo}..{hi}")
+    print(f"scanning {port} @ {baud} ({series}, {rev} steps/rev, protocol_end={pe}) ids {lo}..{hi}")
     found = []
     for i in range(lo, hi + 1):
         try:
@@ -333,13 +334,15 @@ if __name__ == "__main__":
     p.add_argument("--scan", metavar="PORT", help="ping servo ids on PORT")
     p.add_argument("--baud", type=int, default=1_000_000)
     p.add_argument("--series", choices=["sts", "scs"], default="sts")
+    p.add_argument("--proto", type=int, choices=[0, 1], default=None,
+                   help="override protocol_end (0=STS byte order, 1=SC090)")
     p.add_argument("--calibrate", action="store_true", help="record arm home_steps")
     a = p.parse_args()
     cfg = Config()
     if a.list_ports:
         list_ports()
     elif a.scan:
-        scan_ids(a.scan, a.baud, a.series)
+        scan_ids(a.scan, a.baud, a.series, proto=a.proto)
     elif a.calibrate:
         calibrate(cfg)
     else:
