@@ -61,7 +61,7 @@ class JointCfg:
 @dataclass
 class Config:
     # --- SO-101 arm ---------------------------------------------------------
-    arm_port: str = "COM5"                       # TODO
+    arm_port: str = "COM8"                       # TODO confirm which of COM8/COM9 is the arm
     arm_baud: int = 1_000_000
     arm_joints: list = field(default_factory=lambda: [
         # TODO: confirm ids (typical SO-101 order is 1..6; no gripper here)
@@ -78,7 +78,7 @@ class Config:
     arm_series: str = "sts"                      # SO-101 = STS3215
 
     # --- AmazingHand (Feetech SC090 / SCS-series, 1024 steps/rev) -----------
-    hand_port: str = "COM6"                      # TODO (may be same as arm_port)
+    hand_port: str = "COM9"                      # TODO confirm (the other of COM8/COM9)
     hand_baud: int = 1_000_000                   # TODO SC090 default is often 1M; check
     hand_series: str = "scs"
     hand_servo_ids: list = field(default_factory=lambda: [10, 11, 12, 13, 14, 15, 16, 17])  # TODO 8 = 4 fingers x 2
