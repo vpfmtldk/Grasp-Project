@@ -330,11 +330,51 @@ def scan_ids(port, baud, series="sts", lo=1, hi=30, proto=None):
     print("found:", found or "(none)")
 
 
+def wiggle(port, baud, ids, series="sts", proto=None, amp=80, reps=3):
+    """
+    Write-only: nudge each id back and forth so you can SEE which joint/finger it
+    drives. Reads are unreliable on a contended bus; writes usually get through.
+    `ids` is a list; each is wiggled in turn, waiting for Enter between them.
+    """
+    if not _HAVE_SCS:
+        print("pip install feetech-servo-sdk"); return
+    pe = SERIES[series]["protocol_end"] if proto is None else proto
+    rev = SERIES[series]["steps_per_rev"]
+    ph = scs.PortHandler(port)
+    pk = scs.PacketHandler(pe)
+    try:
+        if not ph.openPort() or not ph.setBaudRate(baud):
+            print(f"cannot open {port} @ {baud}"); return
+    except Exception as e:
+        print(f"{port} not available: {e}"); return
+    print(f"wiggle {port} @ {baud} ({series}, {rev}/rev, proto={pe})  amp={amp} steps")
+    mid = rev // 2
+    for i in ids:
+        input(f"\n  press Enter to wiggle id {i} ...")
+        pk.write1ByteTxRx(ph, i, ADDR_TORQUE_ENABLE, 1)
+        cur, res, _ = pk.read2ByteTxRx(ph, i, ADDR_PRESENT_POSITION)
+        center = cur if (res == scs.COMM_SUCCESS and 0 <= cur < rev) else mid
+        print(f"    center~{center}; moving +-{amp} x{reps}")
+        for _ in range(reps):
+            for tgt in (center + amp, center - amp, center):
+                tgt = int(max(0, min(rev - 1, tgt)))
+                pk.write2ByteTxRx(ph, i, ADDR_GOAL_POSITION, tgt)
+                time.sleep(0.35)
+        pk.write1ByteTxRx(ph, i, ADDR_TORQUE_ENABLE, 0)
+        note = input(f"    which joint/finger moved for id {i}? (type a note, Enter to skip) ")
+        if note:
+            print(f"      id {i} -> {note}")
+    ph.closePort()
+
+
 if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser(description="SO-101 + AmazingHand serial driver utils")
     p.add_argument("--list-ports", action="store_true", help="list COM ports")
-    p.add_argument("--scan", metavar="PORT", help="ping servo ids on PORT")
+    p.add_argument("--scan", metavar="PORT", help="read Present_Position for ids on PORT")
+    p.add_argument("--wiggle", metavar="PORT", help="write-only nudge ids on PORT (see what moves)")
+    p.add_argument("--ids", default="1-12", help="ids for --wiggle, e.g. 1-12 or 1,4,7")
+    p.add_argument("--amp", type=int, default=80, help="wiggle amplitude in steps")
     p.add_argument("--baud", type=int, default=1_000_000)
     p.add_argument("--series", choices=["sts", "scs"], default="sts")
     p.add_argument("--proto", type=int, choices=[0, 1], default=None,
@@ -342,12 +382,24 @@ if __name__ == "__main__":
     p.add_argument("--calibrate", action="store_true", help="record arm home_steps")
     a = p.parse_args()
     cfg = Config()
+
+    def parse_ids(s):
+        out = []
+        for part in s.split(","):
+            if "-" in part:
+                lo, hi = part.split("-"); out += list(range(int(lo), int(hi) + 1))
+            else:
+                out.append(int(part))
+        return out
+
     if a.list_ports:
         list_ports()
     elif a.scan:
         scan_ids(a.scan, a.baud, a.series, proto=a.proto)
+    elif a.wiggle:
+        wiggle(a.wiggle, a.baud, parse_ids(a.ids), a.series, proto=a.proto, amp=a.amp)
     elif a.calibrate:
         calibrate(cfg)
     else:
-        print("use --list-ports, --scan PORT [--baud N --series scs], --calibrate, "
-              "or run demo_move.py")
+        print("use --list-ports, --scan PORT, --wiggle PORT [--ids 1-12 --series scs "
+              "--baud N], --calibrate, or run demo_move.py")
