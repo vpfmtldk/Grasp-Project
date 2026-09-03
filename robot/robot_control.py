@@ -309,8 +309,11 @@ def scan_ids(port, baud, series="sts", lo=1, hi=30, proto=None):
     pe = SERIES[series]["protocol_end"] if proto is None else proto
     ph = scs.PortHandler(port)
     pk = scs.PacketHandler(pe)
-    if not ph.openPort() or not ph.setBaudRate(baud):
-        print(f"cannot open {port} @ {baud}"); return
+    try:
+        if not ph.openPort() or not ph.setBaudRate(baud):
+            print(f"cannot open {port} @ {baud}"); return
+    except Exception as e:
+        print(f"{port} not available: {e}"); return
     rev = SERIES[series]["steps_per_rev"]
     print(f"scanning {port} @ {baud} ({series}, {rev} steps/rev, protocol_end={pe}) ids {lo}..{hi}")
     found = []
