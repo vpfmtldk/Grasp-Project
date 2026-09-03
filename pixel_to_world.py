@@ -37,6 +37,7 @@ def _to_np(cfg):
     cfg = dict(cfg)
     cfg['K'] = np.asarray(cfg['K'], dtype=float).reshape(3, 3)
     cfg['dist'] = np.asarray(cfg.get('dist', [0, 0, 0, 0, 0]), dtype=float).ravel()
+    cfg['model'] = cfg.get('model', 'pinhole')
     cfg['T_base_cam'] = np.asarray(cfg['T_base_cam'], dtype=float).reshape(4, 4)
     tp = cfg.get('table_plane', {'point': [0, 0, 0], 'normal': [0, 0, 1]})
     cfg['plane_point'] = np.asarray(tp['point'], dtype=float).ravel()
@@ -70,10 +71,13 @@ def write_template_config(path):
 
 # ---------------------------------------------------------------- geometry core
 
-def pixel_to_ray(uv, K, dist, T_base_cam):
+def pixel_to_ray(uv, K, dist, T_base_cam, model='pinhole'):
     """Return (origin, direction) of the viewing ray for pixel uv, in the base frame."""
     uv = np.asarray(uv, dtype=float).reshape(1, 1, 2)
-    if cv2 is not None and np.any(dist):
+    if cv2 is not None and model == 'fisheye':
+        norm = cv2.fisheye.undistortPoints(uv, K, np.asarray(dist).reshape(-1, 1)).reshape(2)
+        d_cam = np.array([norm[0], norm[1], 1.0])
+    elif cv2 is not None and np.any(dist):
         norm = cv2.undistortPoints(uv, K, dist).reshape(2)      # already K^-1 applied
         d_cam = np.array([norm[0], norm[1], 1.0])
     else:
@@ -97,7 +101,7 @@ def ray_plane_intersect(origin, direction, plane_point, plane_normal):
 
 
 def _project(uv, cfg, plane_point):
-    o, d = pixel_to_ray(uv, cfg['K'], cfg['dist'], cfg['T_base_cam'])
+    o, d = pixel_to_ray(uv, cfg['K'], cfg['dist'], cfg['T_base_cam'], cfg.get('model', 'pinhole'))
     return ray_plane_intersect(o, d, plane_point, cfg['plane_normal'])
 
 
