@@ -84,14 +84,16 @@ class Config:
     hand_series: str = "scs"
     # confirmed on COM8: index=1,2  middle=3,4  ring=5,6  thumb=7,8
     hand_servo_ids: list = field(default_factory=lambda: [1, 2, 3, 4, 5, 6, 7, 8])
-    # preset name -> {servo_id: angle_deg from that servo's centre}. STARTING GUESSES --
-    # tune signs/magnitudes by hand (demo_move.py --hand-only, then edit).
+    # AmazingHand fingers are DIFFERENTIAL: the two servos of a finger moving
+    # OPPOSITE directions -> flex (grip); SAME direction -> splay sideways.
+    # So a curl is {a: +X, b: -X}. Signs below are a guess -- if a finger splays
+    # instead of curling, swap the two signs for that finger. Tune with --hand-jog.
     hand_presets: dict = field(default_factory=lambda: {
         "open":  {i: 0.0 for i in [1, 2, 3, 4, 5, 6, 7, 8]},
-        # thumb (7,8) opposes index (1,2); middle/ring lightly curled
-        "pinch": {1: 40, 2: 40, 3: 15, 4: 15, 5: 15, 6: 15, 7: 45, 8: 45},
-        # all four fingers curl in
-        "power": {i: 55.0 for i in [1, 2, 3, 4, 5, 6, 7, 8]},
+        # light pinch: index + thumb curl toward each other, middle/ring relaxed
+        "pinch": {1: 35, 2: -35, 3: 10, 4: -10, 5: 10, 6: -10, 7: -40, 8: 40},
+        # power: all four fingers curl
+        "power": {1: 55, 2: -55, 3: 55, 4: -55, 5: 55, 6: -55, 7: -55, 8: 55},
     })
     # which preset to use for a given target opening width (metres)
     width_to_preset: list = field(default_factory=lambda: [
@@ -518,6 +520,45 @@ def wiggle(port, baud, ids, series="sts", proto=None, amp=80, reps=3):
     ph.closePort()
 
 
+def hand_jog(cfg):
+    """Keyboard-nudge AmazingHand servos to find each finger's flex combination.
+    Type e.g.  '1 30'  (servo 1 to +30 deg from centre) then ENTER. Two servos of
+    one finger with OPPOSITE signs should curl it. 'r' resets all to 0, 'q' quits
+    and prints the current angle map to paste into hand_presets."""
+    bus = FeetechBus(cfg.hand_port, cfg.hand_baud, cfg.hand_servo_ids, series=cfg.hand_series)
+    bus.connect()
+    ang = {i: 0.0 for i in cfg.hand_servo_ids}
+    mid = bus.steps_per_rev // 2
+    def push():
+        bus.write_steps({i: int(round(mid + a / bus.deg_per_step)) for i, a in ang.items()})
+    try:
+        push()
+        print("\n  fingers: index=1,2  middle=3,4  ring=5,6  thumb=7,8")
+        print("  type '<servo> <deg>' then ENTER (e.g. '1 30' then '2 -30' to curl index)")
+        print("  'r' = all to 0,  'q' = quit + print map\n")
+        while True:
+            print("  angles:", " ".join(f"{i}:{ang[i]:+.0f}" for i in cfg.hand_servo_ids))
+            s = input("  > ").strip().lower()
+            if s == "q":
+                break
+            if s == "r":
+                ang = {i: 0.0 for i in cfg.hand_servo_ids}; push(); continue
+            parts = s.split()
+            if len(parts) != 2:
+                print("  format: <servo 1-8> <deg>"); continue
+            try:
+                sid, a = int(parts[0]), float(parts[1])
+            except ValueError:
+                print("  numbers only"); continue
+            if sid not in ang:
+                print("  servo must be one of", cfg.hand_servo_ids); continue
+            ang[sid] = max(-90, min(90, a))
+            push(); time.sleep(0.2)
+    finally:
+        bus.disconnect()
+    print("\n  map:", "{" + ", ".join(f"{i}: {ang[i]:.0f}" for i in cfg.hand_servo_ids) + "}")
+
+
 if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser(description="SO-101 + AmazingHand serial driver utils")
@@ -534,6 +575,7 @@ if __name__ == "__main__":
     p.add_argument("--check-arm", action="store_true", help="small +-10 deg nudge per arm joint")
     p.add_argument("--read-pose", action="store_true", help="torque OFF, print joint angles to pose by hand")
     p.add_argument("--jog", action="store_true", help="torque ON, nudge joints by keyboard to build a pose")
+    p.add_argument("--hand-jog", action="store_true", help="nudge AmazingHand servos to find flex combos")
     a = p.parse_args()
     cfg = Config()
 
@@ -554,6 +596,8 @@ if __name__ == "__main__":
         wiggle(a.wiggle, a.baud, parse_ids(a.ids), a.series, proto=a.proto, amp=a.amp)
     elif a.jog:
         jog(cfg)
+    elif a.hand_jog:
+        hand_jog(cfg)
     elif a.read_pose:
         read_pose(cfg)
     elif a.check_arm:
