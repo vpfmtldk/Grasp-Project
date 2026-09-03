@@ -74,7 +74,7 @@ class Config:
     ])
     # a safe stow pose and the fixed pose used to photograph the table
     home_deg: list = field(default_factory=lambda: [0, -88, 89, -93, 154])       # measured via --jog (stow)
-    look_deg: list = field(default_factory=lambda: [0, -60, 70, -55, 0])         # TODO tune
+    look_deg: list = field(default_factory=lambda: [-1, 9, 89, -93, 154])        # measured via --jog (camera down at table)
 
     arm_series: str = "sts"                      # SO-101 = STS3215
 
@@ -238,11 +238,12 @@ class SO101:
             self.bus.write_steps(targets)
             time.sleep(1.0 / self.cfg.move_hz)
 
-    def goto_home(self, secs=2.5):
-        self.move_joints_deg(self.cfg.home_deg, secs)
+    def goto_home(self, secs=3.0):
+        # vetted pose -> allow a large coordinated move (guard still skips unread joints)
+        self.move_joints_deg(self.cfg.home_deg, secs, max_step_deg=140)
 
-    def goto_look_pose(self, secs=2.5):
-        self.move_joints_deg(self.cfg.look_deg, secs)
+    def goto_look_pose(self, secs=3.0):
+        self.move_joints_deg(self.cfg.look_deg, secs, max_step_deg=140)
 
     # --- optional: end-effector pose -> joint angles (needs a URDF + ikpy) ---
     def ee_pose_to_joints(self, T_base_ee):
