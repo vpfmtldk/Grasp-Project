@@ -88,12 +88,14 @@ class Config:
     # OPPOSITE directions -> flex (grip); SAME direction -> splay sideways.
     # So a curl is {a: +X, b: -X}. Signs below are a guess -- if a finger splays
     # instead of curling, swap the two signs for that finger. Tune with --hand-jog.
+    # flex of one finger (servos a,b) confirmed as {a: +90, b: -60}. Same pattern
+    # for all fingers; if the THUMB opens instead of closing, swap 7 <-> 8 signs.
     hand_presets: dict = field(default_factory=lambda: {
         "open":  {i: 0.0 for i in [1, 2, 3, 4, 5, 6, 7, 8]},
-        # light pinch: index + thumb curl toward each other, middle/ring relaxed
-        "pinch": {1: 35, 2: -35, 3: 10, 4: -10, 5: 10, 6: -10, 7: -40, 8: 40},
-        # power: all four fingers curl
-        "power": {1: 55, 2: -55, 3: 55, 4: -55, 5: 55, 6: -55, 7: -55, 8: 55},
+        # light pinch: index (1,2) + thumb (7,8) curl, middle/ring barely
+        "pinch": {1: 55, 2: -37, 3: 12, 4: -8, 5: 12, 6: -8, 7: 55, 8: -37},
+        # power: all four fingers fully curl
+        "power": {1: 85, 2: -57, 3: 85, 4: -57, 5: 85, 6: -57, 7: 85, 8: -57},
     })
     # which preset to use for a given target opening width (metres)
     width_to_preset: list = field(default_factory=lambda: [
