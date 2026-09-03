@@ -137,18 +137,28 @@ class FeetechBus:
         self._ph.closePort()
 
     # ---- raw steps <-> degrees (no per-joint sign/home here; caller applies) ----
+    def read_one(self, i: int, retries: int = 6):
+        """Robust single-servo Present_Position read; returns int or None.
+
+        This scservo_sdk build's read helpers can raise / return partial data on a
+        noisy bus, so retry and range-check.
+        """
+        if self.dry:
+            return self.steps_per_rev // 2
+        for _ in range(retries):
+            try:
+                pos, res, _ = self._pk.read2ByteTxRx(self._ph, i, ADDR_PRESENT_POSITION)
+            except Exception:
+                time.sleep(0.01); continue
+            if res == scs.COMM_SUCCESS and 0 <= pos < self.steps_per_rev:
+                return pos
+            time.sleep(0.01)
+        return None
+
     def read_steps(self) -> dict[int, int]:
         if self.dry:
-            return {i: 2048 for i in self.ids}
-        gsr = scs.GroupSyncRead(self._ph, self._pk, ADDR_PRESENT_POSITION, LEN_POSITION)
-        for i in self.ids:
-            gsr.addParam(i)
-        gsr.txRxPacket()
-        out = {}
-        for i in self.ids:
-            lo = gsr.getData(i, ADDR_PRESENT_POSITION, LEN_POSITION)
-            out[i] = lo
-        return out
+            return {i: self.steps_per_rev // 2 for i in self.ids}
+        return {i: self.read_one(i) for i in self.ids}
 
     def write_steps(self, targets: dict[int, int]):
         if self.dry:
@@ -190,20 +200,42 @@ class SO101:
         deg = max(j.min_deg, min(j.max_deg, deg))
         return int(round(j.home_steps + j.sign * deg / self.bus.deg_per_step))
 
-    def read_joints_deg(self) -> list[float]:
+    def read_joints_deg(self) -> list:
+        """Current joint angles (deg); an entry is None if that servo didn't answer."""
         raw = self.bus.read_steps()
-        return [self._steps_to_deg(j, raw[j.servo_id]) for j in self.joints]
+        return [None if raw[j.servo_id] is None else self._steps_to_deg(j, raw[j.servo_id])
+                for j in self.joints]
 
-    def move_joints_deg(self, target_deg: list[float], secs: float = 2.0):
-        """Software-interpolated coordinated move from the current pose."""
+    def move_joints_deg(self, target_deg: list, secs: float = 2.0, max_step_deg: float = 60.0):
+        """
+        Software-interpolated coordinated move from the current pose.
+        Joints whose start angle can't be read, or whose move would exceed
+        max_step_deg, are SKIPPED (not commanded) and reported -- a safety guard
+        against a bad read slamming the arm.
+        """
         assert len(target_deg) == len(self.joints)
         start = self.read_joints_deg()
+        active, skipped = [], []
+        for idx, (j, s, t) in enumerate(zip(self.joints, start, target_deg)):
+            if s is None:
+                skipped.append(f"{j.name}(no read)")
+            elif abs(t - s) > max_step_deg:
+                skipped.append(f"{j.name}(d={abs(t-s):.0f}>{max_step_deg:.0f})")
+            else:
+                active.append(idx)
+        if skipped:
+            print("  SKIPPING:", ", ".join(skipped), "-- move them by hand / raise max_step_deg")
+        if not active:
+            return
         n = max(1, int(secs * self.cfg.move_hz))
         for k in range(1, n + 1):
             a = k / n
-            mid = [(1 - a) * s + a * t for s, t in zip(start, target_deg)]
-            self.bus.write_steps({j.servo_id: self._deg_to_steps(j, d)
-                                  for j, d in zip(self.joints, mid)})
+            targets = {}
+            for idx in active:
+                j = self.joints[idx]
+                d = (1 - a) * start[idx] + a * target_deg[idx]
+                targets[j.servo_id] = self._deg_to_steps(j, d)
+            self.bus.write_steps(targets)
             time.sleep(1.0 / self.cfg.move_hz)
 
     def goto_home(self, secs=2.5):
