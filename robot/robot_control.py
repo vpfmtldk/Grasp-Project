@@ -395,6 +395,43 @@ def read_pose(cfg, hz=2.0):
         bus.disconnect()
 
 
+def jog(cfg):
+    """Torque ON. Nudge one joint at a time by typing e.g.  '2 -5'  (joint 2, -5 deg).
+    Enter alone reprints the pose; 'q' quits and prints the pose to paste into
+    home_deg / look_deg. Small moves only, so it stays inside the safety guard."""
+    arm = SO101(cfg)
+    arm.connect()
+    try:
+        pose = arm.read_joints_deg()
+        if any(p is None for p in pose):
+            print("could not read all joints:", pose, "-- fix the bus first"); return
+        names = [j.name for j in arm.joints]
+        while True:
+            print("  pose:", "  ".join(f"{n}={p:.1f}" for n, p in zip(names, pose)))
+            s = input("  joint amount (e.g. '2 -5'), Enter=reprint, q=quit: ").strip()
+            if s.lower() == "q":
+                break
+            if not s:
+                pose = arm.read_joints_deg(); continue
+            try:
+                k, amt = s.split()
+                k = int(k) - 1
+                amt = float(amt)
+            except ValueError:
+                print("  format: <joint 1-5> <degrees>, e.g.  4 8"); continue
+            if not 0 <= k < len(pose):
+                print("  joint out of range"); continue
+            tgt = list(pose)
+            tgt[k] = pose[k] + amt
+            arm.move_joints_deg(tgt, secs=max(0.4, abs(amt) / 20))
+            pose = arm.read_joints_deg()
+    finally:
+        arm.disconnect()
+    print("\nfinal pose (deg):", [round(p, 1) for p in pose])
+    print("paste into Config as home_deg or look_deg:",
+          "[" + ", ".join(f"{p:.0f}" for p in pose) + "]")
+
+
 def check_arm(cfg, step_deg=10.0):
     """Read the arm, then nudge each joint +step_deg/-step_deg (small, safe) so you
     can confirm the id->joint map and the sign. Edit CONFIG from what you see."""
@@ -477,6 +514,7 @@ if __name__ == "__main__":
     p.add_argument("--calibrate", action="store_true", help="record arm home_steps")
     p.add_argument("--check-arm", action="store_true", help="small +-10 deg nudge per arm joint")
     p.add_argument("--read-pose", action="store_true", help="torque OFF, print joint angles to pose by hand")
+    p.add_argument("--jog", action="store_true", help="torque ON, nudge joints by keyboard to build a pose")
     a = p.parse_args()
     cfg = Config()
 
@@ -495,6 +533,8 @@ if __name__ == "__main__":
         scan_ids(a.scan, a.baud, a.series, proto=a.proto)
     elif a.wiggle:
         wiggle(a.wiggle, a.baud, parse_ids(a.ids), a.series, proto=a.proto, amp=a.amp)
+    elif a.jog:
+        jog(cfg)
     elif a.read_pose:
         read_pose(cfg)
     elif a.check_arm:
