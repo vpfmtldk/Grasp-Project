@@ -367,6 +367,31 @@ def scan_ids(port, baud, series="sts", lo=1, hi=30, proto=None):
     print("found:", found or "(none)")
 
 
+def read_pose(cfg, hz=2.0):
+    """Torque OFF; print arm joint angles (deg) continuously so you can pose the
+    arm by hand and read off values for home_deg / look_deg. Ctrl+C to stop."""
+    bus = FeetechBus(cfg.arm_port, cfg.arm_baud, [j.servo_id for j in cfg.arm_joints],
+                     series=cfg.arm_series)
+    bus.connect()
+    for i in bus.ids:                       # make it back-drivable
+        bus._pk.write1ByteTxRx(bus._ph, i, ADDR_TORQUE_ENABLE, 0)
+    print("torque OFF -- move the arm by hand. Ctrl+C to stop.")
+    try:
+        while True:
+            raw = bus.read_steps()
+            degs = []
+            for j in cfg.arm_joints:
+                s = raw[j.servo_id]
+                degs.append("  n " if s is None else
+                            f"{j.sign * (s - j.home_steps) * bus.deg_per_step:6.1f}")
+            print("  ".join(f"{j.name}={d}" for j, d in zip(cfg.arm_joints, degs)))
+            time.sleep(1.0 / hz)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        bus.disconnect()
+
+
 def check_arm(cfg, step_deg=10.0):
     """Read the arm, then nudge each joint +step_deg/-step_deg (small, safe) so you
     can confirm the id->joint map and the sign. Edit CONFIG from what you see."""
@@ -448,6 +473,7 @@ if __name__ == "__main__":
                    help="override protocol_end (0=STS byte order, 1=SC090)")
     p.add_argument("--calibrate", action="store_true", help="record arm home_steps")
     p.add_argument("--check-arm", action="store_true", help="small +-10 deg nudge per arm joint")
+    p.add_argument("--read-pose", action="store_true", help="torque OFF, print joint angles to pose by hand")
     a = p.parse_args()
     cfg = Config()
 
@@ -466,6 +492,8 @@ if __name__ == "__main__":
         scan_ids(a.scan, a.baud, a.series, proto=a.proto)
     elif a.wiggle:
         wiggle(a.wiggle, a.baud, parse_ids(a.ids), a.series, proto=a.proto, amp=a.amp)
+    elif a.read_pose:
+        read_pose(cfg)
     elif a.check_arm:
         check_arm(cfg)
     elif a.calibrate:
