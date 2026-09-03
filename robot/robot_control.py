@@ -352,9 +352,14 @@ def wiggle(port, baud, ids, series="sts", proto=None, amp=80, reps=3):
     for i in ids:
         input(f"\n  press Enter to wiggle id {i} ...")
         pk.write1ByteTxRx(ph, i, ADDR_TORQUE_ENABLE, 1)
-        cur, res, _ = pk.read2ByteTxRx(ph, i, ADDR_PRESENT_POSITION)
-        center = cur if (res == scs.COMM_SUCCESS and 0 <= cur < rev) else mid
-        print(f"    center~{center}; moving +-{amp} x{reps}")
+        center = mid
+        try:
+            cur, res, _ = pk.read2ByteTxRx(ph, i, ADDR_PRESENT_POSITION)
+            if res == scs.COMM_SUCCESS and 0 <= cur < rev:
+                center = cur
+        except Exception:
+            pass
+        print(f"    center~{center}; moving +-{amp} x{reps}  (Ctrl+C to stop)")
         for _ in range(reps):
             for tgt in (center + amp, center - amp, center):
                 tgt = int(max(0, min(rev - 1, tgt)))
