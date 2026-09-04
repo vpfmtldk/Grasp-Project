@@ -186,7 +186,7 @@
               <body name="Fixed_Jaw" pos="0 -0.0601 0" quat="0.707109 0 0.707105 0">
                 <inertial pos="0.00552377 -0.0280167 0.000483583" quat="0.41836 0.620891 -0.350644 0.562599" mass="0.0929859" diaginertia="5.03136e-05 4.64098e-05 2.72961e-05"/>
                 <joint name="Wrist_Roll" class="Wrist_Roll"/>
-                <body name="ah_r_wrist_interface" childclass="ah_mjcf" quat="9.38184e-07 9.38187e-07 -0.707108 0.707105">
+                <body name="ah_r_wrist_interface" childclass="ah_mjcf" quat="0.499998 0.5 0.500002 -0.5">
                   <inertial pos="0 0 0" mass="1e-09" diaginertia="1e-09 1e-09 1e-09"/>
                   <geom class="ah_visual" pos="-0.022075 0.03055 0.0698" quat="0.707107 0 0 0.707107" material="ah_scs0009_material" mesh="ah_scs0009"/>
                   <geom class="ah_visual" pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
