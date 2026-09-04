@@ -36,7 +36,7 @@ R2D = 180.0 / np.pi
 # menagerie SO-ARM100 joint order == our shoulder_pan..wrist_roll
 ARM_JOINTS = ["Rotation", "Pitch", "Elbow", "Wrist_Pitch", "Wrist_Roll"]
 HOME_RAD = [0, -1.57, 1.57, 1.57, -1.57]
-LOOK_RAD = [0, -0.6, 1.2, 1.1, -1.57]
+LOOK_RAD = [0, -2.9, 3.0, 0.9, -1.57]   # arm folded up, out of table_cam view
 
 
 class _ArmView:
