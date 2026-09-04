@@ -7,3 +7,9 @@ torch
 torchvision
 torchsummary
 tensorboardX
+
+# added for this project
+mujoco>=3.0        # sim backend (robot/mujoco_backend.py)
+feetech-servo-sdk  # real SO-101 + AmazingHand serial driver
+pyserial
+ikpy               # optional: ee_pose -> joints IK
