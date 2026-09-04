@@ -155,7 +155,7 @@
   </asset>
 
   <worldbody>
-    <body name="Base" childclass="so_arm100" pos="0 0.16 0.13">
+    <body name="Base" childclass="so_arm100" pos="0 0.13 0">
       <geom class="visual" mesh="Base"/>
       <geom class="motor_visual" mesh="Base_Motor"/>
       <geom class="collision" mesh="Base"/>

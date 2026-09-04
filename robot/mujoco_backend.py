@@ -35,9 +35,9 @@ R2D = 180.0 / np.pi
 
 # menagerie SO-ARM100 joint order == our shoulder_pan..wrist_roll
 ARM_JOINTS = ["Rotation", "Pitch", "Elbow", "Wrist_Pitch", "Wrist_Roll"]
-HOME_RAD = [0, -1.57, 1.57, 1.57, -1.57]
-LOOK_RAD = [0, -2.9, 3.0, 0.9, -1.57]   # arm folded up, out of table_cam view
-READY_RAD = [0, -0.9, 1.4, 1.07, 0]     # arm forward over the table, palm down -- good IK seed
+HOME_RAD = [0, -1.9, 2.2, 1.3, 0]        # arm folded back, on-table base
+LOOK_RAD = [0, -2.9, 2.0, 1.6, 0]        # arm folded up high toward the base
+READY_RAD = [0, -1.4, 1.7, 1.2, 0]       # reaching forward over the table -- good IK seed
 
 
 class _ArmView:
