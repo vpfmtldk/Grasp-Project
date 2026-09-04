@@ -166,8 +166,7 @@ class FeetechBus:
 
     def write_steps(self, targets: dict[int, int]):
         if self.dry:
-            print("[dry] goal steps:", targets)
-            return
+            return          # quiet -- milestone prints in the callers show the flow
         gsw = scs.GroupSyncWrite(self._ph, self._pk, ADDR_GOAL_POSITION, LEN_POSITION)
         for i, s in targets.items():
             s = int(max(0, min(self.steps_per_rev - 1, s)))
