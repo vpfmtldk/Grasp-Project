@@ -1,0 +1,39 @@
+<!--
+  scene_ah.xml : merged SO-101 + AmazingHand (so101_amazinghand.xml, built by
+  build_so101_ah.py) on a table, with a fixed downward camera and a cube.
+
+  Run:  python -m robot.mujoco_backend --mjcf robot/sim/scene_ah.xml
+  Rebuild the robot after changing MOUNT_POS/EULER in build_so101_ah.py.
+-->
+<mujoco model="so101_ah_scene">
+  <include file="so101_amazinghand.xml"/>
+
+  <statistic center="0 -0.05 0.1" extent="0.7"/>
+  <visual>
+    <global offwidth="1280" offheight="1280"/>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3"/>
+  </visual>
+
+  <asset>
+    <texture name="sky" type="skybox" builtin="gradient" rgb1="0.35 0.5 0.7" rgb2="0 0 0" width="256" height="256"/>
+    <material name="table_mat" rgba="0.95 0.95 0.95 1"/>
+    <material name="cube_mat"  rgba="0.20 0.40 0.90 1"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0.3 -0.3 0.8" dir="-0.3 0.3 -0.8" diffuse="0.8 0.8 0.8"/>
+
+    <body name="table" pos="0 -0.10 -0.02">
+      <geom type="box" size="0.25 0.25 0.02" material="table_mat" friction="1 0.02 0.001"/>
+    </body>
+
+    <camera name="table_cam" pos="0 -0.55 0.42" xyaxes="1 0 0 0 0.68 0.73" fovy="58"/>
+
+    <body name="cube" pos="0 -0.10 0.015">
+      <freejoint/>
+      <geom type="box" size="0.015 0.015 0.015" material="cube_mat" mass="0.04"
+            friction="1 0.05 0.001"/>
+    </body>
+  </worldbody>
+
+</mujoco>

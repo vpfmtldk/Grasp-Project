@@ -1,0 +1,576 @@
+<mujoco model="so_arm100">
+  <compiler angle="radian" meshdir=""/>
+
+  <option impratio="10" cone="elliptic"/>
+
+  <default>
+    <default class="so_arm100">
+      <joint armature="0.1" frictionloss="0.1"/>
+      <general forcerange="-3.5 3.5" biastype="affine" gainprm="50" biasprm="0 -50 1"/>
+      <default class="Rotation">
+        <joint range="-1.92 1.92" axis="0 1 0"/>
+      </default>
+      <default class="Pitch">
+        <joint range="-3.32 0.174" axis="1 0 0"/>
+      </default>
+      <default class="Elbow">
+        <joint range="-0.174 3.14" axis="1 0 0"/>
+      </default>
+      <default class="Wrist_Pitch">
+        <joint range="-1.66 1.66" axis="1 0 0"/>
+      </default>
+      <default class="Wrist_Roll">
+        <joint range="-2.79 2.79" axis="0 1 0"/>
+      </default>
+      <default class="Jaw">
+        <joint range="-0.174 1.75"/>
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" material="white"/>
+        <default class="motor_visual">
+          <geom material="black"/>
+        </default>
+      </default>
+      <default class="collision">
+        <geom type="mesh" group="3" material="white"/>
+        <default class="finger_collision">
+          <geom type="box" solref="0.01" solimp="2 1 0.01"/>
+        </default>
+      </default>
+    </default>
+    <default class="ah_main">
+
+      <equality solref="0.002" solimp="0.99 0.999 0.0005"/>
+      <default class="ah_mjcf">
+        <joint armature="0.005" frictionloss="0.1"/>
+
+        <equality solref="0.02" solimp="0.9 0.95 0.001"/>
+        <general biastype="affine" gainprm="50" biasprm="0 -50 1"/>
+        <default class="ah_visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="ah_collision">
+          <geom group="3"/>
+        </default>
+      </default>
+      <default class="ah_perfect_actuator">
+        <joint range="-1.5708 1.5708" armature="0.001" damping="0.095" frictionloss="0.001"/>
+        <geom contype="0" conaffinity="0"/>
+
+        <equality solref="0.02" solimp="0.9 0.95 0.001"/>
+        <general forcerange="-10 10" biastype="affine" gainprm="10" biasprm="0 -10"/>
+        <default class="ah_chosen_actuator"/>
+      </default>
+      <default class="ah_xc330m288t">
+        <joint armature="0.0018" damping="0.095" frictionloss="0.058"/>
+        <geom contype="0" conaffinity="0"/>
+
+        <equality solref="0.02" solimp="0.9 0.95 0.001"/>
+        <general forcerange="-0.8 0.8" biastype="affine" gainprm="2.54" biasprm="0 -2.54"/>
+      </default>
+      <default class="ah_sts3215_345">
+        <joint armature="0.027" damping="0.56" frictionloss="0.068"/>
+        <geom contype="0" conaffinity="0"/>
+
+        <equality solref="0.02" solimp="0.9 0.95 0.001"/>
+        <general forcerange="-3.23 3.23" biastype="affine" gainprm="17.11" biasprm="0 -17.11"/>
+      </default>
+      <default class="ah_sts3215_147">
+        <joint armature="0.011" damping="0.1" frictionloss="0.028"/>
+        <geom contype="0" conaffinity="0"/>
+
+        <equality solref="0.02" solimp="0.9 0.95 0.001"/>
+        <general forcerange="-1.35 1.35" biastype="affine" gainprm="17.11" biasprm="0 -17.11"/>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <material name="white"/>
+    <material name="black" rgba="0.1 0.1 0.1 1"/>
+    <material name="ah_scs0009_material" rgba="0.262745 0.282353 0.301961 1"/>
+    <material name="ah_finger_frame_1_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="ah_r_hand_plate_material" rgba="0.301961 0.301961 0.301961 1"/>
+    <material name="ah_finger_frame_2_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="ah_bushing_0608_04_material" rgba="0.301961 0.301961 0.301961 1"/>
+    <material name="ah_r_wrist_interface_material" rgba="0.301961 0.301961 0.301961 1"/>
+    <material name="ah_rotule_ball_material" rgba="0.960784 0.835294 0.470588 1"/>
+    <material name="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="ah_custom_servo_horn_material"/>
+    <material name="ah_rotule_lever_material" rgba="0.196078 0.196078 0.196078 1"/>
+    <material name="ah_m2_rod_l18_material" rgba="0.811765 0.858824 0.898039 1"/>
+    <material name="ah_spacer_material" rgba="0.501961 0.501961 0.501961 1"/>
+    <material name="ah_link_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material" rgba="0.901961 0.901961 0.901961 1"/>
+    <material name="ah_gimbal_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" rgba="0.901961 0.901961 0.901961 1"/>
+    <material name="ah_distal_material" rgba="0.8 0.8 0.8 1"/>
+    <material name="ah_distal_shell_material"/>
+    <material name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" rgba="0.603922 0.647059 0.686275 1"/>
+    <material name="ah_proximal_shell_material"/>
+    <material name="ah_proximal_material" rgba="0.8 0.8 0.8 1"/>
+    <mesh name="Base" file="so_arm100/assets/Base.stl"/>
+    <mesh name="Base_Motor" file="so_arm100/assets/Base_Motor.stl"/>
+    <mesh name="Rotation_Pitch" file="so_arm100/assets/Rotation_Pitch.stl"/>
+    <mesh name="Rotation_Pitch_Motor" file="so_arm100/assets/Rotation_Pitch_Motor.stl"/>
+    <mesh name="Upper_Arm" file="so_arm100/assets/Upper_Arm.stl"/>
+    <mesh name="Upper_Arm_Motor" file="so_arm100/assets/Upper_Arm_Motor.stl"/>
+    <mesh name="Lower_Arm" file="so_arm100/assets/Lower_Arm.stl"/>
+    <mesh name="Lower_Arm_Motor" file="so_arm100/assets/Lower_Arm_Motor.stl"/>
+    <mesh name="Wrist_Pitch_Roll" file="so_arm100/assets/Wrist_Pitch_Roll.stl"/>
+    <mesh name="Wrist_Pitch_Roll_Motor" file="so_arm100/assets/Wrist_Pitch_Roll_Motor.stl"/>
+    <mesh name="Fixed_Jaw" file="so_arm100/assets/Fixed_Jaw.stl"/>
+    <mesh name="Fixed_Jaw_Motor" file="so_arm100/assets/Fixed_Jaw_Motor.stl"/>
+    <mesh name="Fixed_Jaw_Collision_1" file="so_arm100/assets/Fixed_Jaw_Collision_1.stl"/>
+    <mesh name="Fixed_Jaw_Collision_2" file="so_arm100/assets/Fixed_Jaw_Collision_2.stl"/>
+    <mesh name="Moving_Jaw" file="so_arm100/assets/Moving_Jaw.stl"/>
+    <mesh name="Moving_Jaw_Collision_1" file="so_arm100/assets/Moving_Jaw_Collision_1.stl"/>
+    <mesh name="Moving_Jaw_Collision_2" file="so_arm100/assets/Moving_Jaw_Collision_2.stl"/>
+    <mesh name="Moving_Jaw_Collision_3" file="so_arm100/assets/Moving_Jaw_Collision_3.stl"/>
+    <mesh name="ah_proximal_shell" file="amazing_hand/assets/proximal_shell.stl"/>
+    <mesh name="ah_link" file="amazing_hand/assets/link.stl"/>
+    <mesh name="ah_spacer" file="amazing_hand/assets/spacer.stl"/>
+    <mesh name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" file="amazing_hand/assets/parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b.stl"/>
+    <mesh name="ah_bushing_0608_04" file="amazing_hand/assets/bushing_0608_04.stl"/>
+    <mesh name="ah_finger_frame_2" file="amazing_hand/assets/finger_frame_2.stl"/>
+    <mesh name="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed" file="amazing_hand/assets/ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed.stl"/>
+    <mesh name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" file="amazing_hand/assets/parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999.stl"/>
+    <mesh name="ah_distal" file="amazing_hand/assets/distal.stl"/>
+    <mesh name="ah_finger_frame_1" file="amazing_hand/assets/finger_frame_1.stl"/>
+    <mesh name="ah_std00447_thermoplastique_m2_5x6__configuration_default" file="amazing_hand/assets/std00447_thermoplastique_m2_5x6__configuration_default.stl"/>
+    <mesh name="ah_custom_servo_horn" file="amazing_hand/assets/custom_servo_horn.stl"/>
+    <mesh name="ah_scs0009" file="amazing_hand/assets/scs0009.stl"/>
+    <mesh name="ah_m2_rod_l18" file="amazing_hand/assets/m2_rod_l18.stl"/>
+    <mesh name="ah_proximal" file="amazing_hand/assets/proximal.stl"/>
+    <mesh name="ah_rotule_lever" file="amazing_hand/assets/rotule_lever.stl"/>
+    <mesh name="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5" file="amazing_hand/assets/plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5.stl"/>
+    <mesh name="ah_rotule_ball" file="amazing_hand/assets/rotule_ball.stl"/>
+    <mesh name="ah_r_hand_plate" file="amazing_hand/assets/r_hand_plate.stl"/>
+    <mesh name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" file="amazing_hand/assets/std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default.stl"/>
+    <mesh name="ah_gimbal" file="amazing_hand/assets/gimbal.stl"/>
+    <mesh name="ah_distal_shell" file="amazing_hand/assets/distal_shell.stl"/>
+    <mesh name="ah_r_wrist_interface" file="amazing_hand/assets/r_wrist_interface.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="Base" childclass="so_arm100" pos="0 0.16 0.13">
+      <geom class="visual" mesh="Base"/>
+      <geom class="motor_visual" mesh="Base_Motor"/>
+      <geom class="collision" mesh="Base"/>
+      <body name="Rotation_Pitch" pos="0 -0.0452 0.0165" quat="0.707105 0.707108 0 0">
+        <inertial pos="-9.07886e-05 0.0590972 0.031089" quat="0.363978 0.441169 -0.623108 0.533504" mass="0.119226" diaginertia="5.94278e-05 5.89975e-05 3.13712e-05"/>
+        <joint name="Rotation" class="Rotation"/>
+        <geom class="visual" mesh="Rotation_Pitch"/>
+        <geom class="motor_visual" mesh="Rotation_Pitch_Motor"/>
+        <geom class="collision" mesh="Rotation_Pitch"/>
+        <body name="Upper_Arm" pos="0 0.1025 0.0306" quat="0.707109 0.707105 0 0">
+          <inertial pos="-1.72052e-05 0.0701802 0.00310545" quat="0.50104 0.498994 -0.493562 0.50632" mass="0.162409" diaginertia="0.000213312 0.000167164 7.01522e-05"/>
+          <joint name="Pitch" class="Pitch"/>
+          <geom class="visual" mesh="Upper_Arm"/>
+          <geom class="motor_visual" mesh="Upper_Arm_Motor"/>
+          <geom class="collision" mesh="Upper_Arm"/>
+          <body name="Lower_Arm" pos="0 0.11257 0.028" quat="0.707109 -0.707105 0 0">
+            <inertial pos="-0.00339604 0.00137796 0.0768007" quat="0.701995 0.0787996 0.0645626 0.704859" mass="0.147968" diaginertia="0.000138803 0.000107748 4.84242e-05"/>
+            <joint name="Elbow" class="Elbow"/>
+            <geom class="visual" mesh="Lower_Arm"/>
+            <geom class="motor_visual" mesh="Lower_Arm_Motor"/>
+            <geom class="collision" mesh="Lower_Arm"/>
+            <body name="Wrist_Pitch_Roll" pos="0 0.0052 0.1349" quat="0.707109 -0.707105 0 0">
+              <inertial pos="-0.00852653 -0.0352279 -2.34622e-05" quat="-0.0522806 0.705235 0.0549524 0.704905" mass="0.0661321" diaginertia="3.45403e-05 2.39041e-05 1.94704e-05"/>
+              <joint name="Wrist_Pitch" class="Wrist_Pitch"/>
+              <geom class="visual" mesh="Wrist_Pitch_Roll"/>
+              <geom class="motor_visual" mesh="Wrist_Pitch_Roll_Motor"/>
+              <geom class="collision" mesh="Wrist_Pitch_Roll"/>
+              <body name="Fixed_Jaw" pos="0 -0.0601 0" quat="0.707109 0 0.707105 0">
+                <inertial pos="0.00552377 -0.0280167 0.000483583" quat="0.41836 0.620891 -0.350644 0.562599" mass="0.0929859" diaginertia="5.03136e-05 4.64098e-05 2.72961e-05"/>
+                <joint name="Wrist_Roll" class="Wrist_Roll"/>
+                <body name="ah_r_wrist_interface" childclass="ah_mjcf" pos="0 -0.04 0" quat="0.707105 -0.707108 0 0">
+                  <inertial pos="0 0 0" mass="1e-09" diaginertia="1e-09 1e-09 1e-09"/>
+                  <geom class="ah_visual" pos="-0.022075 0.03055 0.0698" quat="0.707107 0 0 0.707107" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
+                  <geom class="ah_visual" pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_r_hand_plate_material" mesh="ah_r_hand_plate"/>
+                  <geom class="ah_visual" pos="-0.00443741 0.0191037 0.019125" quat="0.579228 -0.579228 0.40558 -0.40558" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.0115 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" material="ah_finger_frame_2_material" mesh="ah_finger_frame_2"/>
+                  <geom class="ah_visual" pos="-0.0115 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" material="ah_finger_frame_2_material" mesh="ah_finger_frame_2"/>
+                  <geom class="ah_visual" pos="-0.015 -0.0083 0.0961543" quat="0.525483 -0.473147 0.525483 -0.473147" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="-0.015 0.0245 0.1022" quat="0.5 -0.5 0.5 -0.5" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="-0.015 -0.0405 0.0851417" quat="0.555303 -0.437766 0.555303 -0.437766" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="-0.025 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="0.0280778 0.0245 0.0297" quat="0 0.573576 0.819152 0" material="ah_finger_frame_2_material" mesh="ah_finger_frame_2"/>
+                  <geom class="ah_visual" pos="-0.022075 -0.0109301 0.0632994" quat="0.706138 0.0370071 -0.0370071 0.706138" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.022075 0.01845 0.0698" quat="0.707107 0 0 0.707107" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.0109 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_finger_frame_2_material" mesh="ah_finger_frame_2"/>
+                  <geom class="ah_visual" pos="-0.022075 0.00110358 0.0645642" quat="0.706138 0.0370071 -0.0370071 0.706138" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.022075 -0.0388192 0.0522246" quat="0.702205 0.0831116 -0.0831116 0.702205" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.0115 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
+                  <geom class="ah_visual" pos="0.0280778 0.0245 0.0262" quat="0.573576 0 0 0.819152" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="-0.022075 -0.0270535 0.0550493" quat="0.702205 0.0831116 -0.0831116 0.702205" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_r_wrist_interface_material" mesh="ah_r_wrist_interface"/>
+                  <geom class="ah_visual" pos="-0.000298971 0.00773341 0.019125" quat="0.579228 -0.579228 0.40558 -0.40558" material="ah_scs0009_material" mesh="ah_scs0009"/>
+                  <geom class="ah_visual" pos="-0.025 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="-0.025 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="0.0280778 0.0245 0.0162" quat="0 0.573576 0.819152 0" material="ah_bushing_0608_04_material" mesh="ah_bushing_0608_04"/>
+                  <geom class="ah_visual" pos="-0.0115 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
+                  <geom class="ah_visual" pos="0.0280778 0.0245 0.0297" quat="0 0.573576 0.819152 0" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
+                  <site name="ah_closing_1 (1)_2" quat="0.5 0.5 -0.5 -0.5" group="3" pos="-0.015 0.0245 0.1022"/>
+                  <site name="ah_closing_1 (1)_2_z" quat="0.5 0.5 -0.5 -0.5" group="3" pos="-0.115 0.0245 0.1022"/>
+                  <site name="ah_closing_1 (2)_2" quat="0.473147 0.525483 -0.473147 -0.525483" group="3" pos="-0.015 -0.0083 0.0961543"/>
+                  <site name="ah_closing_1 (2)_2_z" quat="0.473147 0.525483 -0.473147 -0.525483" group="3" pos="-0.115 -0.0083 0.0961543"/>
+                  <site name="ah_closing_1 (3)_2" quat="0.437766 0.555303 -0.437766 -0.555303" group="3" pos="-0.015 -0.0405 0.0851417"/>
+                  <site name="ah_closing_1 (3)_2_z" quat="0.437766 0.555303 -0.437766 -0.555303" group="3" pos="-0.115 -0.0405 0.0851417"/>
+                  <site name="ah_closing_1 (4)_2" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 0.0262"/>
+                  <site name="ah_closing_1 (4)_2_z" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 -0.0738"/>
+                  <body name="ah_custom_servo_horn" pos="-0.00755 0.03055 0.0698" quat="0.5 0.5 -0.5 -0.5">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger1_motor1" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" quat="1 0 0 0" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 0.707107 0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <body name="ah_ball_link" pos="-0.005 0 -0.0069" quat="0.00510149 -0.888984 0.0544589 0.454661">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball1" type="ball"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0.707107 0 0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.03325 0" quat="0 0 0 1" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0 0 1" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <body name="ah_rotule_ball" pos="0 -0.033 0" quat="0.707107 0 -0.707107 0">
+                        <inertial pos="-0.0054579 -0.0141744 -0.00370248" quat="0.264025 0.383462 -0.614486 0.63691" mass="0.00277119" diaginertia="8.1202e-07 7.72187e-07 8.4737e-08"/>
+                        <joint name="ah_passive_ball2" type="ball"/>
+                        <geom class="ah_visual" pos="-0.0129642 -0.00307086 0.00472763" quat="0.125545 0.283636 0.223238 -0.924096" material="ah_link_material" mesh="ah_link"/>
+                        <geom class="ah_visual" pos="0.0036341 0.000474272 0.0026112" quat="0.778258 -0.271383 0.369077 -0.429475" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" quat="0.0690799 -0.853996 -0.246627 0.452874" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <geom class="ah_visual" pos="-0.0166361 -0.00217111 -0.0119535" quat="0.271383 0.778258 -0.429475 -0.369077" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" pos="-0.013002 -0.00169684 -0.0093423" quat="0.853996 0.0690799 0.452874 0.246627" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <site name="ah_closing_ball1_2" quat="0.778258 -0.271383 0.369077 -0.429475" group="3" pos="-0.013002 -0.00169684 -0.0093423"/>
+                        <body name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" pos="-0.0116897 -0.000368272 -0.00081146" quat="0.778258 -0.271383 0.369077 -0.429475">
+                          <inertial pos="-0.00530874 -0.00868244 0.00225" quat="0.680654 0.680654 -0.191599 -0.191599" mass="0.00201325" diaginertia="1.2124e-07 1.16807e-07 1.911e-08"/>
+                          <joint name="ah_passive2 (1)"/>
+                          <geom class="ah_visual" pos="-0.0113198 -0.0185136 0.00225" quat="0.616776 -0.345814 0.616776 0.345814" material="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material" mesh="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"/>
+                          <geom class="ah_visual" pos="-0.0031299 -0.00511895 0.00225" quat="0.345814 0.616776 0.345814 -0.616776" material="ah_gimbal_material" mesh="ah_gimbal"/>
+                          <geom class="ah_visual" pos="-0.0103287 -0.0168926 0.00225" quat="0.345814 0.616776 0.345814 -0.616776" material="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material" mesh="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0.872253 0 0 0.489055" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <site name="ah_closing_1 (1)_1" quat="0.345814 0.616776 0.345814 -0.616776" group="3" pos="-0.00495568 -0.00810501 0.00225"/>
+                          <site name="ah_closing_1 (1)_1_z" quat="0.345814 0.616776 0.345814 -0.616776" group="3" pos="-0.0571208 -0.0934209 0.00225"/>
+                          <site name="ah_closing_3 (1)_2" quat="0.96259 0 0 -0.270962" group="3" pos="-0.0031299 -0.00511895 -0.00275"/>
+                          <site name="ah_closing_3 (1)_2_z" quat="0.96259 0 0 -0.270962" group="3" pos="-0.0031299 -0.00511895 0.09725"/>
+                        </body>
+                        <body name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" pos="0.00373407 -0.0482013 -0.00704062" quat="0.271383 0.778258 -0.429475 -0.369077">
+                          <inertial pos="0.014571 -0.0133924 0.00225" quat="0.633043 0.633043 0.31505 0.31505" mass="0.00540375" diaginertia="8.05302e-07 7.69492e-07 1.05941e-07"/>
+                          <joint name="ah_passive4 (1)"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" material="ah_distal_material" mesh="ah_distal"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" material="ah_distal_shell_material" mesh="ah_distal_shell"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0 -0.49277 0.870159 0" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <site name="ah_tip1" quat="0.335723 -0.335723 0.622326 -0.622326" group="3" pos="0.0272563 -0.0277177 0.00225"/>
+                          <body name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" pos="-0.000346366 -0.00598999 0.00655" quat="0 -0.999998 -0.00198164 0">
+                            <inertial pos="-0.0249171 -0.00392936 0.0052354" quat="0.502546 0.503465 0.496542 0.497409" mass="0.0101851" diaginertia="2.52879e-06 2.3577e-06 4.95853e-07"/>
+                            <joint name="ah_passive_5 (1)"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 0.01685" quat="0 -0.707107 0.707107 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <geom class="ah_visual" pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_shell_material" mesh="ah_proximal_shell"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_material" mesh="ah_proximal"/>
+                            <site name="ah_closing_3 (1)_1" group="3" pos="-0.052 0 0"/>
+                            <site name="ah_closing_3 (1)_1_z" group="3" pos="-0.052 0 0.1"/>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="ah_rotule_ball_2" pos="-0.00755 0.01845 0.0698" quat="0.5 -0.5 -0.5 0.5">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger1_motor2" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" quat="1 0 0 0" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 0.707107 0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <body name="ah_m2_rod_l18" pos="-0.005 0 -0.0069" quat="0.413519 -0.0282313 0.909382 0.0350781">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball3" type="ball"/>
+                      <geom class="ah_visual" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" quat="0.707107 0 0.707107 0" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <geom class="ah_visual" pos="0 0.00025 0" quat="0.707107 0 0.707107 0" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 -0.707107 0 -0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <site name="ah_closing_ball1_1" quat="0 -0.707107 0 -0.707107" group="3" pos="0 -0.033 0"/>
+                    </body>
+                  </body>
+                  <body name="ah_custom_servo_horn_2" pos="-0.00755 0.00110358 0.0645642" quat="0.473147 0.525483 -0.473147 -0.525483">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger2_motor1" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 -0.707107 -0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <body name="ah_ball_link_2" pos="-0.005 0 -0.0069" quat="0.0508317 0.00114172 0.0201974 0.998502">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball4" type="ball"/>
+                      <geom class="ah_visual" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 -0.707107 0 -0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 0.00025 0" quat="0.707107 0 0.707107 0" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" pos="0 0 0" quat="0.707107 0 0.707107 0" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <body name="ah_rotule_ball_3" pos="0 -0.033 0" quat="0.707107 0 -0.707107 0">
+                        <inertial pos="0.000207771 -0.0141744 0.00659195" quat="0.66736 0.741599 -0.0439769 -0.0522344" mass="0.00277119" diaginertia="8.12019e-07 7.72187e-07 8.4737e-08"/>
+                        <joint name="ah_passive_ball5" type="ball"/>
+                        <geom class="ah_visual" pos="7.23262e-05 -0.00169684 0.0160102" quat="0.0154457 -0.251089 -0.966522 -0.0505096" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <geom class="ah_visual" pos="-2.02154e-05 0.000474272 -0.00447489" quat="0.024794 -0.505888 0.860981 0.0466374" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" pos="0.0114391 -0.00307086 0.00771803" quat="0.141831 0.694356 -0.213262 0.672512" material="ah_link_material" mesh="ah_link"/>
+                        <geom class="ah_visual" pos="9.25416e-05 -0.00217111 0.0204851" quat="0.505888 0.024794 0.0466374 -0.860981" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" quat="0.251089 0.0154457 -0.0505096 0.966522" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <site name="ah_closing_ball2_2" quat="0.0505096 -0.966522 0.251089 0.0154457" group="3" pos="7.23262e-05 -0.00169684 0.0160102"/>
+                        <body name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2" pos="0.00620709 -0.000368272 0.00993876" quat="0.024794 -0.505888 0.860981 0.0466374">
+                          <inertial pos="-0.00530874 -0.00868244 0.00225" quat="0.680654 0.680654 -0.191599 -0.191599" mass="0.00201325" diaginertia="1.2124e-07 1.16807e-07 1.911e-08"/>
+                          <joint name="ah_passive2 (2)"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0.872253 0 0 0.489055" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <geom class="ah_visual" pos="-0.0113198 -0.0185136 0.00225" quat="0.616776 -0.345814 0.616776 0.345814" material="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material" mesh="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"/>
+                          <geom class="ah_visual" pos="-0.0103287 -0.0168926 0.00225" quat="0.345814 0.616776 0.345814 -0.616776" material="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material" mesh="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"/>
+                          <geom class="ah_visual" pos="-0.0031299 -0.00511895 0.00225" quat="0.345814 0.616776 0.345814 -0.616776" material="ah_gimbal_material" mesh="ah_gimbal"/>
+                          <site name="ah_closing_1 (2)_1" quat="0.345814 0.616776 0.345814 -0.616776" group="3" pos="-0.00495568 -0.00810501 0.00225"/>
+                          <site name="ah_closing_1 (2)_1_z" quat="0.345814 0.616776 0.345814 -0.616776" group="3" pos="-0.0571208 -0.0934209 0.00225"/>
+                          <site name="ah_closing_3 (2)_2" quat="0.96259 0 0 -0.270962" group="3" pos="-0.0031299 -0.00511895 -0.00275"/>
+                          <site name="ah_closing_3 (2)_2_z" quat="0.96259 0 0 -0.270962" group="3" pos="-0.0031299 -0.00511895 0.09725"/>
+                        </body>
+                        <body name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2" pos="-0.00789165 -0.0482013 0.00111154" quat="0.505888 0.024794 0.0466374 -0.860981">
+                          <inertial pos="0.014571 -0.0133924 0.00225" quat="0.633043 0.633043 0.31505 0.31505" mass="0.00540375" diaginertia="8.05302e-07 7.69492e-07 1.05941e-07"/>
+                          <joint name="ah_passive4 (2)"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" material="ah_distal_material" mesh="ah_distal"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" material="ah_distal_shell_material" mesh="ah_distal_shell"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0 0.49277 -0.870159 0" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <site name="ah_tip2" quat="0.335723 -0.335723 0.622326 -0.622326" group="3" pos="0.0272563 -0.0277177 0.00225"/>
+                          <body name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2" pos="-0.000346366 -0.00598999 0.00655" quat="0 0.999998 0.00198164 0">
+                            <inertial pos="-0.0249171 -0.00392936 0.0052354" quat="0.502546 0.503465 0.496542 0.497409" mass="0.0101851" diaginertia="2.52879e-06 2.3577e-06 4.95853e-07"/>
+                            <joint name="ah_passive_5 (2)"/>
+                            <geom class="ah_visual" pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 0.01685" quat="0 0.707107 -0.707107 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_material" mesh="ah_proximal"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_shell_material" mesh="ah_proximal_shell"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <site name="ah_closing_3 (2)_1" quat="1 0 0 0" group="3" pos="-0.052 0 0"/>
+                            <site name="ah_closing_3 (2)_1_z" quat="1 0 0 0" group="3" pos="-0.052 0 0.1"/>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="ah_rotule_ball_4" pos="-0.00755 -0.0109301 0.0632994" quat="0.525483 -0.473147 -0.525483 0.473147">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger2_motor2" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 0.707107 0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" quat="1 0 0 0" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <body name="ah_ball_link_3" pos="-0.005 0 -0.0069" quat="0.998986 0.0202294 0.000405327 0.0402274">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball6" type="ball"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 -0.707107 0 -0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.03325 0" quat="0 0 0 1" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0 0 -1" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <site name="ah_closing_ball2_1" quat="0 -0.707107 0 -0.707107" group="3" pos="0 -0.033 0"/>
+                    </body>
+                  </body>
+                  <body name="ah_custom_servo_horn_3" pos="-0.00755 -0.0270535 0.0550493" quat="0.437766 0.555303 -0.437766 -0.555303">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger3_motor1" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" quat="1 0 0 0" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 -0.707107 -0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <body name="ah_ball_link_4" pos="-0.005 0 -0.0069" quat="0.00409098 0.952572 -0.0545442 -0.299358">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball7" type="ball"/>
+                      <geom class="ah_visual" quat="1 0 0 0" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0.707107 0 0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 0.00025 0" quat="0.707107 0 0.707107 0" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" quat="0.707107 0 0.707107 0" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <body name="ah_rotule_ball_5" pos="0 -0.033 0" quat="0.707107 0 -0.707107 0">
+                        <inertial pos="-0.00392912 -0.0141744 -0.00529707" quat="0.692135 0.650026 0.271378 -0.157383" mass="0.00277119" diaginertia="8.1202e-07 7.72187e-07 8.4737e-08"/>
+                        <joint name="ah_passive_ball8" type="ball"/>
+                        <geom class="ah_visual" pos="-0.00918769 -0.00169684 -0.0131117" quat="0.917779 0.0268008 0.303456 0.254713" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <geom class="ah_visual" quat="0.0268008 -0.917779 -0.254713 0.303456" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <geom class="ah_visual" pos="-0.0117557 -0.00217111 -0.0167765" quat="0.195625 0.829077 -0.468858 -0.233527" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" pos="-0.0137982 -0.00307086 0.000181431" quat="0.161158 0.434392 0.19906 -0.863543" material="ah_link_material" mesh="ah_link"/>
+                        <geom class="ah_visual" pos="0.00256799 0.000474272 0.00366477" quat="0.829077 -0.195625 0.233527 -0.468858" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <site name="ah_closing_ball3_2" quat="0.303456 0.254713 -0.917779 -0.0268008" group="3" pos="-0.00918769 -0.00169684 -0.0131117"/>
+                        <body name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3" pos="-0.010766 -0.000368272 -0.00462606" quat="0.829077 -0.195625 0.233527 -0.468858">
+                          <inertial pos="-0.00530874 -0.00868244 0.00225" quat="0.680654 0.680654 -0.191599 -0.191599" mass="0.00201325" diaginertia="1.2124e-07 1.16807e-07 1.911e-08"/>
+                          <joint name="ah_passive2 (3)"/>
+                          <geom class="ah_visual" pos="-0.0031299 -0.00511895 0.00225" quat="0.345814 0.616776 0.345814 -0.616776" material="ah_gimbal_material" mesh="ah_gimbal"/>
+                          <geom class="ah_visual" pos="-0.0113198 -0.0185136 0.00225" quat="0.616776 -0.345814 0.616776 0.345814" material="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material" mesh="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"/>
+                          <geom class="ah_visual" pos="-0.0103287 -0.0168926 0.00225" quat="0.345814 0.616776 0.345814 -0.616776" material="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material" mesh="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0.872253 0 0 0.489055" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <site name="ah_closing_1 (3)_1" quat="0.345814 0.616776 0.345814 -0.616776" group="3" pos="-0.00495568 -0.00810501 0.00225"/>
+                          <site name="ah_closing_1 (3)_1_z" quat="0.345814 0.616776 0.345814 -0.616776" group="3" pos="-0.0571208 -0.0934209 0.00225"/>
+                          <site name="ah_closing_3 (3)_2" quat="0.96259 0 0 -0.270962" group="3" pos="-0.0031299 -0.00511895 -0.00275"/>
+                          <site name="ah_closing_3 (3)_2_z" quat="0.96259 0 0 -0.270962" group="3" pos="-0.0031299 -0.00511895 0.09725"/>
+                        </body>
+                        <body name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3" pos="0.00584954 -0.0482013 -0.00541263" quat="0.195625 0.829077 -0.468858 -0.233527">
+                          <inertial pos="0.014571 -0.0133924 0.00225" quat="0.633043 0.633043 0.31505 0.31505" mass="0.00540375" diaginertia="8.05302e-07 7.69492e-07 1.05941e-07"/>
+                          <joint name="ah_passive4 (3)"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0 -0.49277 0.870159 0" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" material="ah_distal_material" mesh="ah_distal"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" material="ah_distal_shell_material" mesh="ah_distal_shell"/>
+                          <site name="ah_tip3" quat="0.335723 -0.335723 0.622326 -0.622326" group="3" pos="0.0272563 -0.0277177 0.00225"/>
+                          <body name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3" pos="-0.000346366 -0.00598999 0.00655" quat="0 0.999998 0.00198164 0">
+                            <inertial pos="-0.0249171 -0.00392936 0.0052354" quat="0.502546 0.503465 0.496542 0.497409" mass="0.0101851" diaginertia="2.52879e-06 2.3577e-06 4.95853e-07"/>
+                            <joint name="ah_passive_5 (3)"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_shell_material" mesh="ah_proximal_shell"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_material" mesh="ah_proximal"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 0.01685" quat="0 -0.707107 0.707107 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <site name="ah_closing_3 (3)_1" group="3" pos="-0.052 0 0"/>
+                            <site name="ah_closing_3 (3)_1_z" group="3" pos="-0.052 0 0.1"/>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="ah_rotule_ball_6" pos="-0.00755 -0.0388192 0.0522246" quat="0.555303 -0.437766 -0.555303 0.437766">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger3_motor2" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 -0.707107 -0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <body name="ah_ball_link_5" pos="-0.005 0 -0.0069" quat="0.916843 0.00260985 0.3967 0.0449518">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball9" type="ball"/>
+                      <geom class="ah_visual" quat="1 0 0 0" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 -0.707107 0 -0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 0.00025 0" quat="0.707107 0 0.707107 0" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" quat="0.707107 0 0.707107 0" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <site name="ah_closing_ball3_1" quat="0 -0.707107 0 -0.707107" group="3" pos="0 -0.033 0"/>
+                    </body>
+                  </body>
+                  <body name="ah_custom_servo_horn_4" pos="-0.000298971 0.00773341 0.03365" quat="0 0.573573 0.819154 0">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger4_motor1" range="-1.57079 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" quat="1 0 0 0" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 0.707107 0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <body name="ah_ball_link_6" pos="-0.005 0 -0.0069" quat="0.0229055 0.997115 -0.0496666 0.0526352">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball10" type="ball"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0.707107 0 0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.03325 0" quat="0 0 0 1" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0 0 -1" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <body name="ah_rotule_ball_7" pos="0 -0.033 0" quat="0.707107 0 -0.707107 0">
+                        <inertial pos="0.000502397 -0.0141744 -0.00657609" quat="0.743335 0.664024 0.012218 0.0798534" mass="0.00277119" diaginertia="8.1202e-07 7.72186e-07 8.4737e-08"/>
+                        <joint name="ah_passive_ball11" type="ball"/>
+                        <geom class="ah_visual" quat="0.0639578 0.965951 0.248003 0.03663" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <geom class="ah_visual" pos="-0.0105427 -0.00307081 -0.00890361" quat="0.220589 0.708932 0.13014 -0.657129" material="ah_link_material" mesh="ah_link"/>
+                        <geom class="ah_visual" pos="0.00211128 -0.00217107 -0.0203762" quat="0.0193237 0.858395 -0.507666 0.0711263" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" pos="-0.000461201 0.000474262 0.00445111" quat="0.858395 -0.0193237 -0.0711263 -0.507666" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                        <geom class="ah_visual" pos="0.00165007 -0.0016968 -0.0159251" quat="0.965951 -0.0639578 -0.03663 0.248003" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                        <site name="ah_closing_ball4_2" quat="0.0193237 0.858395 -0.507666 0.0711263" group="3" pos="0.00165007 -0.0016968 -0.0159251"/>
+                        <body name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4" pos="-0.00510212 -0.000368231 -0.0105487" quat="0.858395 -0.0193237 -0.0711263 -0.507666">
+                          <inertial pos="-0.00530871 -0.00868246 0.00225" quat="0.680654 0.680654 -0.191598 -0.191598" mass="0.00201325" diaginertia="1.2124e-07 1.16807e-07 1.91101e-08"/>
+                          <joint name="ah_passive2 (4)"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0.872252 0 0 0.489056" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <geom class="ah_visual" pos="-0.0103286 -0.0168926 0.00225" quat="0.345815 0.616776 0.345815 -0.616776" material="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material" mesh="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"/>
+                          <geom class="ah_visual" pos="-0.00312989 -0.00511896 0.00225" quat="0.345815 0.616776 0.345815 -0.616776" material="ah_gimbal_material" mesh="ah_gimbal"/>
+                          <geom class="ah_visual" pos="-0.0113198 -0.0185136 0.00225" quat="0.616776 -0.345815 0.616776 0.345815" material="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material" mesh="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"/>
+                          <site name="ah_closing_1 (4)_1" quat="0.345815 0.616776 0.345815 -0.616776" group="3" pos="-0.00495566 -0.00810503 0.00225"/>
+                          <site name="ah_closing_1 (4)_1_z" quat="0.345815 0.616776 0.345815 -0.616776" group="3" pos="-0.0571205 -0.0934211 0.00225"/>
+                          <site name="ah_closing_3 (4)_2" quat="0.96259 0 0 -0.270961" group="3" pos="-0.00312989 -0.00511896 -0.00275"/>
+                          <site name="ah_closing_3 (4)_2_z" quat="0.96259 0 0 -0.270961" group="3" pos="-0.00312989 -0.00511896 0.09725"/>
+                        </body>
+                        <body name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4" pos="0.00796529 -0.0482013 -0.000256421" quat="0.0193237 0.858395 -0.507666 0.0711263">
+                          <inertial pos="0.0145711 -0.0133923 0.00225" quat="0.633042 0.633042 0.315051 0.315051" mass="0.00540375" diaginertia="8.05302e-07 7.69492e-07 1.05941e-07"/>
+                          <joint name="ah_passive4 (4)"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207563 0.00225" quat="0.348442 -0.615295 -0.348442 -0.615295" material="ah_distal_shell_material" mesh="ah_distal_shell"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165557 0.01185" quat="0 0.870159 0.492771 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <geom class="ah_visual" pos="0 0 0.00225" quat="0 0.492771 -0.870159 0" material="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" mesh="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                          <geom class="ah_visual" pos="-0.0449404 0.0207563 0.00225" quat="0.348442 -0.615295 -0.348442 -0.615295" material="ah_distal_material" mesh="ah_distal"/>
+                          <geom class="ah_visual" pos="0.0194851 -0.0165557 -0.00735" quat="0.870159 0 0 0.492771" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                          <site name="ah_tip4" quat="0.622326 0.622326 0.335724 0.335724" group="3" pos="0.0272563 -0.0277177 0.00225"/>
+                          <body name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4" pos="-0.00034635 -0.00599 0.00655" quat="0 0.999998 0.00198154 0">
+                            <inertial pos="-0.0249171 -0.00392936 0.0052354" quat="0.502546 0.503465 0.496542 0.497409" mass="0.0101851" diaginertia="2.52879e-06 2.3577e-06 4.95853e-07"/>
+                            <joint name="ah_passive_5 (4)"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 0.01685" quat="0 0.707107 -0.707107 0" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <geom class="ah_visual" pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" material="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" mesh="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_shell_material" mesh="ah_proximal_shell"/>
+                            <geom class="ah_visual" pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" material="ah_proximal_material" mesh="ah_proximal"/>
+                            <geom class="ah_visual" pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" material="ah_std00447_thermoplastique_m2_5x6__configuration_default_material" mesh="ah_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                            <site name="ah_closing_3 (4)_1" group="3" pos="-0.052 0 0"/>
+                            <site name="ah_closing_3 (4)_1_z" group="3" pos="-0.052 0 0.1"/>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="ah_rotule_ball_8" pos="-0.00443741 0.0191037 0.03365" quat="0 -0.819152 0.573576 0">
+                    <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
+                    <joint name="ah_finger4_motor2" range="-1.5708 1.5708"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0114" quat="0 0.707107 0.707107 0" material="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" mesh="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"/>
+                    <geom class="ah_visual" pos="-0.005 0 -0.0069" quat="1 0 0 0" material="ah_rotule_ball_material" mesh="ah_rotule_ball"/>
+                    <geom class="ah_visual" pos="0 0 -0.0025" quat="0 1 0 0" material="ah_custom_servo_horn_material" mesh="ah_custom_servo_horn"/>
+                    <body name="ah_ball_link_7" pos="-0.005 0 -0.0069" quat="0.000140654 -0.0402164 0.998986 0.0202514">
+                      <inertial pos="0 -0.0165 0" quat="0.707107 0.707107 0 0" mass="0.000463323" diaginertia="6.40121e-08 6.40121e-08 1.59688e-09"/>
+                      <joint name="ah_passive_ball12" type="ball"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0.707107 0 0.707107" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" material="ah_rotule_lever_material" mesh="ah_rotule_lever"/>
+                      <geom class="ah_visual" pos="0 -0.03325 0" quat="0 0 0 -1" material="ah_m2_rod_l18_material" mesh="ah_m2_rod_l18"/>
+                      <geom class="ah_visual" pos="0 -0.033 0" quat="0 0 0 1" material="ah_spacer_material" mesh="ah_spacer"/>
+                      <site name="ah_closing_ball4_1" quat="0 0.707107 0 0.707107" group="3" pos="0 -0.033 0"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="Base" body2="Rotation_Pitch"/>
+  </contact>
+
+  <equality>
+    <connect site1="ah_closing_1 (1)_1" site2="ah_closing_1 (1)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (1)_1_z" site2="ah_closing_1 (1)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (1)_1" site2="ah_closing_3 (1)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (1)_1_z" site2="ah_closing_3 (1)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (2)_1" site2="ah_closing_1 (2)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (2)_1_z" site2="ah_closing_1 (2)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (2)_1" site2="ah_closing_3 (2)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (2)_1_z" site2="ah_closing_3 (2)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (3)_1" site2="ah_closing_1 (3)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (3)_1_z" site2="ah_closing_1 (3)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (3)_1" site2="ah_closing_3 (3)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (3)_1_z" site2="ah_closing_3 (3)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (4)_1" site2="ah_closing_1 (4)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_1 (4)_1_z" site2="ah_closing_1 (4)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (4)_1" site2="ah_closing_3 (4)_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_3 (4)_1_z" site2="ah_closing_3 (4)_2_z" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_ball1_1" site2="ah_closing_ball1_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_ball2_1" site2="ah_closing_ball2_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_ball3_1" site2="ah_closing_ball3_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+    <connect site1="ah_closing_ball4_1" site2="ah_closing_ball4_2" solref="0.002" solimp="0.99 0.999 0.0005"/>
+  </equality>
+
+  <actuator>
+    <general name="Rotation" class="Rotation" joint="Rotation" ctrlrange="-1.92 1.92"/>
+    <general name="Pitch" class="Pitch" joint="Pitch" ctrlrange="-3.32 0.174"/>
+    <general name="Elbow" class="Elbow" joint="Elbow" ctrlrange="-0.174 3.14"/>
+    <general name="Wrist_Pitch" class="Wrist_Pitch" joint="Wrist_Pitch" ctrlrange="-1.66 1.66"/>
+    <general name="Wrist_Roll" class="Wrist_Roll" joint="Wrist_Roll" ctrlrange="-2.79 2.79"/>
+    <general name="ah_finger1_motor1" class="ah_mjcf" joint="ah_finger1_motor1" ctrlrange="-1.5708 1.5708"/>
+    <general name="ah_finger1_motor2" class="ah_mjcf" joint="ah_finger1_motor2" ctrlrange="-1.5708 1.5708"/>
+    <general name="ah_finger2_motor1" class="ah_mjcf" joint="ah_finger2_motor1" ctrlrange="-1.5708 1.5708"/>
+    <general name="ah_finger2_motor2" class="ah_mjcf" joint="ah_finger2_motor2" ctrlrange="-1.5708 1.5708"/>
+    <general name="ah_finger3_motor1" class="ah_mjcf" joint="ah_finger3_motor1" ctrlrange="-1.5708 1.5708"/>
+    <general name="ah_finger3_motor2" class="ah_mjcf" joint="ah_finger3_motor2" ctrlrange="-1.5708 1.5708"/>
+    <general name="ah_finger4_motor1" class="ah_mjcf" joint="ah_finger4_motor1" ctrlrange="-1.57079 1.5708"/>
+    <general name="ah_finger4_motor2" class="ah_mjcf" joint="ah_finger4_motor2" ctrlrange="-1.5708 1.5708"/>
+  </actuator>
+</mujoco>

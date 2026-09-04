@@ -1,0 +1,24 @@
+{
+    // Document URL, MuJoCo output
+    "url": "https://cad.onshape.com/documents/430ff184cf3dd9557aaff2be/w/e3658b7152c139971d22c688/e/a5789448a382c9e7e5c5750a",
+    "output_format": "mujoco",
+
+    "ignore": {
+    "*": "collision",
+    },
+
+    // Disable the freejoint to fix the robot
+    "freejoint": false,
+
+    "additional_xml": ["joints_properties.xml", "additional.xml"],
+
+    // Don't create actuators for passive joints
+    "joint_properties": {
+        "passive*": {"actuated": false},
+        "motor*": {
+          "class": "chosen_actuator"
+        }
+    }
+
+
+}

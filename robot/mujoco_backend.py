@@ -98,24 +98,34 @@ class _HandView:
     def __init__(self, p):
         self.p = p
         self.jaw = p.aid_or_none("Jaw")
-        self.fingers = [p.aid_or_none(f"finger{i}") for i in range(1, 9)]
-        self.mode = "jaw" if self.jaw is not None else "hand"
+        # AmazingHand (merged model): 4 fingers x 2 motors, prefixed "ah_"
+        self.ah = [(p.aid_or_none(f"ah_finger{f}_motor1"), p.aid_or_none(f"ah_finger{f}_motor2"))
+                   for f in range(1, 5)]
+        if self.jaw is not None:
+            self.mode = "jaw"
+        elif self.ah[0][0] is not None:
+            self.mode = "ah"
+        else:
+            self.mode = "none"
 
     def _settle(self, secs):
         for _ in range(max(1, int(secs / self.p.model.opt.timestep))):
             mujoco.mj_step(self.p.model, self.p.data)
 
     def set_opening(self, frac, secs=0.6):
-        """frac 0=closed .. 1=fully open."""
+        """frac 0 = closed/flexed .. 1 = open."""
+        frac = float(np.clip(frac, 0.0, 1.0))
         if self.mode == "jaw":
             lo, hi = self.p.model.actuator_ctrlrange[self.jaw]
             self.p.data.ctrl[self.jaw] = lo + frac * (hi - lo)
-        else:
-            from robot.robot_control import Config
-            preset = Config().hand_presets["open" if frac > 0.5 else "power"]
-            for i, aid in enumerate(self.fingers, start=1):
-                if aid is not None:
-                    self.p.data.ctrl[aid] = preset.get(i, 0.0) * D2R
+        elif self.mode == "ah":
+            # differential: the two motors of a finger go OPPOSITE ways to flex
+            flex = (1.0 - frac) * 1.2                     # rad
+            for m1, m2 in self.ah:
+                if m1 is not None:
+                    self.p.data.ctrl[m1] = +flex
+                if m2 is not None:
+                    self.p.data.ctrl[m2] = -flex
         self._settle(secs)
 
     def open(self, secs=0.6):
@@ -174,11 +184,12 @@ class MujocoRobot:
             self._renderer.close()
             self._renderer = None
 
-    def reset(self, keyframe="home"):
+    def reset(self, pose_rad=None):
         mujoco.mj_resetData(self.model, self.data)
-        k = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_KEY, keyframe)
-        if k >= 0:
-            mujoco.mj_resetDataKeyframe(self.model, self.data, k)
+        pose = HOME_RAD if pose_rad is None else pose_rad
+        for j, a, q in zip(self.arm_jids, self.arm_aids, pose):
+            self.data.qpos[self.model.jnt_qposadr[j]] = q
+            self.data.ctrl[a] = q
         mujoco.mj_forward(self.model, self.data)
 
     def step(self, n=1):
@@ -212,7 +223,7 @@ if __name__ == "__main__":
     from imageio.v2 import imwrite
 
     sim = MujocoRobot(a.mjcf).connect()
-    sim.reset("home")
+    sim.reset()
     print("hand mode:", sim.hand.mode)
     print("home joints (deg):", [round(v, 1) for v in sim.arm.read_joints_deg()])
     imwrite(f"{a.outdir}/sim_00_home.png", sim.render())
