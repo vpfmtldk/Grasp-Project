@@ -41,9 +41,9 @@ def main():
 
     if a.try_viewer:
         try:
-            import mujoco.viewer
+            import mujoco.viewer as _mjv
             print("opening GL viewer -- close the window to exit")
-            mujoco.viewer.launch(m, d)
+            _mjv.launch(m, d)
             return
         except Exception as e:
             print("viewer failed (%s); rendering a PNG instead" % e)
