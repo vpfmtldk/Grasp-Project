@@ -19,7 +19,7 @@ OUT = os.path.join(HERE, "so101_amazinghand.xml")
 
 # where the hand's r_wrist_interface frame sits, relative to the Fixed_Jaw link
 # (which carries the Wrist_Roll joint -- keep it). Tune these.
-MOUNT_POS = (0.0, 0.0, -0.10)        # bring the hand body back onto the wrist face
+MOUNT_POS = (0.0, 0.0, 0.0)          # r_wrist_interface origin == wrist face; hand seats flush
 MOUNT_EULER = (1.5708, 0.0, 3.14159) # palm faces the forearm, fingers forward/down
 
 
@@ -56,7 +56,7 @@ def main():
 
     # grasp-centre reference for IK: local pos measured on the AmazingHand root
     hand_root = _body(arm, "ah_r_wrist_interface")
-    hand_root.add_site(name="tool", pos=[0.04, 0.0, 0.11])
+    hand_root.add_site(name="tool", pos=[0.02, 0.0, 0.07])   # pinch centre between the 2+2 finger banks
 
     arm.compile()                       # validates the merged model
     xml = arm.to_xml()

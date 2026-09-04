@@ -186,7 +186,7 @@
               <body name="Fixed_Jaw" pos="0 -0.0601 0" quat="0.707109 0 0.707105 0">
                 <inertial pos="0.00552377 -0.0280167 0.000483583" quat="0.41836 0.620891 -0.350644 0.562599" mass="0.0929859" diaginertia="5.03136e-05 4.64098e-05 2.72961e-05"/>
                 <joint name="Wrist_Roll" class="Wrist_Roll"/>
-                <body name="ah_r_wrist_interface" childclass="ah_mjcf" pos="0 0 -0.1" quat="9.38184e-07 9.38187e-07 -0.707108 0.707105">
+                <body name="ah_r_wrist_interface" childclass="ah_mjcf" quat="9.38184e-07 9.38187e-07 -0.707108 0.707105">
                   <inertial pos="0 0 0" mass="1e-09" diaginertia="1e-09 1e-09 1e-09"/>
                   <geom class="ah_visual" pos="-0.022075 0.03055 0.0698" quat="0.707107 0 0 0.707107" material="ah_scs0009_material" mesh="ah_scs0009"/>
                   <geom class="ah_visual" pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
@@ -222,7 +222,7 @@
                   <site name="ah_closing_1 (3)_2_z" quat="0.437766 0.555303 -0.437766 -0.555303" group="3" pos="-0.115 -0.0405 0.0851417"/>
                   <site name="ah_closing_1 (4)_2" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 0.0262"/>
                   <site name="ah_closing_1 (4)_2_z" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 -0.0738"/>
-                  <site name="tool" pos="0.04 0 0.11"/>
+                  <site name="tool" pos="0.02 0 0.07"/>
                   <body name="ah_custom_servo_horn" pos="-0.00755 0.03055 0.0698" quat="0.5 0.5 -0.5 -0.5">
                     <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
                     <joint name="ah_finger1_motor1" range="-1.5708 1.5708"/>
