@@ -19,8 +19,8 @@ OUT = os.path.join(HERE, "so101_amazinghand.xml")
 
 # where the hand's r_wrist_interface frame sits, relative to the Fixed_Jaw link
 # (which carries the Wrist_Roll joint -- keep it). Tune these.
-MOUNT_POS = (0.0, -0.04, 0.0)
-MOUNT_EULER = (1.5708, 0.0, 0.0)      # radians, xyz -- flipped 180 (was upside down)
+MOUNT_POS = (0.0, 0.0, -0.10)        # bring the hand body back onto the wrist face
+MOUNT_EULER = (1.5708, 0.0, 3.14159) # palm faces the forearm, fingers forward/down
 
 
 def _body(spec, name):
