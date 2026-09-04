@@ -15,6 +15,7 @@ import os
 import numpy as np
 
 from predict_grasp import GraspPredictor, grasp_corners
+DEG = np.pi / 180.0
 import pixel_to_world as p2w
 
 TABLE_Z = 0.0          # scene table top
@@ -58,20 +59,21 @@ def execute_grasp(rgb, predictor, cam_cfg, arm, hand, vis_path=None):
     if not np.all(np.isfinite(pos)):
         return False, "grasp ray missed the table plane", g
 
-    n = np.array([0, 0, 1.0])
-    T_pre = np.eye(4); T_pre[:3, 3] = pos + PRE_LIFT * n
-    T_grasp = np.eye(4); T_grasp[:3, 3] = pos + 0.005 * n     # just above contact
+    n = np.array([0, 0, 1.0])                        # IK targets the 'tool' site = grasp centre
+    T_pre = np.eye(4);   T_pre[:3, 3]   = pos + PRE_LIFT * n
+    T_grasp = np.eye(4); T_grasp[:3, 3] = pos + 0.005 * n
 
     yaw = float(bg["yaw_deg"])
+    wlock = {3: WRIST_PITCH_DOWN * DEG, 4: (yaw + WRIST_ROLL_OFFSET) * DEG}
 
     def go(T, secs):
-        q = arm.ee_pose_to_joints(T)               # position IK (joints 0..2 do the work)
-        q[3] = WRIST_PITCH_DOWN                     # pin the wrist: palm down ...
-        q[4] = yaw + WRIST_ROLL_OFFSET              # ... rotated to the grasp angle
+        q = arm.ee_pose_to_joints(T, lock=wlock)   # IK joints 0..2; wrist held palm-down at grasp yaw
         arm.move_joints_deg(q, secs=secs)
         return q
 
+    from robot.mujoco_backend import READY_RAD
     hand.open()
+    arm.move_joints_deg([v / DEG for v in READY_RAD], secs=2.0)   # neutral reach -> good IK seed
     go(T_pre, 2.0)
     go(T_grasp, 1.5)
     hand.close()
@@ -102,7 +104,7 @@ def _save_vis(rgb, g, path):
 # ------------------------------------------------------------------------- sim
 def run_sim(args):
     from robot.mujoco_backend import MujocoRobot
-    sim = MujocoRobot(args.mjcf, render_size=(args.res, args.res)).connect()
+    sim = MujocoRobot(args.mjcf, render_size=(args.res, args.res), ee_site="tool").connect()
     predictor = GraspPredictor(args.network, use_rgb=1, use_depth=0)
     os.makedirs(args.outdir, exist_ok=True)
     rng = np.random.default_rng(args.seed)

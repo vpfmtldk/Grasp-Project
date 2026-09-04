@@ -222,6 +222,7 @@
                   <site name="ah_closing_1 (3)_2_z" quat="0.437766 0.555303 -0.437766 -0.555303" group="3" pos="-0.115 -0.0405 0.0851417"/>
                   <site name="ah_closing_1 (4)_2" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 0.0262"/>
                   <site name="ah_closing_1 (4)_2_z" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 -0.0738"/>
+                  <site name="tool" pos="0.04 0 0.11"/>
                   <body name="ah_custom_servo_horn" pos="-0.00755 0.03055 0.0698" quat="0.5 0.5 -0.5 -0.5">
                     <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
                     <joint name="ah_finger1_motor1" range="-1.5708 1.5708"/>

@@ -54,6 +54,10 @@ def main():
     f.quat = q.tolist()
     arm.attach(hand, prefix="ah_", frame=f)
 
+    # grasp-centre reference for IK: local pos measured on the AmazingHand root
+    hand_root = _body(arm, "ah_r_wrist_interface")
+    hand_root.add_site(name="tool", pos=[0.04, 0.0, 0.11])
+
     arm.compile()                       # validates the merged model
     xml = arm.to_xml()
     xml = xml.replace(f'meshdir="{HERE}"', 'meshdir=""')      # make it portable

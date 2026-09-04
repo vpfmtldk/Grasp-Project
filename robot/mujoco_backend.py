@@ -37,6 +37,7 @@ R2D = 180.0 / np.pi
 ARM_JOINTS = ["Rotation", "Pitch", "Elbow", "Wrist_Pitch", "Wrist_Roll"]
 HOME_RAD = [0, -1.57, 1.57, 1.57, -1.57]
 LOOK_RAD = [0, -2.9, 3.0, 0.9, -1.57]   # arm folded up, out of table_cam view
+READY_RAD = [0, -0.9, 1.4, 1.07, 0]     # arm forward over the table, palm down -- good IK seed
 
 
 class _ArmView:
@@ -67,15 +68,26 @@ class _ArmView:
     def goto_look_pose(self, secs=2.5):
         self.move_joints_deg([v * R2D for v in LOOK_RAD], secs)
 
-    def ee_pose_to_joints(self, T_base_ee, iters=200, tol=2e-3):
-        """Damped least-squares Jacobian IK to the tool site/body. Returns joint deg."""
+    def ee_pose_to_joints(self, T_base_ee, iters=300, tol=1.5e-3, lock=None, q0_deg=None):
+        """
+        Damped least-squares position IK to ee_body. Returns all 5 joint angles (deg).
+        lock: {joint_index: value_rad} -- those joints are held fixed and only the
+        remaining joints move (e.g. lock the wrist palm-down and let 0..2 reach).
+        q0_deg: optional 5-vector start pose (deg); default = current.
+        """
         m, d = self.p.model, self.p.data
         target = np.asarray(T_base_ee, float)[:3, 3]
-        q = np.array(self.read_joints_deg()) * D2R
-        dof = np.array(self.p.arm_dofs)
+        q = (np.array(q0_deg, float) if q0_deg is not None
+             else np.array(self.read_joints_deg())) * D2R
+        lock = lock or {}
+        for k, v in lock.items():
+            q[k] = v
+        free = [i for i in range(len(q)) if i not in lock]
+        free_dof = np.array([self.p.arm_dofs[i] for i in free])
+        qadr = [m.jnt_qposadr[j] for j in self.p.arm_jids]
         for _ in range(iters):
-            for aid, qi in zip(self.p.arm_aids, q):
-                d.ctrl[aid] = qi
+            for adr, qi in zip(qadr, q):        # FK is computed from qpos, not ctrl
+                d.qpos[adr] = qi
             mujoco.mj_forward(m, d)
             cur = d.site_xpos[self.p.ee_site] if self.p.ee_site >= 0 else d.xpos[self.p.ee_body]
             err = target - cur
@@ -86,9 +98,9 @@ class _ArmView:
                 mujoco.mj_jacSite(m, d, jacp, None, self.p.ee_site)
             else:
                 mujoco.mj_jacBody(m, d, jacp, None, self.p.ee_body)
-            J = jacp[:, dof]
+            J = jacp[:, free_dof]
             dq = J.T @ np.linalg.solve(J @ J.T + 1e-4 * np.eye(3), err)
-            q = np.clip(q + dq, -np.pi, np.pi)
+            q[free] = np.clip(q[free] + 0.7 * dq, -np.pi, np.pi)
         return list(q * R2D)
 
 
@@ -119,13 +131,13 @@ class _HandView:
             lo, hi = self.p.model.actuator_ctrlrange[self.jaw]
             self.p.data.ctrl[self.jaw] = lo + frac * (hi - lo)
         elif self.mode == "ah":
-            # differential: the two motors of a finger go OPPOSITE ways to flex
-            flex = (1.0 - frac) * 1.2                     # rad
+            # this MJCF's linkage curls the finger when BOTH motors turn the same way
+            flex = (1.0 - frac) * 1.45                    # rad
             for m1, m2 in self.ah:
                 if m1 is not None:
-                    self.p.data.ctrl[m1] = +flex
+                    self.p.data.ctrl[m1] = flex
                 if m2 is not None:
-                    self.p.data.ctrl[m2] = -flex
+                    self.p.data.ctrl[m2] = flex
         self._settle(secs)
 
     def open(self, secs=0.6):
