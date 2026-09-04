@@ -20,7 +20,8 @@ import pixel_to_world as p2w
 TABLE_Z = 0.0          # scene table top
 CUBE_HALF = 0.015      # object half-height -> grasp contact is this far above the plane
 PRE_LIFT = 0.10        # approach / retreat height above the grasp point (m)
-WRIST_DOWN = (90.0, -90.0)   # wrist_pitch, wrist_roll (deg) that point the palm down -- TUNE
+WRIST_PITCH_DOWN = 61.0      # Wrist_Pitch (deg) -> AmazingHand fingers point straight down
+WRIST_ROLL_OFFSET = 0.0      # added to the grasp yaw to get Wrist_Roll (deg) -- tune
 
 
 # --------------------------------------------------------------- sim cam config
@@ -61,10 +62,12 @@ def execute_grasp(rgb, predictor, cam_cfg, arm, hand, vis_path=None):
     T_pre = np.eye(4); T_pre[:3, 3] = pos + PRE_LIFT * n
     T_grasp = np.eye(4); T_grasp[:3, 3] = pos + 0.005 * n     # just above contact
 
+    yaw = float(bg["yaw_deg"])
+
     def go(T, secs):
-        q = arm.ee_pose_to_joints(T)
-        if WRIST_DOWN is not None:                 # position IK only -> pin the wrist
-            q[3], q[4] = WRIST_DOWN
+        q = arm.ee_pose_to_joints(T)               # position IK (joints 0..2 do the work)
+        q[3] = WRIST_PITCH_DOWN                     # pin the wrist: palm down ...
+        q[4] = yaw + WRIST_ROLL_OFFSET              # ... rotated to the grasp angle
         arm.move_joints_deg(q, secs=secs)
         return q
 
