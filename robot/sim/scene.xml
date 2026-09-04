@@ -1,0 +1,71 @@
+<!--
+  scene.xml : MuJoCo scene for the SO-101 + AmazingHand grasp pipeline.
+
+  This is a TEMPLATE. To make it real:
+
+  1. Get an SO-ARM100 / SO-101 MJCF:
+       mujoco_menagerie (folder trs_so_arm100):
+       https://github.com/google-deepmind/mujoco_menagerie
+       or the SO-ARM100 repo Simulation MJCF. Put it under robot/sim/ and
+       include it below, or paste its worldbody.
+  2. Add the AmazingHand as a child body of the arm wrist_roll link, with
+     8 hinge joints and 8 position actuators named finger1 ... finger8
+     (matching Config.hand_servo_ids). No hand MJCF yet? start with a simple
+     2 finger parallel gripper and set width_to_preset in Config.
+  3. Name the 5 arm actuators exactly:
+       shoulder_pan shoulder_lift elbow_flex wrist_flex wrist_roll
+     (or pass arm_joint_names=... to MujocoRobot). Use POSITION actuators.
+  4. Keep the camera named table_cam where your real camera will be
+     (elevated, tilted down ~50 deg, looking at the workspace) and set the
+     same intrinsics from camera_calib.py (fovy from focal length).
+  5. Add graspable objects as free bodies on the table (see cube below).
+
+  Then run:  python -m robot.mujoco_backend
+-->
+
+<mujoco model="so101_grasp_scene">
+  <option timestep="0.002" integrator="implicitfast"/>
+  <compiler angle="radian" autolimits="true"/>
+
+  <visual>
+    <global offwidth="1280" offheight="1280"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="512"/>
+    <material name="table_mat" rgba="0.9 0.9 0.9 1"/>
+    <material name="cube_mat"  rgba="0.2 0.4 0.9 1"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 2" dir="0 0 -1" diffuse="0.9 0.9 0.9"/>
+
+    <!-- workspace table: 0.6 x 0.6 m top at z = 0 -->
+    <body name="table" pos="0 0 -0.02">
+      <geom type="box" size="0.30 0.30 0.02" material="table_mat" friction="1 0.02 0.001"/>
+    </body>
+
+    <!-- fixed camera: elevated, behind and above, tilted down at the workspace.
+         fovy approx 2*atan(0.5*sensor_h / f); adjust after calibration. -->
+    <camera name="table_cam" pos="-0.05 -0.45 0.45" xyaxes="1 0 0 0 0.7 0.7" fovy="55"/>
+
+    <!-- a graspable object (free body) -->
+    <body name="cube" pos="0.0 0.0 0.02">
+      <freejoint/>
+      <geom type="box" size="0.015 0.015 0.02" material="cube_mat" mass="0.05"
+            friction="1 0.05 0.001"/>
+    </body>
+
+    <!-- TODO: include the SO-ARM100 body here, mounted at the back edge
+         (e.g. pos="0.0 0.30 0.0") facing the workspace. -->
+  </worldbody>
+
+  <!-- TODO: position actuators for the 5 arm joints + 8 finger joints, e.g.
+       <actuator>
+         <position name="shoulder_pan" joint="shoulder_pan" kp="30"/>
+         ...
+         <position name="finger1" joint="finger1" kp="3"/>
+         ...
+       </actuator>
+  -->
+</mujoco>
