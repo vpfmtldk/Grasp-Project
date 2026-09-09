@@ -48,7 +48,7 @@ class _ArmView:
         m, d = self.p.model, self.p.data
         return [float(d.qpos[m.jnt_qposadr[j]] * R2D) for j in self.p.arm_jids]
 
-    def move_joints_deg(self, target_deg, secs=2.0, max_step_deg=None):
+    def move_joints_deg(self, target_deg, secs=2.0, max_step_deg=None, settle=0.5):
         assert len(target_deg) == len(self.p.arm_aids)
         start = self.read_joints_deg()
         n = max(1, int(secs / self.p.model.opt.timestep))
@@ -56,6 +56,10 @@ class _ArmView:
             a = k / n
             for aid, s, t in zip(self.p.arm_aids, start, target_deg):
                 self.p.data.ctrl[aid] = ((1 - a) * s + a * t) * D2R
+            mujoco.mj_step(self.p.model, self.p.data)
+        for aid, t in zip(self.p.arm_aids, target_deg):    # hold at target until settled
+            self.p.data.ctrl[aid] = t * D2R
+        for _ in range(int(settle / self.p.model.opt.timestep)):
             mujoco.mj_step(self.p.model, self.p.data)
 
     def hold(self, secs=0.5):

@@ -56,7 +56,7 @@ def main():
 
     # grasp-centre reference for IK: local pos measured on the AmazingHand root
     hand_root = _body(arm, "ah_r_wrist_interface")
-    hand_root.add_site(name="tool", pos=[0.02, 0.0, 0.07])   # pinch centre between the 2+2 finger banks
+    hand_root.add_site(name="tool", pos=[0.04, 0.0, 0.08])   # pinch centre (measured from distal geoms)
 
     arm.compile()                       # validates the merged model
     xml = arm.to_xml()
