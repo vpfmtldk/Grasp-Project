@@ -7,3 +7,6 @@ output
 *.pyc
 
 /.python-version
+
+# calibration capture images (bulky, regenerate with camera_calib.py)
+calib_imgs/

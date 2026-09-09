@@ -21,7 +21,7 @@ import pixel_to_world as p2w
 TABLE_Z = 0.0          # scene table top
 CUBE_HALF = 0.015      # object half-height -> grasp contact is this far above the plane
 PRE_LIFT = 0.10        # approach / retreat height above the grasp point (m)
-WRIST_PITCH_DOWN = 61.0      # Wrist_Pitch (deg) -> AmazingHand fingers point straight down
+WRIST_PITCH_DOWN = 69.0      # Wrist_Pitch (deg) -> AmazingHand palm horizontal, fingers down
 WRIST_ROLL_OFFSET = 0.0      # added to the grasp yaw to get Wrist_Roll (deg) -- tune
 
 
@@ -142,8 +142,10 @@ def run_real(args):
     import cv2
     from robot.robot_control import Config, SO101, AmazingHand
     cam_cfg = p2w.load_config(args.config)
-    cap = cv2.VideoCapture(args.camera)
+    cap = cv2.VideoCapture(args.camera, cv2.CAP_DSHOW if os.name == "nt" else 0)
     cap.set(3, 1280); cap.set(4, 720)
+    for _ in range(10):        # warm up -- first frames are often black/half-exposed
+        cap.read()
     arm, hand = SO101(Config()), AmazingHand(Config())
     arm.connect(); hand.connect()
     predictor = GraspPredictor(args.network, use_rgb=1, use_depth=0)
@@ -170,7 +172,7 @@ def main():
     p.add_argument("--trials", type=int, default=5)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--config", default="output/cam.json", help="real: calibrated camera config")
-    p.add_argument("--camera", type=int, default=0)
+    p.add_argument("--camera", type=int, default=2)   # 2 = USB Innomaker U20CAM-720P
     p.add_argument("--outdir", default="output/grasp_runs")
     a = p.parse_args()
     (run_sim if a.backend == "sim" else run_real)(a)

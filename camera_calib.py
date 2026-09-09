@@ -10,8 +10,8 @@ Subcommands
 
 Examples
 --------
-  python camera_calib.py run --camera 0 --pattern 9x6 --square 0.025 --config output/cam.json
-  python camera_calib.py capture --camera 0 --out calib_imgs
+  python camera_calib.py run --camera 2 --pattern 9x6 --square 0.025 --config output/cam.json
+  python camera_calib.py capture --camera 2 --out calib_imgs
   python camera_calib.py calibrate --images calib_imgs --pattern 9x6 --square 0.025 \
       --config output/cam.json --fisheye
 
@@ -123,8 +123,10 @@ def calibrate(images, pattern, square, fisheye):
         per_view = []
         for i in range(len(used)):
             proj, _ = cv2.projectPoints(objpoints[i], rvecs[i], tvecs[i], K, dist)
-            err = cv2.norm(imgpoints[i], proj, cv2.NORM_L2) / len(proj)
-            per_view.append((os.path.basename(used[i]), float(err)))
+            a = imgpoints[i].reshape(-1, 2).astype(np.float64)
+            b = proj.reshape(-1, 2).astype(np.float64)
+            err = float(np.sqrt(np.mean(np.sum((a - b) ** 2, axis=1))))   # per-view RMS px
+            per_view.append((os.path.basename(used[i]), err))
 
     print('\nmodel: %s   RMS reprojection error: %.4f px' % (model, rms))
     print('K =\n', np.round(K, 3))
@@ -183,14 +185,14 @@ def main():
     common.add_argument('--fisheye', action='store_true', help='use the fisheye distortion model')
 
     c = sub.add_parser('capture', parents=[common]); c.set_defaults(func=cmd_capture)
-    c.add_argument('--camera', type=int, default=0)
+    c.add_argument('--camera', type=int, default=2)   # 2 = USB Innomaker U20CAM-720P (0/1 = laptop cams)
     c.add_argument('--out', default='calib_imgs')
 
     cal = sub.add_parser('calibrate', parents=[common]); cal.set_defaults(func=cmd_calibrate)
     cal.add_argument('--images', default='calib_imgs')
 
     r = sub.add_parser('run', parents=[common]); r.set_defaults(func=cmd_run)
-    r.add_argument('--camera', type=int, default=0)
+    r.add_argument('--camera', type=int, default=2)   # 2 = USB Innomaker U20CAM-720P (0/1 = laptop cams)
     r.add_argument('--out', default='calib_imgs')
     r.add_argument('--images', default='calib_imgs')
 
