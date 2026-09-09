@@ -3,6 +3,9 @@
 Monocular (no-depth) RGB grasp detection on SO-101 + AmazingHand, low-cost.
 Everything below is in this repo on `master`.
 
+> **Portfolio-facing summary of finished results: [`RESULTS.md`](RESULTS.md).**
+> This file is the working handoff; a few sections below predate the final runs.
+
 ## 1. Models (pretraining on Cornell) — DONE
 
 | model | input | folder | clean eval IoU (89-img val, no aug) |
@@ -11,18 +14,16 @@ Everything below is in this repo on `master`.
 | GG-CNN | RGB | `output/models/260902_1343_ggcnn_rgb1_d0/` epoch 22 | 0.854 |
 | **GR-ConvNet** | **RGB** | `output/models/260903_1112_grconvnet_rgb1_d0/` **epoch 13** | **0.955** |
 
-**Pipeline model = GR-ConvNet RGB, `epoch_13_iou_0.92`** (use the file with no `_statedict.pt`
-for eval; the eval loader still assumes GGCNN for bare state dicts).
+**Deployed model = `output/models/final_grconvnet_rgb1_d0/weights.pt`** (GR-ConvNet RGB,
+trained on 95 % of Cornell, epoch 22; see that folder's `MODEL.md`). `eval_ggcnn.load_network`
+now auto-detects the architecture from the state-dict keys, so a bare `weights.pt` loads fine.
 
 RGB-only is competitive with / beats depth on Cornell -> supports the "no depth sensor" thesis.
 
-### Cross-validation (image-wise 5-fold, `run_cv.ps1 -Network grconvnet ... -Epochs 25`)
-Running. Results in `output/cv_grconvnet_rgb1_d0_e25.txt`.
-- fold 0 (ds 0.0): 0.944
-- fold 1 (ds 0.2): 0.831
-- folds 2-4: in progress
-Single-split 0.955 was optimistic; folds vary a lot. Need all 5 for mean +/- sd.
-**Must run in a terminal window that stays open** — it dies on window close / machine sleep.
+### Cross-validation (image-wise 5-fold, `run_cv.ps1 -Network grconvnet ... -Epochs 25`) — DONE
+`output/cv_grconvnet_rgb1_d0_e25.txt` — folds 0.944 / 0.831 / 0.843 / 0.944 / 0.955,
+**mean IoU 0.903, sd 0.054**. Single-split 0.955 was optimistic; quote the mean ± sd.
+(Ran via a Windows Scheduled Task so it survived window-close / sleep.)
 
 ## 2. Vision pipeline scripts — DONE (need calibration data to be live)
 
