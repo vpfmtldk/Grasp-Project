@@ -21,6 +21,7 @@ param(
     [int]    $UseRgb       = 0,
     [int]    $UseDepth     = 1,
     [double] $DsRotate     = 0.0,
+    [double] $Split        = 0.9,
     [int]    $Epochs       = 50,
     [int]    $NumWorkers   = 0,          # 0 = safest on Windows
     [int]    $StaleMinutes = 20,
@@ -51,6 +52,7 @@ $commonArgs = @(
     '--use-rgb',      "$UseRgb",
     '--use-depth',    "$UseDepth",
     '--ds-rotate',    "$DsRotate",
+    '--split',        "$Split",
     '--num-workers',  "$NumWorkers",
     '--epochs',       "$Epochs",
     '--save-folder',  $RunDir           # train_ggcnn.py writes here and auto-resumes from RunDir\ckpt_last.pt

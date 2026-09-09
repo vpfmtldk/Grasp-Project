@@ -16,13 +16,25 @@ def _v(t):
     return t.item() if hasattr(t, 'item') else t
 
 
-def load_network(path, input_channels=1, network='ggcnn'):
-    """Load a network saved either as a full pickled model, a plain state_dict, or a training checkpoint dict."""
+def _infer_arch(state):
+    """Guess the network name from state_dict keys (grconvnet has residual blocks + bn6)."""
+    keys = set(state.keys())
+    if any(k.startswith('res1.') for k in keys) or 'bn6.weight' in keys:
+        return 'grconvnet'
+    if 'convt1.weight' in keys:
+        return 'ggcnn'
+    return None
+
+
+def load_network(path, input_channels=1, network=None):
+    """Load a network saved either as a full pickled model, a plain state_dict, or a training checkpoint dict.
+    network=None -> infer the architecture from the state_dict keys (falls back to 'ggcnn')."""
     loaded = torch.load(path, map_location='cpu', weights_only=False)
     if isinstance(loaded, torch.nn.Module):
         return loaded
     state = loaded['model_state_dict'] if isinstance(loaded, dict) and 'model_state_dict' in loaded else loaded
-    net = get_network(network)(input_channels=input_channels)
+    name = network or _infer_arch(state) or 'ggcnn'
+    net = get_network(name)(input_channels=input_channels)
     net.load_state_dict(state)
     return net
 
