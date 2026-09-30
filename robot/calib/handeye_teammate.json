@@ -1,0 +1,95 @@
+{
+  "type": "pixel_to_joint_poly2",
+  "fit_joints": [
+    "shoulder_pan",
+    "shoulder_lift",
+    "elbow_flex",
+    "wrist_flex"
+  ],
+  "coef": [
+    [
+      -22.23200856453658,
+      -15.290090751009906,
+      7.923718708593648,
+      44.20882143694454
+    ],
+    [
+      18.25549286588799,
+      -24.196828077777752,
+      80.72913889805915,
+      -53.149459417611496
+    ],
+    [
+      -10.162534910352964,
+      381.46876944469636,
+      -37.81061023135668,
+      -517.3396481525933
+    ],
+    [
+      8.569109706007502,
+      64.46555941482988,
+      -96.79171307488137,
+      7.084911166751304
+    ],
+    [
+      83.69673926477775,
+      -90.05874757746246,
+      38.32901293746281,
+      100.0254560353553
+    ],
+    [
+      -48.343751467013924,
+      -552.088622141061,
+      263.1572871840403,
+      505.02514765738425
+    ]
+  ],
+  "wrist_model": "fitted",
+  "wrist_flex_const_deg": -81.94094604492187,
+  "wrist_roll_ref_deg": 19.601257324218764,
+  "theta_gain": 1.0,
+  "theta_offset_deg": 19.601257324218764,
+  "n_points": 22,
+  "loo_per_joint_deg": {
+    "shoulder_pan": 0.772,
+    "shoulder_lift": 1.422,
+    "elbow_flex": 1.204,
+    "wrist_flex": 1.537
+  },
+  "loo_mean_deg": 1.23375,
+  "uv_range": {
+    "u": [
+      351.1,
+      877.1
+    ],
+    "v": [
+      256.1,
+      558.3
+    ]
+  },
+  "source": "teammate (A팀) LeRobot calibration, converted by convert_teammate.py",
+  "bridge": {
+    "shoulder_pan": {
+      "a": 0.999755859375,
+      "b": -0.0439453125
+    },
+    "shoulder_lift": {
+      "a": 0.999755859375,
+      "b": -0.0439453125
+    },
+    "elbow_flex": {
+      "a": 0.999755859375,
+      "b": -0.0439453125
+    },
+    "wrist_flex": {
+      "a": 0.999755859375,
+      "b": -0.0439453125
+    },
+    "wrist_roll": {
+      "a": 0.999755859375,
+      "b": -0.0439453125
+    }
+  },
+  "verified": "teammate: 22 pts, LOO 1.23 deg, 12 mm mean tip error on unseen spots (their HANDOVER.md)",
+  "note": "Pixel = where the fingers should meet (their marker offset baked in). Collected with the fingers ON the table: lift the tool (~25 mm, robot/team_fk.lift_tool) before moving."
+}

@@ -1,0 +1,41 @@
+{
+  "_note": "UI(LeRobot) 각도 -> URDF 각도.  urdf = sign*ui + offset",
+  "_reference_pose": "팔을 곧게 위로 세운 자세",
+  "_reference_urdf_deg": {
+    "shoulder_pan": 0.0,
+    "shoulder_lift": -90.0,
+    "elbow_flex": 168.0,
+    "wrist_flex": 10.0,
+    "wrist_roll": 0.0
+  },
+  "_measured_ui_deg": {
+    "shoulder_pan": -8.04,
+    "shoulder_lift": -0.92,
+    "elbow_flex": -83.91,
+    "wrist_flex": -0.57,
+    "wrist_roll": 9.45
+  },
+  "mapping": {
+    "shoulder_pan": {
+      "sign": 1,
+      "offset": 8.04
+    },
+    "shoulder_lift": {
+      "sign": -1,
+      "offset": -90.92
+    },
+    "elbow_flex": {
+      "sign": -1,
+      "offset": 84.09
+    },
+    "wrist_flex": {
+      "sign": -1,
+      "offset": 9.43
+    },
+    "wrist_roll": {
+      "sign": 1,
+      "offset": -9.45
+    }
+  },
+  "_fix_note": "elbow_flex 는 모터가 반대로 장착돼 있다. LeRobot 의 drive_mode 로 고치려 했으나 DEGREES 노름 모드에서는 drive_mode 가 무시되므로(motors_bus.py 의 _normalize/_unnormalize 에 DEGREES 분기만 그 항이 없다) 효과가 없었다. 그래서 정합 부호(-1)로 뒤집는다."
+}
