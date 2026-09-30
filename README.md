@@ -1,141 +1,77 @@
-**Note:** This is a cleaned-up, PyTorch port of the GG-CNN code.  For the original Keras implementation, see the `RSS2018` branch.  
-Main changes are major code clean-ups and documentation, an improved GG-CNN2 model, ability to use the Jacquard dataset and simpler evaluation.    
+# 저가형 단안 카메라 파지 로봇 — SO-101 + AmazingHand
 
+RGB 카메라 **한 대**로 책상 위 물체를 **어디서, 몇 도로** 집을지 예측하고,
+저가형 **SO-101 로봇팔 + Pollen AmazingHand**로 실제로 집는 포트폴리오 프로젝트입니다.
+깊이 센서·모션캡처 없이 시중 부품만 씁니다.
 
-# Generative Grasping CNN (GG-CNN)
-
-The GG-CNN is a lightweight, fully-convolutional network which predicts the quality and pose of antipodal grasps at every pixel in an input depth image.  The lightweight and single-pass generative nature of GG-CNN allows for fast execution and closed-loop control, enabling accurate grasping in dynamic environments where objects are moved during the grasp attempt.
-
-This repository contains the implementation of the Generative Grasping Convolutional Neural Network (GG-CNN) from the paper:
-
-**Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach**
-
-*[Douglas Morrison](http://dougsm.com), [Peter Corke](http://petercorke.com), [Jürgen Leitner](http://juxi.net)*
-
-Robotics: Science and Systems (RSS) 2018
-
-[arXiv](https://arxiv.org/abs/1804.05172) | [Video](https://www.youtube.com/watch?v=7nOoxuGEcxA)
-
-If you use this work, please cite:
-
-```text
-@inproceedings{morrison2018closing,
-	title={{Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach}},
-	author={Morrison, Douglas and Corke, Peter and Leitner, J\"urgen},
-	booktitle={Proc.\ of Robotics: Science and Systems (RSS)},
-	year={2018}
-}
+```
+카메라 프레임 ─▶ GR-ConvNet ─▶ (u, v, θ, 폭, 품질)          이미지 속 파지
+            └─▶ 픽셀 → 관절각 캘리브레이션 ─▶ 팔 5관절 목표각
+            └─▶ 접근 ─▶ 손 닫기 ─▶ 들어 올리기
 ```
 
-**Contact**
+> **사용 모델은 GR-ConvNet입니다.** 저장소는 [GG-CNN](https://github.com/dougsm/ggcnn)(Morrison et al., RSS 2018)
+> 코드를 포크해 시작했고, 그 위에 GR-ConvNet(`models/grconvnet.py`)을 추가했습니다.
+> GG-CNN은 초기에 비교용으로만 학습했습니다(RGB 입력 IoU 0.854 vs GR-ConvNet 0.955).
+> `train_ggcnn.py`, `eval_ggcnn.py` 같은 파일 이름은 포크 원본 이름을 그대로 쓴 것이고, GR-ConvNet도 이 스크립트로 학습합니다.
+> 원본 GG-CNN 설명은 [`docs/README_ggcnn_original.md`](docs/README_ggcnn_original.md)에 있습니다.
 
-Any questions or comments contact [Doug Morrison](mailto:doug.morrison@roboticvision.org).
+## 결과 요약
 
-## Installation
+| 항목 | 결과 |
+|---|---|
+| 파지 모델 (GR-ConvNet, RGB만) | Cornell 5-fold 교차검증 IoU **0.903 ± 0.054** |
+| 학습 모델 vs 기하학(PCA) 파지 각도 | 30° 이내 일치 **84% vs 67%** |
+| 카메라 캘리브레이션 | 재투영 오차 0.22~0.27 px, 테이블 평면 복원 평균 **0.08 mm** |
+| 시뮬레이션 전체 파이프라인 | 카메라 → 모델 → 3D → IK → 파지, **4/4** |
+| MuJoCo 강화학습 (355 ml 캔) | 서 있는 캔 **79%** (스크립트 42%), 누운 캔 **100%** |
 
-This code was developed with Python 3.6 on Ubuntu 16.04.  Python requirements can installed by:
+자세한 내용과 그림은 **[RESULTS.md](RESULTS.md)**, 현재 진행 상황과 남은 일은
+**[HANDOFF.md](HANDOFF.md)**에 있습니다.
+
+<p align="center">
+  <img src="docs/figures/rl_can_upright.gif" width="45%"> <img src="docs/figures/rl_can_lying.gif" width="45%"><br>
+  <em>강화학습 정책이 355 ml 캔을 쥐는 모습 (왼쪽: 서 있는 캔, 오른쪽: 누운 캔). 손가락 마찰만으로 들고 있습니다.</em>
+</p>
+
+## 설계 원칙
+
+| 선택 | 이유 |
+|---|---|
+| **RGB 단안만** (깊이 카메라 없음) | 비싼 센서를 빼고, 높이는 "물체는 테이블 위에 있다"는 평면 가정으로 구합니다 |
+| **고정 카메라** (eye-to-hand) | 한 번 캘리브레이션하면 세션 내내 유효합니다 |
+| **SO-101 + AmazingHand** | 저가형 탁상 구성 |
+| **손은 1자유도처럼** 사용 | 연구의 초점은 인식입니다. 손은 열기/닫기 명령 하나로 움직입니다 |
+
+## 폴더 구성
+
+| 경로 | 역할 |
+|---|---|
+| `models/grconvnet.py` | GR-ConvNet 구조 (이 포크에 추가) |
+| `train_ggcnn.py`, `run_train.ps1`, `run_cv.ps1` | 학습, 중단 시 자동 재개, 5-fold 교차검증 |
+| `predict_grasp.py` | 이미지 → 파지 `{x, y, angle, width, quality}` |
+| `pixel_to_world.py` | 파지 픽셀 → 3D 자세 (광선과 테이블 평면의 교점) |
+| `grasp_geometry.py`, `compare_grasp_angles.py` | 학습 모델 vs 기하학 각도 비교 (실험 2) |
+| `camera_calib.py`, `extrinsic_click.py` | 카메라 내부·외부 파라미터 캘리브레이션 |
+| `robot/robot_control.py` | SO-101(STS3215) + AmazingHand(SCS) Feetech 서보 드라이버 |
+| `robot/calib/` | 실물 캘리브레이션: 픽셀 → 관절각 (자동 수집, 풀기, 팀원 캘리브레이션 변환) |
+| `robot/sim/` | MuJoCo: SO-101 + 공식 AmazingHand (운동학 파지 데모) |
+| `robot/rl/` | MuJoCo 강화학습: 힘이 전달되는 AmazingHand + 캔 파지 (잔차 PPO) |
+| `grasp_and_execute.py` | 전체 루프: 이미지 → 파지 → 관절각 → 이동 → 쥐기 → 들기 |
+
+## 실행 예시
 
 ```bash
-pip install -r requirements.txt
+# 이미지 한 장에서 파지 예측
+python predict_grasp.py --network output/models/final_grconvnet_rgb1_d0/weights.pt --image <사진>
+
+# 시뮬레이션 전체 파이프라인 (운동학 파지)
+python grasp_and_execute.py --backend sim --network output/models/final_grconvnet_rgb1_d0/weights.pt --trials 4
+
+# 강화학습: 학습 / 평가 / 뷰어
+python -m robot.rl.train_ppo --steps 6000000 --mode mixed
+python -m robot.rl.eval_policy --episodes 80 --mode upright
+python -m robot.rl.eval_policy --view --mode mixed
 ```
 
-## Datasets
-
-Currently, both the [Cornell Grasping Dataset](http://pr.cs.cornell.edu/grasping/rect_data/data.php) and
-[Jacquard Dataset](https://jacquard.liris.cnrs.fr/) are supported.
-
-### Cornell Grasping Dataset
-
-1. Download the and extract [Cornell Grasping Dataset](http://pr.cs.cornell.edu/grasping/rect_data/data.php). 
-2. Convert the PCD files to depth images by running `python -m utils.dataset_processing.generate_cornell_depth <Path To Dataset>`
-
-### Jacquard Dataset
-
-1. Download and extract the [Jacquard Dataset](https://jacquard.liris.cnrs.fr/).
-
-## Pre-trained Models
-
-Some example pre-trained models for GG-CNN and GG-CNN2 can be downloaded from [here](https://github.com/dougsm/ggcnn/releases/tag/v0.1).  The models are trained on the Cornell grasping
-dataset using the depth images.  Each zip file contains 1) the full saved model from `torch.save(model)` and 2) the weights state dict from `torch.save(model.state_dict())`. 
-
-For example loading GG-CNN (replace ggcnn with ggcnn2 as required):
-
-```bash
-# Enter the directory where you cloned this repo
-cd /path/to/ggcnn
-
-# Download the weights
-wget https://github.com/dougsm/ggcnn/releases/download/v0.1/ggcnn_weights_cornell.zip
-
-# Unzip the weights.
-unzip ggcnn_weights_cornell.zip
-
-# Load the weights in python, e.g.
-python
->>> import torch
-
-# Option 1) Load the model directly.
-# (this may print warning based on the installed version of python)
->>> model = torch.load('ggcnn_weights_cornell/ggcnn_epoch_23_cornell')
->>> model
-
-GGCNN(
-  (conv1): Conv2d(1, 32, kernel_size=(9, 9), stride=(3, 3), padding=(3, 3))
-  (conv2): Conv2d(32, 16, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2))
-  (conv3): Conv2d(16, 8, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-  (convt1): ConvTranspose2d(8, 8, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
-  (convt2): ConvTranspose2d(8, 16, kernel_size=(5, 5), stride=(2, 2), padding=(2, 2), output_padding=(1, 1))
-  (convt3): ConvTranspose2d(16, 32, kernel_size=(9, 9), stride=(3, 3), padding=(3, 3), output_padding=(1, 1))
-  (pos_output): Conv2d(32, 1, kernel_size=(2, 2), stride=(1, 1))
-  (cos_output): Conv2d(32, 1, kernel_size=(2, 2), stride=(1, 1))
-  (sin_output): Conv2d(32, 1, kernel_size=(2, 2), stride=(1, 1))
-  (width_output): Conv2d(32, 1, kernel_size=(2, 2), stride=(1, 1))
-)
-
-
-# Option 2) Instantiate a model and load the weights.
->>> from models.ggcnn import GGCNN
->>> model = GGCNN()
->>> model.load_state_dict(torch.load('ggcnn_weights_cornell/ggcnn_epoch_23_cornell_statedict.pt'))
-
-<All keys matched successfully>
-
-```
-
-## Training
-
-Training is done by the `train_ggcnn.py` script.  Run `train_ggcnn.py --help` to see a full list of options, such as dataset augmentation and validation options.
-
-Some basic examples:
-
-```bash
-# Train GG-CNN on Cornell Dataset
-python train_ggcnn.py --description training_example --network ggcnn --dataset cornell --dataset-path <Path To Dataset>
-
-# Train GG-CNN2 on Jacquard Datset
-python train_ggcnn.py --description training_example2 --network ggcnn2 --dataset jacquard --dataset-path <Path To Dataset>
-```
-
-Trained models are saved in `output/models` by default, with the validation score appended.
-
-## Evaluation/Visualisation
-
-Evaluation or visualisation of the trained networks are done using the `eval_ggcnn.py` script.  Run `eval_ggcnn.py --help` for a full set of options.
-
-Important flags are:
-* `--iou-eval` to evaluate using the IoU between grasping rectangles metric.
-* `--jacquard-output` to generate output files in the format required for simulated testing against the Jacquard dataset.
-* `--vis` to plot the network output and predicted grasping rectangles.
-
-For example:
-
-```bash
-python eval_ggcnn.py --network <Path to Trained Network> --dataset jacquard --dataset-path <Path to Dataset> --jacquard-output --iou-eval
-```
-
-
-## Running on a Robot
-
-Our ROS implementation for running the grasping system see [https://github.com/dougsm/mvp_grasp](https://github.com/dougsm/mvp_grasp).
-
-The original implementation for running experiments on a Kinva Mico arm can be found in the repository [https://github.com/dougsm/ggcnn_kinova_grasping](https://github.com/dougsm/ggcnn_kinova_grasping).
+환경: Windows, Python 3.14 venv, PyTorch, MuJoCo 3.x, gymnasium, stable-baselines3.

@@ -1,105 +1,101 @@
-# Project status / handoff
+# 진행 상황 / 인계 메모 (2026-09-30 기준)
 
-Monocular (no-depth) RGB grasp detection on SO-101 + AmazingHand, low-cost.
-Everything below is in this repo on `master`.
+저가형 SO-101 + AmazingHand에서 깊이 센서 없이 RGB 단안으로 파지를 검출·실행하는 프로젝트입니다.
+정리된 결과는 **[RESULTS.md](RESULTS.md)**, 이 파일은 작업용 인계 메모입니다.
 
-> **Portfolio-facing summary of finished results: [`RESULTS.md`](RESULTS.md).**
-> This file is the working handoff; a few sections below predate the final runs.
+## 1. 파지 모델 (Cornell 사전학습) — 완료
 
-## 1. Models (pretraining on Cornell) — DONE
+**사용 모델은 GR-ConvNet입니다.** GG-CNN(포크 원본 모델)은 초기에 비교용으로만 학습했습니다.
 
-| model | input | folder | clean eval IoU (89-img val, no aug) |
+| 모델 | 입력 | 폴더 | 검증 IoU (89장, 증강 없음) |
 |---|---|---|---|
-| GG-CNN | depth | `output/models/260901_1924_training_example/` epoch 29 | 0.798 |
+| GG-CNN | 깊이 | `output/models/260901_1924_training_example/` epoch 29 | 0.798 |
 | GG-CNN | RGB | `output/models/260902_1343_ggcnn_rgb1_d0/` epoch 22 | 0.854 |
 | **GR-ConvNet** | **RGB** | `output/models/260903_1112_grconvnet_rgb1_d0/` **epoch 13** | **0.955** |
 
-**Deployed model = `output/models/final_grconvnet_rgb1_d0/weights.pt`** (GR-ConvNet RGB,
-trained on 95 % of Cornell, epoch 22; see that folder's `MODEL.md`). `eval_ggcnn.load_network`
-now auto-detects the architecture from the state-dict keys, so a bare `weights.pt` loads fine.
+- **배포 모델 = `output/models/final_grconvnet_rgb1_d0/weights.pt`** (Cornell 95%로 학습, epoch 22, 폴더의 `MODEL.md` 참고).
+  `eval_ggcnn.load_network`가 가중치 키로 구조를 자동 판별합니다.
+- 5-fold 교차검증: 0.944 / 0.831 / 0.843 / 0.944 / 0.955 → **평균 0.903, 표준편차 0.054**.
+  단일 분할 0.955는 낙관적이므로 평균 ± 표준편차를 인용합니다.
+- RGB만으로 깊이 입력과 비슷하거나 더 좋습니다 → "깊이 센서 불필요" 주장의 근거.
+- 팀원 이미지 103장으로 파인튜닝을 시도했으나 IoU가 0.21을 넘지 못했습니다(라벨 문제로 추정, 미해결).
 
-RGB-only is competitive with / beats depth on Cornell -> supports the "no depth sensor" thesis.
-
-### Cross-validation (image-wise 5-fold, `run_cv.ps1 -Network grconvnet ... -Epochs 25`) — DONE
-`output/cv_grconvnet_rgb1_d0_e25.txt` — folds 0.944 / 0.831 / 0.843 / 0.944 / 0.955,
-**mean IoU 0.903, sd 0.054**. Single-split 0.955 was optimistic; quote the mean ± sd.
-(Ran via a Windows Scheduled Task so it survived window-close / sleep.)
-
-## 2. Vision pipeline scripts — DONE (need calibration data to be live)
+## 2. 비전 파이프라인 — 완료
 
 ```
-camera frame -> predict_grasp.py -> (u,v,theta,width,quality)
-             -> pixel_to_world.py -> base-frame xyz + yaw + width_m + T_base_grasp
+카메라 프레임 -> predict_grasp.py -> (u, v, theta, width, quality)
+             -> pixel_to_world.py -> 로봇 기준 xyz + yaw + 폭
 ```
 
-| script | what |
+카메라 캘리브레이션(`camera_calib.py`, `extrinsic_click.py`) 결과는 `output/cam.json`.
+실험 2(학습 vs 기하학 각도)는 RESULTS.md 2장.
+
+## 3. 로봇 드라이버 — 동작함
+
+`robot/robot_control.py` (`Config`, `SO101`, `AmazingHand`)
+
+| | 포트 | 서보 | 비고 |
+|---|---|---|---|
+| 팔 | COM9 | STS3215, id 1~5 (pan, lift, elbow, wrist_flex, wrist_roll) | 1M baud, protocol_end 0 |
+| 손 | COM8 | SCS 계열, id 1~8 (검지 1·2 / 중지 3·4 / 약지 5·6 / 엄지 7·8) | protocol_end 1 |
+
+알아둘 것:
+- **scservo_sdk 바이트 순서가 전역 변수**입니다. 팔과 손을 한 프로세스에서 쓰면 서로 통신을 깨뜨리므로
+  `FeetechBus._sync_end()`로 매 통신 전에 다시 설정합니다.
+- **Torque_Limit(레지스터 48)이 0으로 출하**됩니다. 연결 시 값을 씁니다.
+- 토크를 끈 동안에도 Goal_Position이 남아 있어, 켜기 전에 현재 위치로 맞춥니다(급발진 방지).
+- **wrist_roll(id5)에 토크를 켜면 id2·4·5가 함께 리셋됩니다.** 토크 한계 200으로도 재현되는 전기 결함입니다.
+  `auto_collect.py`는 기본으로 id5를 끄고(`--with-roll`로 켬) roll을 −1.0°로 고정해 기록합니다.
+  **배선 점검·수리가 필요합니다.**
+
+## 4. 실물 캘리브레이션 (픽셀 → 관절각) — 진행 중
+
+`robot/calib/` — 체커보드·FK 없이 픽셀 (u, v) → 관절각을 2차 다항식으로 맞춥니다.
+
+```
+python -m robot.calib.auto_collect --teach   # 1. 손으로 작업 영역 네 귀퉁이 + 가운데를 짚음 (완료, teach.json)
+python -m robot.calib.auto_collect --probe   # 2. 어느 쪽이 "아래"인지 확인 (몸 쪽 가까운 곳에서)
+python -m robot.calib.auto_collect --run     # 3. 격자를 돌며 테이블 접촉 자동 기록 -> points.csv
+python robot\calib\solve.py                  # 4. 다항식 풀기 -> handeye.json
+```
+
+- 막대(젓가락) 끝의 빨간 테이프를 `marker.py`가 찾습니다.
+- 손 피치 일정 모델: lift + elbow + wrist_flex ≈ 166°. `solve.py`가 "손목 상수" / "피치 상수" 중 맞는 쪽을 자동 선택합니다.
+- 다음 단계: `--probe` → `--run` → `solve.py` → 자로 검증 → `collect_theta.py`(파지 각도용 roll).
+
+### 팀원(A팀) 캘리브레이션
+
+- 팀원 폴더(`leader-follower-arm-grasp`)의 LeRobot 기반 캘리브레이션: 22점, LOO 1.23°, 안 본 자리 손끝 오차 평균 12 mm.
+- `python -m robot.calib.convert_teammate` → `robot/calib/handeye_teammate.json` (우리 각도 기준으로 변환).
+- **미검증.** 같은 픽셀에서 우리 실측과 비교하면 wrist_roll은 1~2°로 일치하지만 lift·wrist_flex는 약 100° 어긋납니다.
+  (a) 우리 teach 이후 서보 홈 오프셋이 다시 설정됐거나 (b) 카메라가 움직인 것.
+  막대 끝을 테이블 2~3곳에 대고 관절각·픽셀을 읽어 비교하면 가릴 수 있습니다(토크 없이 읽기만).
+
+## 5. 시뮬레이션
+
+| 폴더 | 내용 |
 |---|---|
-| `predict_grasp.py` | single image -> grasp dict(s); `--json` writes them for the next stage |
-| `pixel_to_world.py` | ray-plane intersection with the table plane; needs a JSON config (K, dist, T_base_cam, table_plane). `--make-template`, `--selftest` |
-| `grasp_geometry.py` | non-learned angle baseline (PCA / minAreaRect) |
-| `compare_grasp_angles.py` | experiment 2: learned vs geometric vs GT angle on Cornell val |
-| `camera_calib.py` | capture checkerboard + `cv2.calibrateCamera` -> writes K/dist into the pixel_to_world config |
+| `robot/sim/` | 공식 AmazingHand(운동학 손가락)로 전체 파이프라인 데모. RESULTS.md 5장 |
+| `robot/rl/` | 힘이 전달되는 AmazingHand + 355 ml 캔 잔차 PPO. RESULTS.md 6장 |
 
-### Experiment 2 result (GR-ConvNet vs geometry, Cornell val, angle error deg)
-learned vs GT: 83% within 30 deg; geometric (PCA) vs GT: 67%; minAreaRect baseline is buggy (ignore).
-Learned beats geometry; gap is on non-elongated objects.
+강화학습 최종 모델: `output/rl/ppo_can/` (서 있는 캔 79%, 누운 캔 100%).
+이전 시도 v1~v5는 `output/rl/ppo_can_v*`에 보관.
 
-## 3. Robot driver — WORKING (tuning left)
-
-`robot/robot_control.py` (`Config`, `SO101`, `AmazingHand`), `robot/demo_move.py`, `robot/drive.py`.
-
-Confirmed hardware:
-- **Arm**: COM9, Feetech STS3215, ids 1-5 bottom->top
-  (1 shoulder_pan, 2 shoulder_lift, 3 elbow_flex, 4 wrist_flex, 5 wrist_roll). 1M baud.
-  home `[0,-88,89,-93,154]`, look `[-1,9,89,-93,154]` (measured).
-- **Hand**: COM8, Feetech **SC090** (SCS series, 1024 steps/rev, **protocol_end=1**), ids 1-8
-  (index 1,2 / middle 3,4 / ring 5,6 / thumb 7,8). Fingers are **differential**:
-  two servos opposite sign = flex, same sign = splay. Flex confirmed `{a:+90, b:-60}`.
-
-Run:
 ```
-python robot\demo_move.py --dry-run    # sim
-python robot\demo_move.py --hand-only
-python robot\demo_move.py --arm-only
-python robot\demo_move.py              # both
-python robot\robot_control.py --jog / --hand-jog   # keyboard pose building
+python -m robot.rl.view_hand                        # 장면을 뷰어로 (슬라이더로 관절 조작)
+python -m robot.rl.eval_policy --view --mode mixed  # 학습된 정책 재생
 ```
 
-Left to tune: hand preset angles (open/pinch/power), thumb sign if it opens instead of closing,
-arm joint `sign` if any + direction is inverted.
+## 6. 다음 단계
 
-Known bus issue: this scservo_sdk build's reads are flaky (retry logic added); torque-disable
-is unreliable -> use `--jog` (torque on) not `--read-pose` for posing.
+1. wrist_roll(id5) 배선 수리 → `auto_collect.py`를 `--with-roll`로 다시 확인.
+2. 실물 캘리브레이션 완료(4장), 팀원 캘리브레이션 검증.
+3. `grasp_and_execute.py --backend real`로 실물 파지 조정 → 물체별 성공률 측정(이 프로젝트의 핵심 숫자).
+4. 가득 찬 캔(약 370 g), 다른 물체로 강화학습 확장. 서 있는 캔이 기울어지는 문제 개선.
 
-## 4. Camera placement — DECISION PENDING
+## 7. 인프라 메모
 
-Current mount (post at table edge, looking across) is **not good**: oblique side view,
-poor depth resolution on the key axis, arm/hand in frame.
-
-Do instead, best first:
-1. Overhead boom over the workspace centre, pointing straight down (matches Cornell).
-2. Elevated behind/beside the robot (~50 cm, tilted down 45-60 deg), looking the same
-   direction the arm reaches.
-Never: low + horizontal, or across the table.
-After mounting: rigid, then `camera_calib.py` for K, then hand-eye for `T_base_cam`.
-
-## 5. Next steps
-
-1. Finish CV -> report mean +/- sd.
-2. Fix camera placement (section 4).
-3. `camera_calib.py run ...` -> K into `output/cam.json`.
-4. `hand_eye_calibrate.py` (not written yet) -> `T_base_cam` into `output/cam.json`.
-   Eye-to-hand: ChArUco on the hand, ~20 arm poses, `cv2.calibrateHandEye`.
-5. Add IK: `SO101.ee_pose_to_joints` is stubbed for ikpy + the SO-101 URDF.
-6. Collect ~100-200 RGB images of the real objects, label grasps (Cornell 4-corner format),
-   fine-tune GR-ConvNet (`train_ggcnn.py --resume <grconvnet ckpt> --dataset-path <your data>`).
-7. Wire `drive.py --pick` target to: capture -> predict_grasp -> pixel_to_world -> IK.
-   That is `grasp_and_execute.py`.
-8. Run N grasp trials, report success rate + failure modes (this is the actual contribution).
-
-## 6. Infra notes
-
-- `run_train.ps1` / `run_cv.ps1`: auto-resume via `--save-folder` + `ckpt_last.pt`.
-  Re-run the same command after a crash/close to continue.
-- This machine is **Modern Standby** — background/detached jobs get killed after ~20-60 min
-  when idle. Long jobs must run in a foreground terminal window, machine kept awake, AC power.
+- `run_train.ps1` / `run_cv.ps1`: `--save-folder` + `ckpt_last.pt`로 자동 재개. 중단되면 같은 명령을 다시 실행.
+- 이 노트북은 **Modern Standby**라 유휴 상태에서 백그라운드 작업이 20~60분 뒤 죽을 수 있습니다.
+  긴 작업은 전원 연결, 절전 해제 상태에서 돌립니다.
+- 카메라는 2번(USB, `cv2.CAP_DSHOW` 필요). 한글 경로 이미지는 `cv2.imread` 대신 `np.fromfile` + `cv2.imdecode`.
