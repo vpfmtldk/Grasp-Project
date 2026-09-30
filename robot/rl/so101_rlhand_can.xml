@@ -1,0 +1,328 @@
+<mujoco model="so_arm100">
+  <compiler angle="radian" meshdir="../sim/"/>
+
+  <option impratio="10" cone="elliptic"/>
+
+  <visual>
+    <global offheight="640"/>
+  </visual>
+
+  <default>
+    <default class="so_arm100">
+      <joint armature="0.1" frictionloss="0.1"/>
+      <general forcerange="-3.5 3.5" biastype="affine" gainprm="50" biasprm="0 -50 1"/>
+      <default class="Rotation">
+        <joint range="-1.92 1.92" axis="0 1 0"/>
+      </default>
+      <default class="Pitch">
+        <joint range="-3.32 0.174" axis="1 0 0"/>
+      </default>
+      <default class="Elbow">
+        <joint range="-0.174 3.14" axis="1 0 0"/>
+      </default>
+      <default class="Wrist_Pitch">
+        <joint range="-1.66 1.66" axis="1 0 0"/>
+      </default>
+      <default class="Wrist_Roll">
+        <joint range="-2.79 2.79" axis="0 1 0"/>
+      </default>
+      <default class="Jaw">
+        <joint range="-0.174 1.75"/>
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" material="white"/>
+        <default class="motor_visual">
+          <geom material="black"/>
+        </default>
+      </default>
+      <default class="collision">
+        <geom type="mesh" group="3" material="white"/>
+        <default class="finger_collision">
+          <geom type="box" solref="0.01" solimp="2 1 0.01"/>
+        </default>
+      </default>
+    </default>
+    <default class="h_main"/>
+  </default>
+
+  <asset>
+    <material name="white"/>
+    <material name="black" rgba="0.1 0.1 0.1 1"/>
+    <mesh name="Base" file="so_arm100/assets/Base.stl"/>
+    <mesh name="Base_Motor" file="so_arm100/assets/Base_Motor.stl"/>
+    <mesh name="Rotation_Pitch" file="so_arm100/assets/Rotation_Pitch.stl"/>
+    <mesh name="Rotation_Pitch_Motor" file="so_arm100/assets/Rotation_Pitch_Motor.stl"/>
+    <mesh name="Upper_Arm" file="so_arm100/assets/Upper_Arm.stl"/>
+    <mesh name="Upper_Arm_Motor" file="so_arm100/assets/Upper_Arm_Motor.stl"/>
+    <mesh name="Lower_Arm" file="so_arm100/assets/Lower_Arm.stl"/>
+    <mesh name="Lower_Arm_Motor" file="so_arm100/assets/Lower_Arm_Motor.stl"/>
+    <mesh name="Wrist_Pitch_Roll" file="so_arm100/assets/Wrist_Pitch_Roll.stl"/>
+    <mesh name="Wrist_Pitch_Roll_Motor" file="so_arm100/assets/Wrist_Pitch_Roll_Motor.stl"/>
+    <mesh name="Fixed_Jaw" file="so_arm100/assets/Fixed_Jaw.stl"/>
+    <mesh name="Fixed_Jaw_Motor" file="so_arm100/assets/Fixed_Jaw_Motor.stl"/>
+    <mesh name="Fixed_Jaw_Collision_1" file="so_arm100/assets/Fixed_Jaw_Collision_1.stl"/>
+    <mesh name="Fixed_Jaw_Collision_2" file="so_arm100/assets/Fixed_Jaw_Collision_2.stl"/>
+    <mesh name="Moving_Jaw" file="so_arm100/assets/Moving_Jaw.stl"/>
+    <mesh name="Moving_Jaw_Collision_1" file="so_arm100/assets/Moving_Jaw_Collision_1.stl"/>
+    <mesh name="Moving_Jaw_Collision_2" file="so_arm100/assets/Moving_Jaw_Collision_2.stl"/>
+    <mesh name="Moving_Jaw_Collision_3" file="so_arm100/assets/Moving_Jaw_Collision_3.stl"/>
+    <mesh name="h_bushing_0608_04" content_type="model/stl" file="ah_official/assets/bushing_0608_04.stl"/>
+    <mesh name="h_distal" content_type="model/stl" file="ah_official/assets/distal.stl"/>
+    <mesh name="h_distal_shell" content_type="model/stl" file="ah_official/assets/distal_shell.stl"/>
+    <mesh name="h_finger_frame_1" content_type="model/stl" file="ah_official/assets/finger_frame_1.stl"/>
+    <mesh name="h_finger_frame_2" content_type="model/stl" file="ah_official/assets/finger_frame_2.stl"/>
+    <mesh name="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" content_type="model/stl" file="ah_official/assets/parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999.stl"/>
+    <mesh name="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" content_type="model/stl" file="ah_official/assets/parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b.stl"/>
+    <mesh name="h_proximal" content_type="model/stl" file="ah_official/assets/proximal.stl"/>
+    <mesh name="h_proximal_shell" content_type="model/stl" file="ah_official/assets/proximal_shell.stl"/>
+    <mesh name="h_r_hand_plate" content_type="model/stl" file="ah_official/assets/r_hand_plate.stl"/>
+    <mesh name="h_r_wrist_interface" content_type="model/stl" file="ah_official/assets/r_wrist_interface.stl"/>
+    <mesh name="h_scs0009" content_type="model/stl" file="ah_official/assets/scs0009.stl"/>
+    <mesh name="h_std00447_thermoplastique_m2_5x6__configuration_default" content_type="model/stl" file="ah_official/assets/std00447_thermoplastique_m2_5x6__configuration_default.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="Base" childclass="so_arm100" pos="0 0.13 0" gravcomp="1">
+      <geom class="visual" mesh="Base"/>
+      <geom class="motor_visual" mesh="Base_Motor"/>
+      <geom class="collision" mesh="Base"/>
+      <body name="Rotation_Pitch" pos="0 -0.0452 0.0165" quat="0.707105 0.707108 0 0" gravcomp="1">
+        <inertial pos="-9.07886e-05 0.0590972 0.031089" quat="0.363978 0.441169 -0.623108 0.533504" mass="0.119226" diaginertia="5.94278e-05 5.89975e-05 3.13712e-05"/>
+        <joint name="Rotation" class="Rotation"/>
+        <geom class="visual" mesh="Rotation_Pitch"/>
+        <geom class="motor_visual" mesh="Rotation_Pitch_Motor"/>
+        <geom class="collision" mesh="Rotation_Pitch"/>
+        <body name="Upper_Arm" pos="0 0.1025 0.0306" quat="0.707109 0.707105 0 0" gravcomp="1">
+          <inertial pos="-1.72052e-05 0.0701802 0.00310545" quat="0.50104 0.498994 -0.493562 0.50632" mass="0.162409" diaginertia="0.000213312 0.000167164 7.01522e-05"/>
+          <joint name="Pitch" class="Pitch"/>
+          <geom class="visual" mesh="Upper_Arm"/>
+          <geom class="motor_visual" mesh="Upper_Arm_Motor"/>
+          <geom class="collision" mesh="Upper_Arm"/>
+          <body name="Lower_Arm" pos="0 0.11257 0.028" quat="0.707109 -0.707105 0 0" gravcomp="1">
+            <inertial pos="-0.00339604 0.00137796 0.0768007" quat="0.701995 0.0787996 0.0645626 0.704859" mass="0.147968" diaginertia="0.000138803 0.000107748 4.84242e-05"/>
+            <joint name="Elbow" class="Elbow"/>
+            <geom class="visual" mesh="Lower_Arm"/>
+            <geom class="motor_visual" mesh="Lower_Arm_Motor"/>
+            <geom class="collision" mesh="Lower_Arm"/>
+            <body name="Wrist_Pitch_Roll" pos="0 0.0052 0.1349" quat="0.707109 -0.707105 0 0" gravcomp="1">
+              <inertial pos="-0.00852653 -0.0352279 -2.34622e-05" quat="-0.0522806 0.705235 0.0549524 0.704905" mass="0.0661321" diaginertia="3.45403e-05 2.39041e-05 1.94704e-05"/>
+              <joint name="Wrist_Pitch" class="Wrist_Pitch"/>
+              <geom class="visual" mesh="Wrist_Pitch_Roll"/>
+              <geom class="motor_visual" mesh="Wrist_Pitch_Roll_Motor"/>
+              <geom class="collision" mesh="Wrist_Pitch_Roll"/>
+              <body name="Fixed_Jaw" pos="0 -0.0601 0" quat="0.707109 0 0.707105 0" gravcomp="1">
+                <inertial pos="0.00552377 -0.0280167 0.000483583" quat="0.41836 0.620891 -0.350644 0.562599" mass="0.0929859" diaginertia="5.03136e-05 4.64098e-05 2.72961e-05"/>
+                <joint name="Wrist_Roll" class="Wrist_Roll"/>
+                <site name="jaw_tool" size="0.004" pos="-0.005 -0.085 0" rgba="1 0 0 1"/>
+                <body name="h_palm" pos="0 -0.0025 0" quat="0.707105 0.707108 0 0" gravcomp="1">
+                  <geom pos="-0.022075 0.03055 0.0698" quat="0.707107 0 0 0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 0.03055 0.0698" quat="0.707107 0 0 0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_1"/>
+                  <geom pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_1"/>
+                  <geom pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_r_hand_plate"/>
+                  <geom pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_r_hand_plate"/>
+                  <geom pos="-0.00443741 0.0191037 0.019125" quat="0.579228 -0.579228 0.40558 -0.40558" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.00443741 0.0191037 0.019125" quat="0.579228 -0.579228 0.40558 -0.40558" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.0115 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.0115 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.0115 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.0115 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.015 -0.0083 0.0961543" quat="0.525483 -0.473147 0.525483 -0.473147" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.015 -0.0083 0.0961543" quat="0.525483 -0.473147 0.525483 -0.473147" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.015 0.0245 0.1022" quat="0.5 -0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.015 0.0245 0.1022" quat="0.5 -0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.015 -0.0405 0.0851417" quat="0.555303 -0.437766 0.555303 -0.437766" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.015 -0.0405 0.0851417" quat="0.555303 -0.437766 0.555303 -0.437766" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.025 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.025 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="0.0280778 0.0245 0.0297" quat="0 0.573576 0.819152 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_2"/>
+                  <geom pos="0.0280778 0.0245 0.0297" quat="0 0.573576 0.819152 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.022075 -0.0109301 0.0632994" quat="0.706138 0.0370071 -0.0370071 0.706138" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 -0.0109301 0.0632994" quat="0.706138 0.0370071 -0.0370071 0.706138" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 0.01845 0.0698" quat="0.707107 0 0 0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 0.01845 0.0698" quat="0.707107 0 0 0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.0109 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.0109 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_2"/>
+                  <geom pos="-0.022075 0.00110358 0.0645642" quat="0.706138 0.0370071 -0.0370071 0.706138" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 0.00110358 0.0645642" quat="0.706138 0.0370071 -0.0370071 0.706138" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 -0.0388192 0.0522246" quat="0.702205 0.0831116 -0.0831116 0.702205" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 -0.0388192 0.0522246" quat="0.702205 0.0831116 -0.0831116 0.702205" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.0115 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_1"/>
+                  <geom pos="-0.0115 -0.0083 0.0961543" quat="0.473147 0.525483 -0.473147 -0.525483" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_1"/>
+                  <geom pos="0.0280778 0.0245 0.0262" quat="0.573576 0 0 0.819152" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="0.0280778 0.0245 0.0262" quat="0.573576 0 0 0.819152" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.022075 -0.0270535 0.0550493" quat="0.702205 0.0831116 -0.0831116 0.702205" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.022075 -0.0270535 0.0550493" quat="0.702205 0.0831116 -0.0831116 0.702205" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_r_wrist_interface"/>
+                  <geom pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_r_wrist_interface"/>
+                  <geom pos="-0.000298971 0.00773341 0.019125" quat="0.579228 -0.579228 0.40558 -0.40558" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.262745 0.282353 0.301961 1" density="0" mesh="h_scs0009"/>
+                  <geom pos="-0.000298971 0.00773341 0.019125" quat="0.579228 -0.579228 0.40558 -0.40558" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_scs0009"/>
+                  <geom pos="-0.025 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.025 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.025 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.025 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="0.0280778 0.0245 0.0162" quat="0 0.573576 0.819152 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.301961 0.301961 0.301961 1" density="0" mesh="h_bushing_0608_04"/>
+                  <geom pos="0.0280778 0.0245 0.0162" quat="0 0.573576 0.819152 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_bushing_0608_04"/>
+                  <geom pos="-0.0115 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_1"/>
+                  <geom pos="-0.0115 -0.0405 0.0851417" quat="0.437766 0.555303 -0.437766 -0.555303" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_1"/>
+                  <geom pos="0.0280778 0.0245 0.0297" quat="0 0.573576 0.819152 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_finger_frame_1"/>
+                  <geom pos="0.0280778 0.0245 0.0297" quat="0 0.573576 0.819152 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_finger_frame_1"/>
+                  <site name="h_tool" pos="0.0447776 -0.000303674 0.082252" rgba="1 0 0 0.8"/>
+                  <body name="h_f0_prox" pos="0.0154498 0.0196758 0.146691" quat="0.614871 -0.617306 -0.347721 -0.346349" gravcomp="1">
+                    <joint name="h_f0_j1" range="-0.83 1.05" armature="0.002" damping="0.05" pos="-0.0521581 -0.000118494 -0.019318" axis="0.00649933 0.00487255 0.999967"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 -0.707107 0.707107 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 -0.707107 0.707107 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_proximal"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal"/>
+                    <body name="h_f0_dist" pos="0.000370128 -0.00598857 0.00655" quat="0 0.999998 0.00198369 0" gravcomp="1">
+                      <joint name="h_f0_j2" range="-0.747 0.945" armature="0.001" damping="0.03" pos="-0.000346366 -0.00598999 0.00655" axis="0 0 -1"/>
+                      <geom pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_distal"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_distal_shell"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal_shell"/>
+                      <geom pos="0 0 0.00225" quat="0 -0.49277 0.870159 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <geom pos="0 0 0.00225" quat="0 -0.49277 0.870159 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <site name="h_f0_tip" size="0.003"/>
+                    </body>
+                  </body>
+                  <body name="h_f1_prox" pos="0.0154497 -0.0177483 0.139897" quat="0.646335 -0.58428 -0.329119 -0.364074" gravcomp="1">
+                    <joint name="h_f1_j1" range="-0.83 1.05" armature="0.002" damping="0.05" pos="-0.0520105 -7.89961e-06 0.00337914" axis="0.00650069 0.00487357 0.999967"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 0.707107 -0.707107 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 0.707107 -0.707107 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_proximal"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <body name="h_f1_dist" pos="0.000370109 -0.00598857 0.00655" quat="0 0.999998 0.00198215 0" gravcomp="1">
+                      <joint name="h_f1_j2" range="-0.747 0.945" armature="0.001" damping="0.03" pos="-0.000346366 -0.00598999 0.00655" axis="0 0 -1"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_distal"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal"/>
+                      <geom pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_distal_shell"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal_shell"/>
+                      <geom pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0 0 0.00225" quat="0 0.49277 -0.870159 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <geom pos="0 0 0.00225" quat="0 0.49277 -0.870159 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <site name="h_f1_tip" size="0.003"/>
+                    </body>
+                  </body>
+                  <body name="h_f2_prox" pos="0.0154496 -0.0555771 0.127277" quat="0.683164 -0.540756 -0.304603 -0.38482" gravcomp="1">
+                    <joint name="h_f2_j1" range="-0.83 1.05" armature="0.002" damping="0.05" pos="-0.0518721 9.59021e-05 0.0246754" axis="0.00650129 0.00487406 0.999967"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal_shell"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_proximal"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 -0.707107 0.707107 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 -0.707107 0.707107 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <body name="h_f2_dist" pos="0.000370106 -0.00598857 0.00655" quat="0 0.999998 0.00198184 0" gravcomp="1">
+                      <joint name="h_f2_j2" range="-0.747 0.945" armature="0.001" damping="0.03" pos="-0.000346366 -0.00598999 0.00655" axis="0 0 -1"/>
+                      <geom pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 -0.00735" quat="0.870159 0 0 0.49277" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165558 0.01185" quat="0 -0.870159 -0.49277 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0 0 0.00225" quat="0 -0.49277 0.870159 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <geom pos="0 0 0.00225" quat="0 -0.49277 0.870159 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_distal"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_distal_shell"/>
+                      <geom pos="-0.0449404 0.0207565 0.00225" quat="0.348441 -0.615296 -0.348441 -0.615296" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal_shell"/>
+                      <site name="h_f2_tip" size="0.003"/>
+                    </body>
+                  </body>
+                  <body name="h_f3_prox" pos="0.0682358 0.0442502 0.0566493" quat="0.638254 0.703585 -0.070486 0.304356" gravcomp="1">
+                    <joint name="h_f3_j1" range="-0.83 1.05" armature="0.002" damping="0.05" pos="-0.051914 6.44437e-05 0.0182267" axis="0.00649863 0.00487211 0.999967"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 0.707107 -0.707107 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 0.01685" quat="0 0.707107 -0.707107 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="0 0 0.00515" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00515" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal_shell"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_proximal"/>
+                    <geom pos="-0.052 0 0.00525" quat="0.5 0.5 0.5 -0.5" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_proximal"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <geom pos="-0.022 -0.004 -0.00655" quat="0.707107 0 0 -0.707107" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                    <body name="h_f3_dist" pos="0.000370046 -0.00598858 0.00655" quat="0 0.999998 0.00197817 0" gravcomp="1">
+                      <joint name="h_f3_j2" range="-0.747 0.945" armature="0.001" damping="0.03" pos="-0.00034635 -0.00599 0.00655" axis="0 0 -1"/>
+                      <geom pos="-0.0449404 0.0207563 0.00225" quat="0.348442 -0.615295 -0.348442 -0.615295" type="mesh" contype="0" conaffinity="0" group="2" rgba="1 1 1 1" density="0" mesh="h_distal_shell"/>
+                      <geom pos="-0.0449404 0.0207563 0.00225" quat="0.348442 -0.615295 -0.348442 -0.615295" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal_shell"/>
+                      <geom pos="0.0194851 -0.0165557 0.01185" quat="0 0.870159 0.492771 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165557 0.01185" quat="0 0.870159 0.492771 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0 0 0.00225" quat="0 0.492771 -0.870159 0" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.603922 0.647059 0.686275 1" density="0" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <geom pos="0 0 0.00225" quat="0 0.492771 -0.870159 0" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"/>
+                      <geom pos="-0.0449404 0.0207563 0.00225" quat="0.348442 -0.615295 -0.348442 -0.615295" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.8 0.8 0.8 1" density="0" mesh="h_distal"/>
+                      <geom pos="-0.0449404 0.0207563 0.00225" quat="0.348442 -0.615295 -0.348442 -0.615295" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_distal"/>
+                      <geom pos="0.0194851 -0.0165557 -0.00735" quat="0.870159 0 0 0.492771" type="mesh" contype="0" conaffinity="0" group="2" rgba="0.901961 0.901961 0.901961 1" density="0" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <geom pos="0.0194851 -0.0165557 -0.00735" quat="0.870159 0 0 0.492771" type="mesh" contype="2" conaffinity="0" group="3" friction="1.5 0.02 0.001" rgba="0 0 0 0" density="1100" mesh="h_std00447_thermoplastique_m2_5x6__configuration_default"/>
+                      <site name="h_f3_tip" size="0.003"/>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <camera name="side_cam" quat="0.779699 0.495603 0.205285 0.322962" pos="0.42 -0.42 0.3" fovy="50"/>
+    <light pos="0.3 -0.3 0.8" dir="-0.331295 0.331295 -0.883452" diffuse="0.8 0.8 0.8"/>
+    <body name="table" pos="0 -0.1 -0.02">
+      <geom size="0.25 0.25 0.02" type="box" conaffinity="3" friction="1 0.02 0.001" rgba="0.95 0.95 0.95 1"/>
+    </body>
+    <body name="can" pos="0 -0.11 0.061">
+      <joint name="can_free" type="free"/>
+      <geom name="can" size="0.033 0.061" type="cylinder" conaffinity="3" friction="1.2 0.02 0.001" rgba="0.85 0.1 0.1 1" mass="0.015"/>
+      <site name="can_center" size="0.004"/>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="Base" body2="Rotation_Pitch"/>
+  </contact>
+
+  <equality>
+    <joint joint1="h_f0_j2" joint2="h_f0_j1" polycoef="0 0.9 0 0 0"/>
+    <joint joint1="h_f1_j2" joint2="h_f1_j1" polycoef="0 0.9 0 0 0"/>
+    <joint joint1="h_f2_j2" joint2="h_f2_j1" polycoef="0 0.9 0 0 0"/>
+    <joint joint1="h_f3_j2" joint2="h_f3_j1" polycoef="0 0.9 0 0 0"/>
+  </equality>
+
+  <actuator>
+    <general name="Rotation" class="Rotation" joint="Rotation" ctrlrange="-1.92 1.92"/>
+    <general name="Pitch" class="Pitch" joint="Pitch" ctrlrange="-3.32 0.174"/>
+    <general name="Elbow" class="Elbow" joint="Elbow" ctrlrange="-0.174 3.14"/>
+    <general name="Wrist_Pitch" class="Wrist_Pitch" joint="Wrist_Pitch" ctrlrange="-1.66 1.66"/>
+    <general name="Wrist_Roll" class="Wrist_Roll" joint="Wrist_Roll" ctrlrange="-2.79 2.79"/>
+    <general name="h_f0" joint="h_f0_j1" ctrlrange="-0.83 1.05" ctrllimited="true" forcelimited="true" forcerange="-0.4 0.4" biastype="affine" gainprm="3" biasprm="0 -3"/>
+    <general name="h_f1" joint="h_f1_j1" ctrlrange="-0.83 1.05" ctrllimited="true" forcelimited="true" forcerange="-0.4 0.4" biastype="affine" gainprm="3" biasprm="0 -3"/>
+    <general name="h_f2" joint="h_f2_j1" ctrlrange="-0.83 1.05" ctrllimited="true" forcelimited="true" forcerange="-0.4 0.4" biastype="affine" gainprm="3" biasprm="0 -3"/>
+    <general name="h_f3" joint="h_f3_j1" ctrlrange="-0.83 1.05" ctrllimited="true" forcelimited="true" forcerange="-0.4 0.4" biastype="affine" gainprm="3" biasprm="0 -3"/>
+  </actuator>
+</mujoco>
