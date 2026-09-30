@@ -1,4 +1,4 @@
-# 진행 상황 / 인계 메모 (2026-09-30 기준)
+# 진행 상황 / 인계 메모 (2026-09-30 저녁 기준)
 
 저가형 SO-101 + AmazingHand에서 깊이 센서 없이 RGB 단안으로 파지를 검출·실행하는 프로젝트입니다.
 정리된 결과는 **[RESULTS.md](RESULTS.md)**, 이 파일은 작업용 인계 메모입니다.
@@ -44,32 +44,31 @@
   `FeetechBus._sync_end()`로 매 통신 전에 다시 설정합니다.
 - **Torque_Limit(레지스터 48)이 0으로 출하**됩니다. 연결 시 값을 씁니다.
 - 토크를 끈 동안에도 Goal_Position이 남아 있어, 켜기 전에 현재 위치로 맞춥니다(급발진 방지).
-- **wrist_roll(id5)에 토크를 켜면 id2·4·5가 함께 리셋됩니다.** 토크 한계 200으로도 재현되는 전기 결함입니다.
-  `auto_collect.py`는 기본으로 id5를 끄고(`--with-roll`로 켬) roll을 −1.0°로 고정해 기록합니다.
-  **배선 점검·수리가 필요합니다.**
+- **wrist_roll(id5)에 토크를 켜면 id2·4·5가 함께 재부팅됩니다.** 토크 한계 200, 다른 서보 무부하,
+  **케이블 교체 후에도** 동일 → id5 서보 자체의 모터 쪽 고장. `Config.arm_disabled_ids = [5]`로 기본 비활성.
+  **예비 STS3215로 교체 필요**(새 서보는 ID를 5로 설정). 교체 후 `python -m robot.roll_check`.
+- 각도 기준은 **팀원(LeRobot) 기준**입니다: 모든 관절 `home_steps = 2048`, 팀원 실측 소프트 리밋, 팀원 파킹 자세.
 
-## 4. 실물 캘리브레이션 (픽셀 → 관절각) — 진행 중
+## 4. 실물 캘리브레이션 · 파지 — 동작함
 
-`robot/calib/` — 체커보드·FK 없이 픽셀 (u, v) → 관절각을 2차 다항식으로 맞춥니다.
+**캘리브레이션 = 팀원 결과** (`robot/calib/handeye_teammate.json`, 22점, LOO 1.23°, 손끝 평균 12 mm).
+`robot/team_fk.py`가 손끝을 25 mm 띄워 테이블을 누르지 않게 합니다. 우리 자체 수집 데이터는 옛 각도
+기준이라 `*_OLDFRAME`으로 보관만 합니다.
 
 ```
-python -m robot.calib.auto_collect --teach   # 1. 손으로 작업 영역 네 귀퉁이 + 가운데를 짚음 (완료, teach.json)
-python -m robot.calib.auto_collect --probe   # 2. 어느 쪽이 "아래"인지 확인 (몸 쪽 가까운 곳에서)
-python -m robot.calib.auto_collect --run     # 3. 격자를 돌며 테이블 접촉 자동 기록 -> points.csv
-python robot\calib\solve.py                  # 4. 다항식 풀기 -> handeye.json
+# 한 번 (확인 창: READY -> PLAN -> HOVER)
+python grasp_and_execute.py --backend real --network output/models/final_grconvnet_rgb1_d0/weights.pt --grip power
+# 반복 측정 (RESULT에서 s/f 입력, CSV 기록)
+python grasp_and_execute.py --backend real --network ... --grip power --real-trials 10
+# 자동 모드 (물체만 옮기면 알아서 잡고 카메라로 판정)
+python grasp_and_execute.py --backend real --network ... --grip power --auto
+# 중단 후 복귀 (손 펴기 -> 수직으로 들기 -> 파킹)
+python -m robot.recover
 ```
 
-- 막대(젓가락) 끝의 빨간 테이프를 `marker.py`가 찾습니다.
-- 손 피치 일정 모델: lift + elbow + wrist_flex ≈ 166°. `solve.py`가 "손목 상수" / "피치 상수" 중 맞는 쪽을 자동 선택합니다.
-- 다음 단계: `--probe` → `--run` → `solve.py` → 자로 검증 → `collect_theta.py`(파지 각도용 roll).
-
-### 팀원(A팀) 캘리브레이션
-
-- 팀원 폴더(`leader-follower-arm-grasp`)의 LeRobot 기반 캘리브레이션: 22점, LOO 1.23°, 안 본 자리 손끝 오차 평균 12 mm.
-- `python -m robot.calib.convert_teammate` → `robot/calib/handeye_teammate.json` (우리 각도 기준으로 변환).
-- **미검증.** 같은 픽셀에서 우리 실측과 비교하면 wrist_roll은 1~2°로 일치하지만 lift·wrist_flex는 약 100° 어긋납니다.
-  (a) 우리 teach 이후 서보 홈 오프셋이 다시 설정됐거나 (b) 카메라가 움직인 것.
-  막대 끝을 테이블 2~3곳에 대고 관절각·픽셀을 읽어 비교하면 가릴 수 있습니다(토크 없이 읽기만).
+- 물체는 **세로로**(손목이 못 돌아서), **초록 상자 가운데 쪽**에 놓습니다. 테이블에는 체커보드 등 무늬를 두지 않습니다.
+- 결과: 자동 모드 3/5, 오늘 전체 6/15. 가운데는 성공, 상자 좌우 가장자리는 실패가 많습니다. 자세한 표는 RESULTS.md 8장.
+- 기록: `output/grasp_runs/trials_*.csv`, `auto_*.csv` (사진은 삭제함).
 
 ## 5. 시뮬레이션
 
@@ -88,10 +87,10 @@ python -m robot.rl.eval_policy --view --mode mixed  # 학습된 정책 재생
 
 ## 6. 다음 단계
 
-1. wrist_roll(id5) 배선 수리 → `auto_collect.py`를 `--with-roll`로 다시 확인.
-2. 실물 캘리브레이션 완료(4장), 팀원 캘리브레이션 검증.
-3. `grasp_and_execute.py --backend real`로 실물 파지 조정 → 물체별 성공률 측정(이 프로젝트의 핵심 숫자).
-4. 가득 찬 캔(약 370 g), 다른 물체로 강화학습 확장. 서 있는 캔이 기울어지는 문제 개선.
+1. **wrist_roll(id5) 서보 교체** → `roll_check.py` → 파지 각도대로 손목 회전(물체 방향 제약 해제).
+2. 상자 가장자리 오차: 가장자리 실패 위치로 오프셋 보정표 만들기 또는 팀원 캘리브레이션 점 보강(`--append`).
+3. 물체별(작은 물체 3~5 cm, 캔) 성공률 20회 이상 측정 → 이 프로젝트의 핵심 숫자.
+4. 강화학습: 가득 찬 캔(약 370 g), 다른 물체, 실물 적용.
 
 ## 7. 인프라 메모
 
