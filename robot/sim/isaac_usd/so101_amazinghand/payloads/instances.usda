@@ -1,0 +1,1272 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.2.0"
+    }
+    doc = """Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\tmpwrurci8w\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\usdex_so101_amazinghand\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\temp_so101_amazinghand\\so101_amazinghand.usd
+
+
+Generated from Composed Stage of root layer C:\\Users\\135\\Downloads\\ggcnn\\robot\\sim\\isaac_usd\\so101_amazinghand\\payloads\\base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Scope "Instances"
+{
+    def Xform "Base" (
+        prepend references = @./geometries.usd@</Geometries/Base>
+    )
+    {
+        over "Base" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Base/VisualMaterials/white>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Base_1" (
+        prepend references = @./geometries.usd@</Geometries/Base>
+    )
+    {
+        over "Base" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Base_1/VisualMaterials/white>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 3
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            float physics:density = 1000
+            token purpose = "guide"
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Base_Motor" (
+        prepend references = @./geometries.usd@</Geometries/Base_Motor>
+    )
+    {
+        over "Base_Motor" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Base_Motor/VisualMaterials/black>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "black" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/black>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Rotation_Pitch" (
+        prepend references = @./geometries.usd@</Geometries/Rotation_Pitch>
+    )
+    {
+        over "Rotation_Pitch" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Rotation_Pitch/VisualMaterials/white>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Rotation_Pitch_1" (
+        prepend references = @./geometries.usd@</Geometries/Rotation_Pitch>
+    )
+    {
+        over "Rotation_Pitch" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Rotation_Pitch_1/VisualMaterials/white>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 3
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            float physics:density = 1000
+            token purpose = "guide"
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Rotation_Pitch_Motor" (
+        prepend references = @./geometries.usd@</Geometries/Rotation_Pitch_Motor>
+    )
+    {
+        over "Rotation_Pitch_Motor" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Rotation_Pitch_Motor/VisualMaterials/black>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "black" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/black>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Upper_Arm" (
+        prepend references = @./geometries.usd@</Geometries/Upper_Arm>
+    )
+    {
+        over "Upper_Arm" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Upper_Arm/VisualMaterials/white>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Upper_Arm_1" (
+        prepend references = @./geometries.usd@</Geometries/Upper_Arm>
+    )
+    {
+        over "Upper_Arm" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Upper_Arm_1/VisualMaterials/white>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 3
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            float physics:density = 1000
+            token purpose = "guide"
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Upper_Arm_Motor" (
+        prepend references = @./geometries.usd@</Geometries/Upper_Arm_Motor>
+    )
+    {
+        over "Upper_Arm_Motor" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Upper_Arm_Motor/VisualMaterials/black>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "black" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/black>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Lower_Arm" (
+        prepend references = @./geometries.usd@</Geometries/Lower_Arm>
+    )
+    {
+        over "Lower_Arm" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Lower_Arm/VisualMaterials/white>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Lower_Arm_1" (
+        prepend references = @./geometries.usd@</Geometries/Lower_Arm>
+    )
+    {
+        over "Lower_Arm" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Lower_Arm_1/VisualMaterials/white>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 3
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            float physics:density = 1000
+            token purpose = "guide"
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Lower_Arm_Motor" (
+        prepend references = @./geometries.usd@</Geometries/Lower_Arm_Motor>
+    )
+    {
+        over "Lower_Arm_Motor" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Lower_Arm_Motor/VisualMaterials/black>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "black" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/black>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Wrist_Pitch_Roll" (
+        prepend references = @./geometries.usd@</Geometries/Wrist_Pitch_Roll>
+    )
+    {
+        over "Wrist_Pitch_Roll" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Wrist_Pitch_Roll/VisualMaterials/white>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Wrist_Pitch_Roll_1" (
+        prepend references = @./geometries.usd@</Geometries/Wrist_Pitch_Roll>
+    )
+    {
+        over "Wrist_Pitch_Roll" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Wrist_Pitch_Roll_1/VisualMaterials/white>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 3
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            float physics:density = 1000
+            token purpose = "guide"
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "white" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Wrist_Pitch_Roll_Motor" (
+        prepend references = @./geometries.usd@</Geometries/Wrist_Pitch_Roll_Motor>
+    )
+    {
+        over "Wrist_Pitch_Roll_Motor" (
+            apiSchemas = ["MaterialBindingAPI", "MjcImageableAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/Wrist_Pitch_Roll_Motor/VisualMaterials/black>
+            int mjc:group = 2
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "black" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/black>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_scs0009" (
+        prepend references = @./geometries.usd@</Geometries/ah_scs0009>
+    )
+    {
+        over "ah_scs0009" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_scs0009/VisualMaterials/ah_scs0009_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_scs0009_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_scs0009_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_finger_frame_1" (
+        prepend references = @./geometries.usd@</Geometries/ah_finger_frame_1>
+    )
+    {
+        over "ah_finger_frame_1" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_finger_frame_1/VisualMaterials/ah_finger_frame_1_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_finger_frame_1_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_finger_frame_1_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_r_hand_plate" (
+        prepend references = @./geometries.usd@</Geometries/ah_r_hand_plate>
+    )
+    {
+        over "ah_r_hand_plate" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_r_hand_plate/VisualMaterials/ah_r_hand_plate_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_r_hand_plate_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_r_hand_plate_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_finger_frame_2" (
+        prepend references = @./geometries.usd@</Geometries/ah_finger_frame_2>
+    )
+    {
+        over "ah_finger_frame_2" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_finger_frame_2/VisualMaterials/ah_finger_frame_2_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_finger_frame_2_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_finger_frame_1_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_bushing_0608_04" (
+        prepend references = @./geometries.usd@</Geometries/ah_bushing_0608_04>
+    )
+    {
+        over "ah_bushing_0608_04" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_bushing_0608_04/VisualMaterials/ah_bushing_0608_04_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_bushing_0608_04_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_r_hand_plate_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_r_wrist_interface" (
+        prepend references = @./geometries.usd@</Geometries/ah_r_wrist_interface>
+    )
+    {
+        over "ah_r_wrist_interface" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_r_wrist_interface/VisualMaterials/ah_r_wrist_interface_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_r_wrist_interface_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_r_hand_plate_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_rotule_ball" (
+        prepend references = @./geometries.usd@</Geometries/ah_rotule_ball>
+    )
+    {
+        over "ah_rotule_ball" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_rotule_ball/VisualMaterials/ah_rotule_ball_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_rotule_ball_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_rotule_ball_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed" (
+        prepend references = @./geometries.usd@</Geometries/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed>
+    )
+    {
+        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed/VisualMaterials/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_custom_servo_horn" (
+        prepend references = @./geometries.usd@</Geometries/ah_custom_servo_horn>
+    )
+    {
+        over "ah_custom_servo_horn" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_custom_servo_horn/VisualMaterials/ah_custom_servo_horn_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_custom_servo_horn_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_rotule_lever" (
+        prepend references = @./geometries.usd@</Geometries/ah_rotule_lever>
+    )
+    {
+        over "ah_rotule_lever" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_rotule_lever/VisualMaterials/ah_rotule_lever_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_rotule_lever_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_rotule_lever_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_m2_rod_l18" (
+        prepend references = @./geometries.usd@</Geometries/ah_m2_rod_l18>
+    )
+    {
+        over "ah_m2_rod_l18" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_m2_rod_l18/VisualMaterials/ah_m2_rod_l18_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_m2_rod_l18_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_m2_rod_l18_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_spacer" (
+        prepend references = @./geometries.usd@</Geometries/ah_spacer>
+    )
+    {
+        over "ah_spacer" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_spacer/VisualMaterials/ah_spacer_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_spacer_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_spacer_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_link" (
+        prepend references = @./geometries.usd@</Geometries/ah_link>
+    )
+    {
+        over "ah_link" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_link/VisualMaterials/ah_link_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_link_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_finger_frame_1_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" (
+        prepend references = @./geometries.usd@</Geometries/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default>
+    )
+    {
+        over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/VisualMaterials/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_gimbal" (
+        prepend references = @./geometries.usd@</Geometries/ah_gimbal>
+    )
+    {
+        over "ah_gimbal" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_gimbal/VisualMaterials/ah_gimbal_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_gimbal_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_finger_frame_1_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5" (
+        prepend references = @./geometries.usd@</Geometries/ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5>
+    )
+    {
+        over "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5/VisualMaterials/ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" (
+        prepend references = @./geometries.usd@</Geometries/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999>
+    )
+    {
+        over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/VisualMaterials/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_std00447_thermoplastique_m2_5x6__configuration_default" (
+        prepend references = @./geometries.usd@</Geometries/ah_std00447_thermoplastique_m2_5x6__configuration_default>
+    )
+    {
+        over "ah_std00447_thermoplastique_m2_5x6__configuration_default" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_std00447_thermoplastique_m2_5x6__configuration_default/VisualMaterials/ah_std00447_thermoplastique_m2_5x6__configuration_default_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_std00447_thermoplastique_m2_5x6__configuration_default_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_distal" (
+        prepend references = @./geometries.usd@</Geometries/ah_distal>
+    )
+    {
+        over "ah_distal" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_distal/VisualMaterials/ah_distal_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_distal_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_finger_frame_1_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_distal_shell" (
+        prepend references = @./geometries.usd@</Geometries/ah_distal_shell>
+    )
+    {
+        over "ah_distal_shell" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_distal_shell/VisualMaterials/ah_distal_shell_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_distal_shell_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" (
+        prepend references = @./geometries.usd@</Geometries/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b>
+    )
+    {
+        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/VisualMaterials/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_material>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_proximal_shell" (
+        prepend references = @./geometries.usd@</Geometries/ah_proximal_shell>
+    )
+    {
+        over "ah_proximal_shell" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_proximal_shell/VisualMaterials/ah_proximal_shell_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_proximal_shell_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/white>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "ah_proximal" (
+        prepend references = @./geometries.usd@</Geometries/ah_proximal>
+    )
+    {
+        over "ah_proximal" (
+            apiSchemas = ["PhysicsCollisionAPI", "NewtonCollisionAPI", "MjcCollisionAPI", "PhysicsMeshCollisionAPI", "NewtonMeshCollisionAPI", "PhysicsMassAPI", "MaterialBindingAPI"]
+        )
+        {
+            custom rel material:binding
+            prepend rel material:binding = </Instances/ah_proximal/VisualMaterials/ah_proximal_material>
+            custom rel material:binding:physics
+            prepend rel material:binding:physics = </so_arm100/Physics/PhysicsMaterial>
+            int mjc:group = 2
+            float newton:contactGap = 0 (
+                limits = {
+                    dictionary hard = {
+                        double minimum = 0
+                    }
+                }
+            )
+            token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 0
+            float physics:density = 1000
+        }
+
+        def Scope "VisualMaterials"
+        {
+            def Material "ah_proximal_material" (
+                instanceable = true
+                prepend references = @./materials.usda@</Materials/ah_finger_frame_1_material>
+            )
+            {
+            }
+        }
+    }
+}
+

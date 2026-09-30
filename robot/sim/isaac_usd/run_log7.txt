@@ -1,0 +1,417 @@
+﻿2026-09-15T03:58:56Z [Info] [carb] Logging to file: c:/isaacsim/kit/logs/Kit/Isaac-Sim Python/6.0/kit_20260915_125856.log
+[0.133s] [ext: omni.assets.plugins-0.0.0] startup
+[0.137s] [ext: omni.blobkey-1.1.2] startup
+[0.138s] [ext: omni.kit.async_engine-0.0.3] startup
+[0.559s] [ext: omni.client.lib-1.1.1] startup
+[0.577s] [ext: omni.client-1.3.0] startup
+[0.587s] [ext: omni.protobuf.lib-1.0.0] startup
+[0.587s] [ext: omni.grpc.lib-1.0.0] startup
+[0.588s] [ext: omni.metrics.core-0.0.3] startup
+[0.589s] [ext: omni.datastore-0.0.0] startup
+[0.591s] [ext: omni.gpu_foundation.shadercache.vulkan-1.0.0] startup
+[0.595s] [ext: omni.hsscclient-1.1.4] startup
+[0.597s] [ext: omni.stats-1.0.1] startup
+[0.599s] [ext: omni.ujitso.default-1.0.0] startup
+[0.607s] [ext: omni.gpu_foundation-0.0.0] startup
+[0.636s] [ext: carb.windowing.plugins-1.0.1] startup
+[0.658s] [ext: omni.kit.renderer.init-1.0.1] startup
+[0.659s] [ext: omni.kit.pipapi-0.0.0] startup
+[0.661s] [ext: omni.kit.pip_archive-0.0.0] startup
+[0.661s] [ext: isaacsim.pip.newton-0.6.0] startup
+[0.662s] [ext: omni.pip.compute-1.9.0] startup
+[0.662s] [ext: omni.isaac.core_archive-5.3.0] startup
+[0.676s] [ext: omni.kit.telemetry-0.5.2] startup
+[0.687s] [ext: omni.kit.loop-isaac-1.6.0] startup
+[0.691s] [ext: omni.kit.test-2.0.7] startup
+[0.769s] [ext: omni.materialx.libs-1.0.9] startup
+[0.782s] [ext: omni.gpucompute.plugins-0.0.0] startup
+[0.784s] [ext: omni.usd.config-1.0.7] startup
+[0.791s] [ext: omni.usd.libs-1.0.3] startup
+[0.862s] [ext: omni.iray.libs-0.0.1] startup
+[0.897s] [ext: omni.mdl-57.0.3] startup
+[0.921s] [ext: omni.mdl.neuraylib-0.2.20] startup
+[0.926s] [ext: omni.kit.usd.mdl-1.1.9] startup
+[1.036s] [ext: omni.appwindow-1.2.2] startup
+[1.050s] [ext: omni.kit.renderer.core-1.2.2] startup
+[1.055s] [ext: omni.kit.renderer.capture-2.0.1] startup
+[1.059s] [ext: omni.kit.renderer.imgui-2.0.6] startup
+[1.069s] [ext: omni.ui-3.1.3] startup
+[1.081s] [ext: omni.kit.mainwindow-1.0.3] startup
+[1.083s] [ext: carb.audio-0.1.0] startup
+[1.084s] [ext: omni.uiaudio-1.0.0] startup
+[1.087s] [ext: omni.kit.uiapp-0.0.0] startup
+[1.087s] [ext: omni.usd.schema.metrics.assembler-110.1.0] startup
+[1.094s] [ext: omni.usd.schema.audio-0.0.1] startup
+[1.101s] [ext: omni.usd_resolver-1.0.0] startup
+[1.108s] [ext: omni.usd.core-1.8.3] startup
+[1.111s] [ext: omni.metropolis.schema-0.0.3] startup
+[1.112s] [ext: isaacsim.anim.robot.schema-0.1.1] startup
+[1.113s] [ext: omni.usd.schema.anim-0.0.1] startup
+[1.137s] [ext: omni.usd.schema.geospatial-0.0.1] startup
+[1.141s] [ext: omni.usd.schema.omnigraph-1.0.1] startup
+[1.149s] [ext: omni.usd.schema.semantics-0.0.0] startup
+[1.153s] [ext: omni.activity.core-1.0.3] startup
+[1.155s] [ext: omni.cubric-0.1.0] startup
+[1.157s] [ext: omni.graph.exec-0.9.6] startup
+[1.157s] [ext: omni.hydra.scene_delegate-0.3.5] startup
+[1.160s] [ext: usdrt.scenegraph-7.6.3] startup
+[1.202s] [ext: omni.hydra.usdrt_delegate-7.5.2] startup
+[1.211s] [ext: omni.inspect-1.0.2] startup
+[1.214s] [ext: omni.kit.actions.core-1.0.0] startup
+[1.218s] [ext: omni.kit.audiodeviceenum-1.0.2] startup
+[1.221s] [ext: omni.kit.commands-1.5.0] startup
+[1.228s] [ext: omni.kit.exec.core-0.13.5] startup
+[1.232s] [ext: omni.kit.usd_undo-0.1.8] startup
+[1.232s] [ext: omni.kit.window.popup_dialog-2.0.25] startup
+[1.238s] [ext: omni.kit.widget.nucleus_connector-2.3.1] startup
+[1.243s] [ext: omni.timeline-1.1.0] startup
+[1.247s] [ext: omni.usd-1.15.2] startup
+[1.299s] [ext: omni.graph.core-3.1.2] startup
+[1.303s] [ext: omni.kit.notification_manager-1.0.11] startup
+[1.306s] [ext: isaacsim.core.deprecation_manager-0.4.2] startup
+[1.307s] [ext: isaacsim.replicator.agent.schema-0.1.1] startup
+[1.308s] [ext: isaacsim.robot.schema-6.3.6] startup
+[1.317s] [ext: isaacsim.robot_motion.schema-0.2.0] startup
+[1.319s] [ext: omni.anim.behavior.schema-110.1.0] startup
+[1.325s] [ext: omni.anim.graph.schema-110.1.1] startup
+[1.333s] [ext: omni.anim.navigation.schema-110.1.0] startup
+[1.338s] [ext: omni.behavior.tree.schema-110.1.0] startup
+[1.339s] [ext: omni.isaac.ml_archive-3.3.0] startup
+[1.339s] [ext: omni.kit.asset_converter-5.1.4] startup
+[1.348s] [ext: omni.pip.cloud-1.5.3] startup
+[1.350s] [ext: omni.usd.schema.flow-110.0.0] startup
+[1.350s] [ext: omni.usd.schema.mujoco-1.1.0] startup
+[1.352s] [ext: omni.usd.schema.newton-1.2.0] startup
+[1.353s] [ext: omni.usd.schema.omni_lens_distortion-1.0.0] startup
+[1.354s] [ext: omni.usd.schema.omni_projectors-1.0.0] startup
+[1.355s] [ext: omni.usd.schema.omni_sensors-0.0.0] startup
+[1.364s] [ext: omni.usd.schema.omniscripting-1.0.1] startup
+[1.371s] [ext: omni.usd.schema.physical_lighting-0.1.0] startup
+[1.377s] [ext: omni.usd.schema.physx-110.1.11] startup
+[1.404s] [ext: omni.usd.schema.render_settings.rtx-1.0.2] startup
+[1.411s] [ext: omni.usd.schema.usd_particle_field-1.0.0] startup
+[1.412s] [ext: isaacsim.core.version-2.1.0] startup
+[1.413s] [ext: omni.kit.menu.core-1.2.0] startup
+[1.413s] [ext: omni.kit.menu.utils-2.2.3] startup
+[1.422s] [ext: isaacsim.app.about-2.3.0] startup
+[1.428s] [ext: isaacsim.asset.transformer-1.2.3] startup
+[1.432s] [ext: omni.scene.optimizer.core-110.1.0] startup
+[1.476s] [ext: isaacsim.asset.importer.utils-1.8.0] startup
+[1.480s] [ext: omni.convexdecomposition-110.1.11] startup
+[1.483s] [ext: omni.physics-110.1.11] startup
+[1.489s] [ext: omni.physx.gpu-110.1.11] startup
+[1.490s] [ext: omni.physx.foundation-110.1.11] startup
+[1.814s] [ext: omni.usdphysics-110.1.11] startup
+[1.817s] [ext: omni.physx.cooking-110.1.11] startup
+[1.823s] [ext: omni.physx-110.1.11] startup
+[1.838s] [ext: omni.physics.physx-110.1.11] startup
+[1.841s] [ext: isaacsim.asset.exporter.urdf-2.0.3] startup
+[1.851s] [ext: omni.kit.clipboard-1.1.1] startup
+[1.853s] [ext: omni.kit.usd.layers-2.6.1] startup
+[1.863s] [ext: omni.kit.widget.context_menu-1.4.0] startup
+[1.865s] [ext: omni.kit.context_menu-1.9.0] startup
+[1.867s] [ext: omni.kit.helper.file_utils-0.1.10] startup
+[1.869s] [ext: omni.kit.widget.nucleus_info-2.0.2] startup
+[1.870s] [ext: omni.kit.search_core-1.0.8] startup
+[1.871s] [ext: omni.kit.widget.path_field-2.0.13] startup
+[1.872s] [ext: omni.kit.widget.browser_bar-2.0.10] startup
+[1.873s] [ext: omni.kit.widget.filebrowser-2.13.4] startup
+[1.879s] [ext: omni.kit.widget.options_menu-1.1.6] startup
+[1.883s] [ext: omni.kit.widget.options_button-1.0.3] startup
+[1.884s] [ext: omni.kit.widget.search_delegate-1.0.9] startup
+[1.885s] [ext: omni.ui.scene-2.0.1] startup
+[1.894s] [ext: omni.kit.window.filepicker-2.15.5] startup
+[1.916s] [ext: omni.kit.window.file_importer-1.1.21] startup
+[1.921s] [ext: omni.kit.material.library-3.1.2] startup
+[1.929s] [ext: isaacsim.asset.transformer.rules-1.7.8] startup
+[1.943s] [ext: omni.usdex.libs-2.2.2] startup
+[1.957s] [ext: isaacsim.asset.importer.mjcf-3.10.0] startup
+[1.961s] [ext: isaacsim.asset.importer.urdf-3.11.0] startup
+[1.967s] [ext: omni.kit.primitive.mesh-1.1.0] startup
+[1.971s] [ext: omni.kit.stage_template.core-1.1.22] startup
+[1.972s] [ext: omni.kit.stage_templates-2.0.2] startup
+[1.974s] [ext: omni.usd.metrics.assembler-110.1.2] startup
+[1.978s] [ext: omni.warp.core-1.13.0] startup
+[2.157s] [ext: isaacsim.core.experimental.utils-0.17.1] startup
+[2.162s] [ext: omni.physics.stageupdate-110.1.11] startup
+[2.169s] [ext: omni.physics.tensors-110.1.11] startup
+[2.178s] [ext: omni.physx.tensors-110.1.11] startup
+2026-09-15T03:58:58Z [2,574ms] [Warning] [omni.rtx] Skipping unsupported non-NVIDIA GPU: Intel(R) Arc(TM) 140T GPU (16GB)
+2026-09-15T03:58:58Z [2,575ms] [Warning] [omni.rtx] Skipping unsupported non-NVIDIA GPU: Intel(R) Arc(TM) 140T GPU (16GB)
+[2.657s] [ext: isaacsim.core.simulation_manager-1.15.4] startup
+2026-09-15T03:58:58Z [2,592ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+2026-09-15T03:58:58Z [2,592ms] [Warning] [isaacsim.core.simulation_manager.plugin] USD stage is not available; stage-opened subscription is deferred
+[2.673s] [ext: isaacsim.storage.native-1.9.2] startup
+[2.676s] [ext: omni.usd.metrics.assembler.physics-110.1.11] startup
+[2.678s] [ext: isaacsim.core.utils-4.1.6] startup
+[2.707s] [ext: isaacsim.core.prims-0.11.6] startup
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 616.92        | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 5050 Laptop.. | Yes: 0 |     | 7963    MB | 10de      | 92f40000.. |
+|     |                                  |        |     |            | 2d98      | 0aa0322d.. |
+|     |                                  |        |     |            | 1         |            |
+|---------------------------------------------------------------------------------------------|
+| 1   | Intel(R) Arc(TM) 140T GPU (16GB) |        |     | 18349   MB | 8086      | e7ef0000.. |
+|     |                                  |        |     |            | 7d51      | 8680517d.. |
+|     |                                  |        |     |            | N/A       |            |
+|=============================================================================================|
+| OS: Windows 11 Pro, Version: 10.0 (25H2), Build: 26200, Kernel: 10.0.26100.9444
+| Processor: Intel(R) Core(TM) Ultra 7 255H
+| Cores: 16 | Logical Cores: 16
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 32192 | Free Memory: 19033
+| Total Page/Swap (MB): 36800 | Free Page/Swap: 16819
+|---------------------------------------------------------------------------------------------|
+2026-09-15T03:58:59Z [2,872ms] [Warning] [omni.rtx] PCIe link width current (8) and maximum (16) for device 0 don't match.
+[2.966s] [ext: isaacsim.core.api-5.2.12] startup
+[2.981s] [ext: isaacsim.core.cloner-1.7.2] startup
+[2.984s] [ext: isaacsim.test.docstring-1.3.1] startup
+[2.990s] [ext: isaacsim.core.experimental.prims-1.8.8] startup
+[3.018s] [ext: isaacsim.core.experimental.primdata-0.3.2] startup
+[3.021s] [ext: omni.graph.tools-1.81.0] startup
+[3.053s] [ext: omni.graph-1.142.5] startup
+[3.100s] [ext: isaacsim.core.experimental.actuators-0.1.0] startup
+[5.193s] [ext: isaacsim.core.experimental.materials-0.7.0] startup
+[5.199s] [ext: isaacsim.core.experimental.objects-0.8.0] startup
+[5.272s] [ext: omni.hydra.engine.stats-1.0.5] startup
+[5.275s] [ext: omni.hydra.rtx.shadercache.vulkan-1.0.0] startup
+[5.277s] [ext: omni.index.libs-387500.3473.0] startup
+[5.277s] [ext: omni.index-1.0.1] startup
+[5.279s] [ext: omni.ujitso.client-0.0.0] startup
+[5.280s] [ext: omni.usd.schema.playback-1.0.0] startup
+[5.285s] [ext: omni.volume-0.5.2] startup
+[5.291s] [ext: omni.hydra.rtx-1.0.3] startup
+[5.340s] [ext: omni.kit.hydra_texture-1.6.0] startup
+[5.344s] [ext: omni.kit.raycast.query-1.2.0] startup
+[5.348s] [ext: omni.kit.viewport.legacy_gizmos-1.0.24] startup
+[5.350s] [ext: omni.kit.viewport.registry-104.0.6] startup
+[5.351s] [ext: omni.kit.viewport.scene_camera_model-1.0.7] startup
+[5.353s] [ext: omni.kit.widget.viewport-109.2.0] startup
+[5.361s] [ext: omni.kit.window.drop_support-1.0.8] startup
+[5.362s] [ext: omni.kit.viewport.window-109.0.2] startup
+[5.729s] [ext: omni.kit.viewport.utility-2.0.1] startup
+[5.730s] [ext: isaacsim.core.rendering_manager-0.4.2] startup
+[5.750s] [ext: omni.graph.action_core-1.1.9] startup
+[5.754s] [ext: omni.graph.action_nodes_core-2.10.2] startup
+[5.758s] [ext: omni.graph.action_nodes-2.10.3] startup
+[5.799s] [ext: omni.graph.action-2.10.2] startup
+[5.801s] [ext: omni.graph.image.core-0.6.1] startup
+[5.804s] [ext: omni.graph.image.nodes-1.3.1] startup
+[5.806s] [ext: omni.graph.nodes_core-2.10.3] startup
+[5.815s] [ext: omni.graph.nodes-2.11.1] startup
+[5.825s] [ext: omni.kit.hotkeys.core-1.3.12] startup
+[5.826s] [ext: omni.kit.property.adapter.core-1.1.1] startup
+[5.830s] [ext: omni.kit.property.adapter.usd-1.0.5] startup
+[5.832s] [ext: omni.kit.widget.filter-1.1.5] startup
+[5.834s] [ext: omni.kit.widget.highlight_label-1.0.3] startup
+[5.835s] [ext: omni.kit.widget.searchfield-1.1.8] startup
+[5.837s] [ext: omni.kit.window.file_exporter-1.0.36] startup
+[5.839s] [ext: omni.kit.widget.stage-4.3.0] startup
+[5.852s] [ext: omni.kit.window.content_browser_registry-0.0.6] startup
+[5.854s] [ext: omni.kit.window.file-2.0.10] startup
+[5.859s] [ext: omni.kit.window.content_browser-3.1.8] startup
+[5.873s] [ext: omni.kit.window.property-1.15.1] startup
+[5.893s] [ext: omni.kit.property.usd-4.8.1] startup
+[5.907s] [ext: omni.graph.scriptnode-2.10.2] startup
+[5.928s] [ext: omni.kit.widget.searchable_combobox-1.0.7] startup
+[5.930s] [ext: omni.kit.widget.settings-2.0.0] startup
+[5.932s] [ext: omni.kit.window.preferences-1.8.3] startup
+[5.941s] [ext: omni.kit.viewport.menubar.core-107.2.2] startup
+[5.959s] [ext: omni.syntheticdata-0.6.15] startup
+[6.006s] [ext: omni.replicator.nv-1.1.1] startup
+[6.014s] [ext: omni.videoencoding-0.2.1] startup
+[6.019s] [ext: omni.replicator.core-1.13.25] startup
+2026-09-15T03:59:02Z [5,951ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+2026-09-15T03:59:02Z [6,074ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+[6.380s] [ext: isaacsim.core.nodes-5.10.4] startup
+[6.445s] [ext: isaacsim.core.throttling-2.3.3] startup
+[6.447s] [ext: omni.kit.manipulator.viewport-107.0.1] startup
+[6.449s] [ext: omni.graph.visualization.nodes-2.1.4] startup
+[6.480s] [ext: omni.kit.window.extensions-1.5.7] startup
+[6.489s] [ext: isaacsim.gui.components-1.8.4] startup
+[6.496s] [ext: isaacsim.robot.surface_gripper-3.6.1] startup
+[6.527s] [ext: isaacsim.robot.manipulators-3.4.4] startup
+[6.554s] [ext: isaacsim.robot_motion.lula-4.1.2] startup
+[6.561s] [ext: isaacsim.robot_motion.motion_generation-8.2.8] startup
+[6.572s] [ext: isaacsim.cortex.framework-1.0.17] startup
+[6.574s] [ext: isaacsim.cortex.behaviors-2.0.16] startup
+[6.577s] [ext: isaacsim.examples.base-1.3.1] startup
+[6.580s] [ext: omni.kit.widget.zoombar-1.0.7] startup
+[6.581s] [ext: omni.kit.browser.core-2.3.18] startup
+[6.588s] [ext: omni.kit.browser.folder.core-2.0.2] startup
+[6.595s] [ext: omni.kit.widget.stage_icons-1.0.8] startup
+[6.597s] [ext: omni.kit.window.stage-2.6.1] startup
+[6.602s] [ext: omni.kit.menu.stage-1.2.7] startup
+[6.604s] [ext: omni.kit.usd.collect-3.0.5] startup
+[6.608s] [ext: omni.kit.widget.prompt-1.0.7] startup
+[6.609s] [ext: omni.kit.tool.collect-2.2.19] startup
+[6.613s] [ext: isaacsim.examples.browser-0.3.1] startup
+[6.616s] [ext: omni.kit.search.files-1.0.4] startup
+[6.618s] [ext: omni.kit.widget.calendar-1.0.9] startup
+[6.620s] [ext: omni.kit.widget.extended_searchfield-1.0.31] startup
+[6.633s] [ext: omni.simready.content.browser-0.3.7] startup
+[6.917s] [ext: isaacsim.gui.content_browser-0.4.2] startup
+[6.921s] [ext: omni.kit.selection-0.1.6] startup
+[6.923s] [ext: isaacsim.gui.menu-2.10.5] startup
+[6.935s] [ext: isaacsim.gui.property-1.6.2] startup
+[6.945s] [ext: omni.kit.viewport.actions-107.0.2] startup
+[6.950s] [ext: omni.kit.viewport.menubar.display-107.1.3] startup
+[6.952s] [ext: isaacsim.gui.sensors.icon-2.2.0] startup
+[6.957s] [ext: omni.behavior.scripting.core-110.1.0] startup
+[6.962s] [ext: isaacsim.replicator.behavior-1.5.3] startup
+[6.963s] [ext: isaacsim.replicator.experimental.domain_randomization-1.2.4] startup
+[6.998s] [ext: isaacsim.replicator.domain_randomization-1.2.1] startup
+[7.083s] [ext: isaacsim.replicator.writers-1.5.3] startup
+[7.129s] [ext: isaacsim.robot.experimental.wheeled_robots-0.2.9] startup
+[7.161s] [ext: isaacsim.robot.policy.examples-5.2.11] startup
+[7.193s] [ext: isaacsim.robot.wheeled_robots-5.2.3] startup
+[7.201s] [ext: isaacsim.robot.wheeled_robots.nodes-0.1.2] startup
+[7.246s] [ext: isaacsim.robot_motion.experimental.motion_generation-6.1.2] startup
+[7.261s] [ext: isaacsim.robot_motion.cumotion-1.3.0] startup
+[7.282s] [ext: omni.kit.numpy.common-0.1.3] startup
+[7.285s] [ext: isaacsim.sensors.camera-1.7.8] startup
+[7.321s] [ext: isaacsim.sensors.experimental.physics-3.0.1] startup
+[7.332s] [ext: omni.sensors.net-1.0.1] startup
+[7.346s] [ext: omni.sensors.nv.common-3.0.0] startup
+[7.380s] [ext: omni.sensors.nv.materials-2.0.0] startup
+[7.392s] [ext: omni.sensors.nv.acoustic-3.0.0] startup
+[7.402s] [ext: omni.sensors.nv.ids-2.0.1] startup
+[7.408s] [ext: omni.sensors.nv.lidar-3.0.0] startup
+[7.419s] [ext: omni.sensors.nv.radar-3.0.0] startup
+[7.428s] [ext: isaacsim.sensors.experimental.rtx-1.4.3] startup
+[7.683s] [ext: isaacsim.sensors.physics.nodes-1.5.2] startup
+[7.701s] [ext: isaacsim.util.debug_draw-3.2.2] startup
+[7.711s] [ext: isaacsim.sensors.physx-2.5.4] startup
+[7.726s] [ext: isaacsim.sensors.rtx-15.17.0] startup
+[7.747s] [ext: isaacsim.simulation_app-2.18.3] startup
+[7.748s] [ext: omni.anim.curve.core-1.6.0] startup
+[7.765s] [ext: omni.graph.ui_nodes-2.10.5] startup
+[7.816s] [ext: omni.hydra.scene_api-0.1.3] startup
+[7.821s] [ext: omni.kit.manipulator.camera-110.0.0] startup
+[7.826s] [ext: omni.kit.manipulator.selector-1.1.4] startup
+[7.828s] [ext: omni.kit.manipulator.transform-107.0.0] startup
+[7.835s] [ext: omni.kit.widget.toolbar-2.1.0] startup
+[7.847s] [ext: omni.kit.manipulator.tool.snap-1.5.14] startup
+[7.854s] [ext: omni.kit.viewport.manipulator.transform-107.0.4] startup
+[7.857s] [ext: omni.kit.manipulator.prim.core-108.0.2] startup
+[7.866s] [ext: omni.kit.manipulator.prim.usd-107.0.3] startup
+[7.869s] [ext: omni.kit.manipulator.prim-108.0.0] startup
+[7.869s] [ext: omni.kit.manipulator.selection-109.0.1] startup
+[7.871s] [ext: omni.kit.menu.create-2.0.2] startup
+[7.873s] [ext: omni.kit.property.audio-1.0.16] startup
+[7.879s] [ext: omni.kit.property.camera-1.0.14] startup
+[7.881s] [ext: omni.kit.property.geometry-2.1.2] startup
+[7.886s] [ext: omni.kit.property.light-1.0.14] startup
+2026-09-15T03:59:03Z [7,848ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+[7.946s] [ext: omni.kit.property.material-1.14.2] startup
+[7.956s] [ext: omni.kit.property.render-1.2.2] startup
+[7.957s] [ext: omni.kit.property.transform-1.6.9] startup
+[7.962s] [ext: omni.kit.property.bundle-1.5.1] startup
+[7.964s] [ext: omni.kit.usdz_export-1.1.0] startup
+[7.967s] [ext: omni.kit.tool.asset_importer-5.2.0] startup
+[7.975s] [ext: omni.kit.ui.actions-1.0.5] startup
+[7.978s] [ext: omni.kit.viewport.menubar.camera-107.0.10] startup
+[7.984s] [ext: omni.kit.viewport.menubar.lighting-107.3.2] startup
+[7.989s] [ext: omni.kit.viewport.menubar.render-107.0.10] startup
+[7.992s] [ext: omni.kit.viewport.menubar.settings-110.0.1] startup
+[7.997s] [ext: omni.kit.window.console-1.1.8] startup
+[8.003s] [ext: omni.kit.window.status_bar-0.1.11] startup
+[8.006s] [ext: omni.kit.window.toolbar-3.0.3] startup
+[8.009s] [ext: omni.ocio-0.1.1] startup
+[8.011s] [ext: omni.physx.commands-110.1.11] startup
+[8.015s] [ext: omni.replicator.replicator_yaml-2.0.12] startup
+[8.045s] [ext: omni.rtx.window.settings-0.8.0] startup
+[8.052s] [ext: omni.rtx.settings.core-0.7.0] startup
+[8.057s] [ext: omni.usd.metrics.assembler.ui-110.1.1] startup
+[8.065s] [ext: semantics.schema.editor-2.0.2] startup
+[8.070s] [ext: semantics.schema.property-2.0.1] startup
+[8.073s] [ext: omni.kit.menu.common-2.0.2] startup
+[8.075s] [ext: isaacsim.exp.base-6.0.0] startup
+[8.075s] [ext: isaacsim.exp.base.python-6.0.0] startup
+[8.077s] Simulation App Starting
+[10.869s] Simulation App Startup Complete
+[10.881s] app ready
+2026-09-15T03:59:08Z [12,262ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,263ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] Number of DOFs mismatch: USD (37) != Physics tensor (61)
+2026-09-15T03:59:08Z [12,263ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF names mismatch: USD (['Rotation', 'Pitch', 'Elbow', 'Wrist_Pitch', 'Wrist_Roll', 'ah_finger1_motor1', 'ah_finger1_motor2', 'ah_finger2_motor1', 'ah_finger2_motor2', 'ah_finger3_motor1', 'ah_finger3_motor2', 'ah_finger4_motor1', 'ah_finger4_motor2', 'ah_passive_ball1', 'ah_passive_ball3', 'ah_passive_ball4', 'ah_passive_ball6', 'ah_passive_ball7', 'ah_passive_ball9', 'ah_passive_ball10', 'ah_passive_ball12', 'ah_passive_ball2', 'ah_passive_ball5', 'ah_passive_ball8', 'ah_passive_ball11', 'tn__ah_passive21_tCV3T', 'tn__ah_passive41_tCV3T', 'tn__ah_passive22_tCV3T', 'tn__ah_passive42_tCV3T', 'tn__ah_passive23_tCV3T', 'tn__ah_passive43_tCV3T', 'tn__ah_passive24_tCV3T', 'tn__ah_passive44_tCV3T', 'tn__ah_passive_51_vDe3V0', 'tn__ah_passive_52_vDe3V0', 'tn__ah_passive_53_vDe3V0', 'tn__ah_passive_54_vDe3V0']) != Physics tensor (['Rotation', 'Pitch', 'Elbow', 'Wrist_Pitch', 'Wrist_Roll', 'ah_finger1_motor1', 'ah_finger1_motor2', 'ah_finger2_motor1', 'ah_finger2_motor2', 'ah_finger3_motor1', 'ah_finger3_motor2', 'ah_finger4_motor1', 'ah_finger4_motor2', 'ah_passive_ball1:0', 'ah_passive_ball1:1', 'ah_passive_ball1:2', 'ah_passive_ball3:0', 'ah_passive_ball3:1', 'ah_passive_ball3:2', 'ah_passive_ball4:0', 'ah_passive_ball4:1', 'ah_passive_ball4:2', 'ah_passive_ball6:0', 'ah_passive_ball6:1', 'ah_passive_ball6:2', 'ah_passive_ball7:0', 'ah_passive_ball7:1', 'ah_passive_ball7:2', 'ah_passive_ball9:0', 'ah_passive_ball9:1', 'ah_passive_ball9:2', 'ah_passive_ball10:0', 'ah_passive_ball10:1', 'ah_passive_ball10:2', 'ah_passive_ball12:0', 'ah_passive_ball12:1', 'ah_passive_ball12:2', 'ah_passive_ball2:0', 'ah_passive_ball2:1', 'ah_passive_ball2:2', 'ah_passive_ball5:0', 'ah_passive_ball5:1', 'ah_passive_ball5:2', 'ah_passive_ball8:0', 'ah_passive_ball8:1', 'ah_passive_ball8:2', 'ah_passive_ball11:0', 'ah_passive_ball11:1', 'ah_passive_ball11:2', 'tn__ah_passive21_tCV3T', 'tn__ah_passive41_tCV3T', 'tn__ah_passive22_tCV3T', 'tn__ah_passive42_tCV3T', 'tn__ah_passive23_tCV3T', 'tn__ah_passive43_tCV3T', 'tn__ah_passive24_tCV3T', 'tn__ah_passive44_tCV3T', 'tn__ah_passive_51_vDe3V0', 'tn__ah_passive_52_vDe3V0', 'tn__ah_passive_53_vDe3V0', 'tn__ah_passive_54_vDe3V0'])
+2026-09-15T03:59:08Z [12,263ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF indices mismatch: USD ({'Rotation': 0, 'Pitch': 1, 'Elbow': 2, 'Wrist_Pitch': 3, 'Wrist_Roll': 4, 'ah_finger1_motor1': 5, 'ah_finger1_motor2': 6, 'ah_finger2_motor1': 7, 'ah_finger2_motor2': 8, 'ah_finger3_motor1': 9, 'ah_finger3_motor2': 10, 'ah_finger4_motor1': 11, 'ah_finger4_motor2': 12, 'ah_passive_ball1': 13, 'ah_passive_ball3': 14, 'ah_passive_ball4': 15, 'ah_passive_ball6': 16, 'ah_passive_ball7': 17, 'ah_passive_ball9': 18, 'ah_passive_ball10': 19, 'ah_passive_ball12': 20, 'ah_passive_ball2': 21, 'ah_passive_ball5': 22, 'ah_passive_ball8': 23, 'ah_passive_ball11': 24, 'tn__ah_passive21_tCV3T': 25, 'tn__ah_passive41_tCV3T': 26, 'tn__ah_passive22_tCV3T': 27, 'tn__ah_passive42_tCV3T': 28, 'tn__ah_passive23_tCV3T': 29, 'tn__ah_passive43_tCV3T': 30, 'tn__ah_passive24_tCV3T': 31, 'tn__ah_passive44_tCV3T': 32, 'tn__ah_passive_51_vDe3V0': 33, 'tn__ah_passive_52_vDe3V0': 34, 'tn__ah_passive_53_vDe3V0': 35, 'tn__ah_passive_54_vDe3V0': 36}) != Physics tensor ({'Elbow': 2, 'Pitch': 1, 'Rotation': 0, 'Wrist_Pitch': 3, 'Wrist_Roll': 4, 'ah_finger1_motor1': 5, 'ah_finger1_motor2': 6, 'ah_finger2_motor1': 7, 'ah_finger2_motor2': 8, 'ah_finger3_motor1': 9, 'ah_finger3_motor2': 10, 'ah_finger4_motor1': 11, 'ah_finger4_motor2': 12, 'ah_passive_ball10:0': 31, 'ah_passive_ball10:1': 32, 'ah_passive_ball10:2': 33, 'ah_passive_ball11:0': 46, 'ah_passive_ball11:1': 47, 'ah_passive_ball11:2': 48, 'ah_passive_ball12:0': 34, 'ah_passive_ball12:1': 35, 'ah_passive_ball12:2': 36, 'ah_passive_ball1:0': 13, 'ah_passive_ball1:1': 14, 'ah_passive_ball1:2': 15, 'ah_passive_ball2:0': 37, 'ah_passive_ball2:1': 38, 'ah_passive_ball2:2': 39, 'ah_passive_ball3:0': 16, 'ah_passive_ball3:1': 17, 'ah_passive_ball3:2': 18, 'ah_passive_ball4:0': 19, 'ah_passive_ball4:1': 20, 'ah_passive_ball4:2': 21, 'ah_passive_ball5:0': 40, 'ah_passive_ball5:1': 41, 'ah_passive_ball5:2': 42, 'ah_passive_ball6:0': 22, 'ah_passive_ball6:1': 23, 'ah_passive_ball6:2': 24, 'ah_passive_ball7:0': 25, 'ah_passive_ball7:1': 26, 'ah_passive_ball7:2': 27, 'ah_passive_ball8:0': 43, 'ah_passive_ball8:1': 44, 'ah_passive_ball8:2': 45, 'ah_passive_ball9:0': 28, 'ah_passive_ball9:1': 29, 'ah_passive_ball9:2': 30, 'tn__ah_passive21_tCV3T': 49, 'tn__ah_passive22_tCV3T': 51, 'tn__ah_passive23_tCV3T': 53, 'tn__ah_passive24_tCV3T': 55, 'tn__ah_passive41_tCV3T': 50, 'tn__ah_passive42_tCV3T': 52, 'tn__ah_passive43_tCV3T': 54, 'tn__ah_passive44_tCV3T': 56, 'tn__ah_passive_51_vDe3V0': 57, 'tn__ah_passive_52_vDe3V0': 58, 'tn__ah_passive_53_vDe3V0': 59, 'tn__ah_passive_54_vDe3V0': 60})
+2026-09-15T03:59:08Z [12,263ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF paths mismatch: USD ([['/World/robot/Geometry/Base/Rotation_Pitch/Rotation', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Elbow', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Wrist_Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/Wrist_Roll', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_finger1_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_finger1_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_finger2_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_finger2_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_finger3_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_finger3_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_finger4_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_finger4_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_passive21_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/tn__ah_passive41_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_passive22_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/tn__ah_passive42_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_passive23_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/tn__ah_passive43_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_passive24_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/tn__ah_passive44_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_passive_51_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_passive_52_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_passive_53_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_passive_54_vDe3V0']]) != Physics tensor ([['/World/robot/Geometry/Base/Rotation_Pitch/Rotation', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Elbow', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Wrist_Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/Wrist_Roll', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_finger1_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_finger1_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_finger2_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_finger2_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_finger3_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_finger3_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_finger4_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_finger4_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_passive21_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/tn__ah_passive41_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_passive22_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/tn__ah_passive42_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_passive23_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/tn__ah_passive43_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_passive24_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/tn__ah_passive44_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_passive_51_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_passive_52_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_passive_53_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_passive_54_vDe3V0']])
+2026-09-15T03:59:08Z [12,264ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF types mismatch: USD ([<DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>]) != Physics tensor ([<DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>])
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [omni.physx.tensors.plugin] Using USD spherical joints with any axis except x is not currently supported.
+2026-09-15T03:59:08Z [12,265ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] Number of DOFs mismatch: USD (37) != Physics tensor (61)
+2026-09-15T03:59:08Z [12,265ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF names mismatch: USD (['Rotation', 'Pitch', 'Elbow', 'Wrist_Pitch', 'Wrist_Roll', 'ah_finger1_motor1', 'ah_finger1_motor2', 'ah_finger2_motor1', 'ah_finger2_motor2', 'ah_finger3_motor1', 'ah_finger3_motor2', 'ah_finger4_motor1', 'ah_finger4_motor2', 'ah_passive_ball1', 'ah_passive_ball3', 'ah_passive_ball4', 'ah_passive_ball6', 'ah_passive_ball7', 'ah_passive_ball9', 'ah_passive_ball10', 'ah_passive_ball12', 'ah_passive_ball2', 'ah_passive_ball5', 'ah_passive_ball8', 'ah_passive_ball11', 'tn__ah_passive21_tCV3T', 'tn__ah_passive41_tCV3T', 'tn__ah_passive22_tCV3T', 'tn__ah_passive42_tCV3T', 'tn__ah_passive23_tCV3T', 'tn__ah_passive43_tCV3T', 'tn__ah_passive24_tCV3T', 'tn__ah_passive44_tCV3T', 'tn__ah_passive_51_vDe3V0', 'tn__ah_passive_52_vDe3V0', 'tn__ah_passive_53_vDe3V0', 'tn__ah_passive_54_vDe3V0']) != Physics tensor (['Rotation', 'Pitch', 'Elbow', 'Wrist_Pitch', 'Wrist_Roll', 'ah_finger1_motor1', 'ah_finger1_motor2', 'ah_finger2_motor1', 'ah_finger2_motor2', 'ah_finger3_motor1', 'ah_finger3_motor2', 'ah_finger4_motor1', 'ah_finger4_motor2', 'ah_passive_ball1:0', 'ah_passive_ball1:1', 'ah_passive_ball1:2', 'ah_passive_ball3:0', 'ah_passive_ball3:1', 'ah_passive_ball3:2', 'ah_passive_ball4:0', 'ah_passive_ball4:1', 'ah_passive_ball4:2', 'ah_passive_ball6:0', 'ah_passive_ball6:1', 'ah_passive_ball6:2', 'ah_passive_ball7:0', 'ah_passive_ball7:1', 'ah_passive_ball7:2', 'ah_passive_ball9:0', 'ah_passive_ball9:1', 'ah_passive_ball9:2', 'ah_passive_ball10:0', 'ah_passive_ball10:1', 'ah_passive_ball10:2', 'ah_passive_ball12:0', 'ah_passive_ball12:1', 'ah_passive_ball12:2', 'ah_passive_ball2:0', 'ah_passive_ball2:1', 'ah_passive_ball2:2', 'ah_passive_ball5:0', 'ah_passive_ball5:1', 'ah_passive_ball5:2', 'ah_passive_ball8:0', 'ah_passive_ball8:1', 'ah_passive_ball8:2', 'ah_passive_ball11:0', 'ah_passive_ball11:1', 'ah_passive_ball11:2', 'tn__ah_passive21_tCV3T', 'tn__ah_passive41_tCV3T', 'tn__ah_passive22_tCV3T', 'tn__ah_passive42_tCV3T', 'tn__ah_passive23_tCV3T', 'tn__ah_passive43_tCV3T', 'tn__ah_passive24_tCV3T', 'tn__ah_passive44_tCV3T', 'tn__ah_passive_51_vDe3V0', 'tn__ah_passive_52_vDe3V0', 'tn__ah_passive_53_vDe3V0', 'tn__ah_passive_54_vDe3V0'])
+2026-09-15T03:59:08Z [12,265ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF indices mismatch: USD ({'Rotation': 0, 'Pitch': 1, 'Elbow': 2, 'Wrist_Pitch': 3, 'Wrist_Roll': 4, 'ah_finger1_motor1': 5, 'ah_finger1_motor2': 6, 'ah_finger2_motor1': 7, 'ah_finger2_motor2': 8, 'ah_finger3_motor1': 9, 'ah_finger3_motor2': 10, 'ah_finger4_motor1': 11, 'ah_finger4_motor2': 12, 'ah_passive_ball1': 13, 'ah_passive_ball3': 14, 'ah_passive_ball4': 15, 'ah_passive_ball6': 16, 'ah_passive_ball7': 17, 'ah_passive_ball9': 18, 'ah_passive_ball10': 19, 'ah_passive_ball12': 20, 'ah_passive_ball2': 21, 'ah_passive_ball5': 22, 'ah_passive_ball8': 23, 'ah_passive_ball11': 24, 'tn__ah_passive21_tCV3T': 25, 'tn__ah_passive41_tCV3T': 26, 'tn__ah_passive22_tCV3T': 27, 'tn__ah_passive42_tCV3T': 28, 'tn__ah_passive23_tCV3T': 29, 'tn__ah_passive43_tCV3T': 30, 'tn__ah_passive24_tCV3T': 31, 'tn__ah_passive44_tCV3T': 32, 'tn__ah_passive_51_vDe3V0': 33, 'tn__ah_passive_52_vDe3V0': 34, 'tn__ah_passive_53_vDe3V0': 35, 'tn__ah_passive_54_vDe3V0': 36}) != Physics tensor ({'Elbow': 2, 'Pitch': 1, 'Rotation': 0, 'Wrist_Pitch': 3, 'Wrist_Roll': 4, 'ah_finger1_motor1': 5, 'ah_finger1_motor2': 6, 'ah_finger2_motor1': 7, 'ah_finger2_motor2': 8, 'ah_finger3_motor1': 9, 'ah_finger3_motor2': 10, 'ah_finger4_motor1': 11, 'ah_finger4_motor2': 12, 'ah_passive_ball10:0': 31, 'ah_passive_ball10:1': 32, 'ah_passive_ball10:2': 33, 'ah_passive_ball11:0': 46, 'ah_passive_ball11:1': 47, 'ah_passive_ball11:2': 48, 'ah_passive_ball12:0': 34, 'ah_passive_ball12:1': 35, 'ah_passive_ball12:2': 36, 'ah_passive_ball1:0': 13, 'ah_passive_ball1:1': 14, 'ah_passive_ball1:2': 15, 'ah_passive_ball2:0': 37, 'ah_passive_ball2:1': 38, 'ah_passive_ball2:2': 39, 'ah_passive_ball3:0': 16, 'ah_passive_ball3:1': 17, 'ah_passive_ball3:2': 18, 'ah_passive_ball4:0': 19, 'ah_passive_ball4:1': 20, 'ah_passive_ball4:2': 21, 'ah_passive_ball5:0': 40, 'ah_passive_ball5:1': 41, 'ah_passive_ball5:2': 42, 'ah_passive_ball6:0': 22, 'ah_passive_ball6:1': 23, 'ah_passive_ball6:2': 24, 'ah_passive_ball7:0': 25, 'ah_passive_ball7:1': 26, 'ah_passive_ball7:2': 27, 'ah_passive_ball8:0': 43, 'ah_passive_ball8:1': 44, 'ah_passive_ball8:2': 45, 'ah_passive_ball9:0': 28, 'ah_passive_ball9:1': 29, 'ah_passive_ball9:2': 30, 'tn__ah_passive21_tCV3T': 49, 'tn__ah_passive22_tCV3T': 51, 'tn__ah_passive23_tCV3T': 53, 'tn__ah_passive24_tCV3T': 55, 'tn__ah_passive41_tCV3T': 50, 'tn__ah_passive42_tCV3T': 52, 'tn__ah_passive43_tCV3T': 54, 'tn__ah_passive44_tCV3T': 56, 'tn__ah_passive_51_vDe3V0': 57, 'tn__ah_passive_52_vDe3V0': 58, 'tn__ah_passive_53_vDe3V0': 59, 'tn__ah_passive_54_vDe3V0': 60})
+2026-09-15T03:59:08Z [12,265ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF paths mismatch: USD ([['/World/robot/Geometry/Base/Rotation_Pitch/Rotation', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Elbow', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Wrist_Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/Wrist_Roll', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_finger1_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_finger1_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_finger2_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_finger2_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_finger3_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_finger3_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_finger4_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_finger4_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_passive21_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/tn__ah_passive41_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_passive22_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/tn__ah_passive42_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_passive23_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/tn__ah_passive43_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_passive24_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/tn__ah_passive44_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_passive_51_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_passive_52_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_passive_53_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_passive_54_vDe3V0']]) != Physics tensor ([['/World/robot/Geometry/Base/Rotation_Pitch/Rotation', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Elbow', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Wrist_Pitch', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/Wrist_Roll', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_finger1_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_finger1_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_finger2_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_finger2_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_finger3_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_finger3_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_finger4_motor1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_finger4_motor2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_passive21_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/tn__ah_passive41_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_passive22_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/tn__ah_passive42_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_passive23_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/tn__ah_passive43_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_passive24_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/tn__ah_passive44_tCV3T', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_passive_51_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_passive_52_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_passive_53_vDe3V0', '/World/robot/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_passive_54_vDe3V0']])
+2026-09-15T03:59:08Z [12,266ms] [Warning] [isaacsim.core.experimental.prims.impl.articulation] DOF types mismatch: USD ([<DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Invalid: 255>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>]) != Physics tensor ([<DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.RStarting kit application with the following args:  ['C:\\isaacsim\\exts\\isaacsim.simulation_app\\isaacsim\\simulation_app\\simulation_app.py', 'C:\\isaacsim\\apps/isaacsim.exp.base.python.kit', '--/app/tokens/exe-path=C:\\isaacsim\\kit', '--/persistent/app/viewport/displayOptions=3094', '--/rtx/materialDb/syncLoads=True', '--/rtx/hydra/materialSyncLoads=True', '--/omni.kit.plugin/syncUsdLoads=True', '--/app/renderer/resolution/width=1280', '--/app/renderer/resolution/height=720', '--/app/window/width=1440', '--/app/window/height=900', '--/renderer/multiGpu/enabled=True', '--/app/fastShutdown=True', '--/app/installSignalHandlers=0', '--ext-folder', 'C:\\isaacsim/exts', '--ext-folder', 'C:\\isaacsim/apps', '--/physics/cudaDevice=0', '--/plugins/carb.tasking.plugin/threadCount=16', '--/plugins/omni.tbb.globalcontrol/maxThreadCount=16', '--portable']
+Passing the following args to the base kit application:  ['--usd', 'C:\\Users\\135\\Downloads\\ggcnn\\robot\\sim\\isaac_usd\\so101_amazinghand\\so101_amazinghand.usda']
+Warp 1.13.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.4
+   Devices:
+     "cpu"      : "Intel64 Family 6 Model 197 Stepping 2, GenuineIntel"
+     "cuda:0"   : "NVIDIA GeForce RTX 5050 Laptop GPU" (8 GiB, sm_120, mempool enabled)
+   Kernel cache:
+     \\?\C:\Users\135\AppData\Local\NVIDIA\warp\Cache\1.13.0
+DOF names: ['Rotation', 'Pitch', 'Elbow', 'Wrist_Pitch', 'Wrist_Roll', 'ah_finger1_motor1', 'ah_finger1_motor2', 'ah_finger2_motor1', 'ah_finger2_motor2', 'ah_finger3_motor1', 'ah_finger3_motor2', 'ah_finger4_motor1', 'ah_finger4_motor2', 'ah_passive_ball1', 'ah_passive_ball3', 'ah_passive_ball4', 'ah_passive_ball6', 'ah_passive_ball7', 'ah_passive_ball9', 'ah_passive_ball10', 'ah_passive_ball12', 'ah_passive_ball2', 'ah_passive_ball5', 'ah_passive_ball8', 'ah_passive_ball11', 'tn__ah_passive21_tCV3T', 'tn__ah_passive41_tCV3T', 'tn__ah_passive22_tCV3T', 'tn__ah_passive42_tCV3T', 'tn__ah_passive23_tCV3T', 'tn__ah_passive43_tCV3T', 'tn__ah_passive24_tCV3T', 'tn__ah_passive44_tCV3T', 'tn__ah_passive_51_vDe3V0', 'tn__ah_passive_52_vDe3V0', 'tn__ah_passive_53_vDe3V0', 'tn__ah_passive_54_vDe3V0']
+Hand drive joints found: ['ah_finger1_motor1', 'ah_finger1_motor2', 'ah_finger2_motor1', 'ah_finger2_motor2', 'ah_finger3_motor1', 'ah_finger3_motor2', 'ah_finger4_motor1', 'ah_finger4_motor2']
+-> homing arm
+-> opening hand
+-> look pose
+-> looping open/close
+otation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>, <DofType.Rotation: 0>])
+python.bat : 2026-09-15T03:59:47Z [50,961ms] [Error] [omni.kit.app._impl] [py stderr]: Traceback (most recent call last
+):
+At line:1 char:302
++ ... tch {} } }; & "C:\isaacsim\python.bat" "C:\Users\135\Downloads\ggcnn\ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-09-15T03:5...ent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+2026-09-15T03:59:47Z [50,961ms] [Error] [omni.kit.app._impl] [py stderr]:   File "C:\Users\135\Downloads\ggcnn\robot\si
+m\isaac_run.py", line 159, in <module>
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:     main()
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:   File "C:\Users\135\Downloads\ggcnn\robot\si
+m\isaac_run.py", line 149, in main
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:     set_hand(1.0, steps=240)  # slow open
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:     ^^^^^^^^^^^^^^^^^^^^^^^^
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:   File "C:\Users\135\Downloads\ggcnn\robot\si
+m\isaac_run.py", line 129, in set_hand
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:     cur = robot.get_dof_positions(dof_indices
+=ah_idx).numpy().reshape(-1)
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^
+2026-09-15T03:59:47Z [50,962ms] [Error] [omni.kit.app._impl] [py stderr]:   File "c:/isaacsim/exts/isaacsim.core.experi
+mental.prims/isaacsim/core/experimental/prims/impl/articulation.py", line 1987, in get_dof_positions
+2026-09-15T03:59:47Z [50,963ms] [Error] [omni.kit.app._impl] [py stderr]:     assert self.is_physics_tensor_entity_vali
+d(), _MSG_PHYSICS_TENSOR_ENTITY_NOT_VALID
+2026-09-15T03:59:47Z [50,963ms] [Error] [omni.kit.app._impl] [py stderr]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^
+2026-09-15T03:59:47Z [50,963ms] [Error] [omni.kit.app._impl] [py stderr]: AssertionError: Instance's physics tensor ent
+ity is not valid. Play the simulation/timeline to re-initialize it

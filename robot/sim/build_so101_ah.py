@@ -1,74 +1,69 @@
 """
-build_so101_ah.py -- merge the menagerie SO-ARM100 with the Pollen AmazingHand
-into one MJCF, replacing the stock parallel jaw with the hand.
+build_so101_ah.py -- merge the menagerie SO-ARM100 with the OFFICIAL Pollen
+AmazingHand MJCF (robot/sim/ah_official/robot.xml) onto the SO-101 wrist.
 
-    python robot/sim/build_so101_ah.py
-    -> writes robot/sim/so101_amazinghand.xml
+The AmazingHand keeps its real CAD meshes and real 2-motor parallel linkage
+(closed by 20 <connect> equalities). It is driven KINEMATICALLY the way Pollen's
+own demo does it (mink IK / mj_forward, no contact dynamics): the 8 finger
+motors are position-servoed to a flex angle and the linkage resolves through the
+equality constraints. A `tool` site marks the finger/thumb pinch centre for arm
+IK.
 
-Tune MOUNT_POS / MOUNT_EULER until the hand sits on the wrist correctly
-(check with:  python -m robot.mujoco_backend --mjcf robot/sim/scene_ah.xml).
+    python robot/sim/build_so101_ah.py   -> robot/sim/so101_amazinghand.xml
 """
-import os
+import os, re
 import numpy as np
 import mujoco
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ARM = os.path.join(HERE, "so_arm100", "so_arm100.xml")
-HAND = os.path.join(HERE, "amazing_hand", "robot.xml")
-OUT = os.path.join(HERE, "so101_amazinghand.xml")
+ARM  = os.path.join(HERE, "so_arm100", "so_arm100.xml")
+HAND = os.path.join(HERE, "ah_official", "robot.xml")
+OUT  = os.path.join(HERE, "so101_amazinghand.xml")
 
-# where the hand's r_wrist_interface frame sits, relative to the Fixed_Jaw link
-# (which carries the Wrist_Roll joint -- keep it). Tune these.
-MOUNT_POS = (0.0, 0.0, 0.0)          # r_wrist_interface origin == wrist face; hand seats flush
-MOUNT_EULER = (1.5708, 0.0, -1.5708) # palm down, 2+2 finger banks left-right (matches real)
+MOUNT_POS   = (0.0, -0.02, 0.0)
+MOUNT_EULER = (1.5708, 0.0, 0.0)          # fingers point down at the table
+TOOL_HR     = (0.045, 0.0, 0.082)         # pinch centre = centroid of the 4 fully-closed fingertips
+                                          # (FK-measured on the built model), hand-root frame
 
 
 def _body(spec, name):
     return next(b for b in spec.bodies if b.name == name)
 
 
-def main():
-    arm = mujoco.MjSpec.from_file(ARM)
-    hand = mujoco.MjSpec.from_file(HAND)
+def _post(xml):
+    tx, ty, tz = TOOL_HR
+    site = f'    <site name="tool" pos="{tx} {ty} {tz}" size="0.004" rgba="1 0 0 0.7"/>\n'
+    xml = re.sub(r'(<body name="ah_r_wrist_interface"[^>]*>\n)', r'\1' + site, xml, count=1)
+    return xml
 
-    # bake each model's mesh files to absolute paths, then clear meshdir, so the
-    # merged file (one meshdir) still finds meshes from both source trees.
-    # meshdir = robot/sim (absolute, so compile() finds the STLs), and each mesh
-    # path becomes "<sub>/assets/<name>". The absolute meshdir is swapped for ""
-    # in the written XML so the merged file stays portable (it lives in robot/sim).
-    for spec, sub in ((arm, "so_arm100"), (hand, "amazing_hand")):
+
+def main():
+    arm  = mujoco.MjSpec.from_file(ARM)
+    hand = mujoco.MjSpec.from_file(HAND)
+    for spec, sub in ((arm, "so_arm100"), (hand, "ah_official")):
         for mesh in spec.meshes:
             mesh.file = f"{sub}/assets/" + os.path.basename(mesh.file)
         spec.meshdir = HERE
 
-    # remove the stock jaw but KEEP Fixed_Jaw (it carries the Wrist_Roll joint).
-    arm.delete(_body(arm, "Moving_Jaw"))          # drops Jaw joint + Jaw actuator too
+    arm.delete(_body(arm, "Moving_Jaw"))
     fj = _body(arm, "Fixed_Jaw")
-    for g in list(fj.geoms):                      # strip the stock gripper hardware
+    for g in list(fj.geoms):
         arm.delete(g)
 
-    # attach the hand on the wrist-roll link
     f = fj.add_frame(pos=list(MOUNT_POS))
-    q = np.zeros(4)
-    mujoco.mju_euler2Quat(q, list(MOUNT_EULER), "xyz")
+    q = np.zeros(4); mujoco.mju_euler2Quat(q, list(MOUNT_EULER), "xyz")
     f.quat = q.tolist()
     arm.attach(hand, prefix="ah_", frame=f)
 
-    # grasp-centre reference for IK: local pos measured on the AmazingHand root
-    hand_root = _body(arm, "ah_r_wrist_interface")
-    hand_root.add_site(name="tool", pos=[0.04, 0.0, 0.08])   # pinch centre (measured from distal geoms)
-
-    arm.compile()                       # validates the merged model
+    arm.compile()
     xml = arm.to_xml()
-    xml = xml.replace(f'meshdir="{HERE}"', 'meshdir=""')      # make it portable
-    xml = xml.replace(f'meshdir="{HERE}/"', 'meshdir=""')
+    xml = xml.replace(f'meshdir="{HERE}"', 'meshdir=""').replace(f'meshdir="{HERE}/"', 'meshdir=""')
+    xml = _post(xml)
     with open(OUT, "w", encoding="utf-8") as fp:
         fp.write(xml)
     print("wrote", OUT)
-
     m = mujoco.MjModel.from_xml_path(OUT)
-    print("merged: nq=%d nu=%d nbody=%d" % (m.nq, m.nu, m.nbody))
-    print("actuators:", [mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_ACTUATOR, i) for i in range(m.nu)])
+    print("merged: nq=%d nu=%d neq=%d nbody=%d" % (m.nq, m.nu, m.neq, m.nbody))
 
 
 if __name__ == "__main__":

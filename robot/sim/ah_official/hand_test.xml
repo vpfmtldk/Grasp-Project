@@ -1,0 +1,6 @@
+<mujoco model="ah_test">
+  <include file="robot.xml"/>
+  <worldbody>
+    <light pos="0 0 0.4"/>
+  </worldbody>
+</mujoco>

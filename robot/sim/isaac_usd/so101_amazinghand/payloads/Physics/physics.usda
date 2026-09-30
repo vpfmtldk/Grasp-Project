@@ -1,0 +1,1307 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.2.0"
+    }
+    defaultPrim = "so_arm100"
+    doc = """Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\tmpwrurci8w\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\usdex_so101_amazinghand\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\temp_so101_amazinghand\\so101_amazinghand.usd
+
+
+Generated from Composed Stage of root layer C:\\Users\\135\\Downloads\\ggcnn\\robot\\sim\\isaac_usd\\so101_amazinghand\\payloads\\base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "so_arm100"
+{
+    over "Geometry" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI", "NewtonArticulationRootAPI"]
+    )
+    {
+        bool newton:selfCollisionEnabled = 0
+
+        over "Base" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsFilteredPairsAPI"]
+        )
+        {
+            rel physics:filteredPairs = </so_arm100/Geometry/Base/Rotation_Pitch>
+
+            over "Rotation_Pitch" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+            )
+            {
+                point3f physics:centerOfMass = (-0.0000907886, 0.0590972, 0.031089)
+                float3 physics:diagonalInertia = (0.0000594278, 0.0000589975, 0.0000313712)
+                float physics:mass = 0.119226
+                quatf physics:principalAxes = (0.36397797, 0.44116893, -0.62310797, 0.53350395)
+
+                over "Upper_Arm" (
+                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                )
+                {
+                    point3f physics:centerOfMass = (-0.0000172052, 0.0701802, 0.00310545)
+                    float3 physics:diagonalInertia = (0.000213312, 0.000167164, 0.0000701522)
+                    float physics:mass = 0.162409
+                    quatf physics:principalAxes = (0.50104016, 0.49899414, -0.49356216, 0.5063202)
+
+                    over "Lower_Arm" (
+                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                    )
+                    {
+                        point3f physics:centerOfMass = (-0.00339604, 0.00137796, 0.0768007)
+                        float3 physics:diagonalInertia = (0.000138803, 0.000107748, 0.0000484242)
+                        float physics:mass = 0.147968
+                        quatf physics:principalAxes = (0.70199466, 0.07879956, 0.06456257, 0.70485866)
+
+                        over "Wrist_Pitch_Roll" (
+                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                        )
+                        {
+                            point3f physics:centerOfMass = (-0.00852653, -0.0352279, -0.0000234622)
+                            float3 physics:diagonalInertia = (0.0000345403, 0.0000239041, 0.0000194704)
+                            float physics:mass = 0.0661321
+                            quatf physics:principalAxes = (-0.05228059, 0.7052348, 0.054952387, 0.7049048)
+
+                            over "Fixed_Jaw" (
+                                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                            )
+                            {
+                                point3f physics:centerOfMass = (0.00552377, -0.0280167, 0.000483583)
+                                float3 physics:diagonalInertia = (0.0000503136, 0.0000464098, 0.0000272961)
+                                float physics:mass = 0.0929859
+                                quatf physics:principalAxes = (0.41836008, 0.6208911, -0.35064408, 0.5625991)
+
+                                over "ah_r_wrist_interface" (
+                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                )
+                                {
+                                    point3f physics:centerOfMass = (0, 0, 0)
+                                    float3 physics:diagonalInertia = (1e-9, 1e-9, 1e-9)
+                                    float physics:mass = 1e-9
+                                    quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                    over "ah_custom_servo_horn" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            over "ah_rotule_ball" (
+                                                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                            )
+                                            {
+                                                point3f physics:centerOfMass = (-0.0054579, -0.0141744, -0.00370248)
+                                                float3 physics:diagonalInertia = (8.1202e-7, 7.72187e-7, 8.4737e-8)
+                                                float physics:mass = 0.00277119
+                                                quatf physics:principalAxes = (0.26402506, 0.38346207, -0.6144861, 0.63691014)
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (-0.00530874, -0.00868244, 0.00225)
+                                                    float3 physics:diagonalInertia = (1.2124e-7, 1.16807e-7, 1.911e-8)
+                                                    float physics:mass = 0.00201325
+                                                    quatf physics:principalAxes = (0.680654, 0.680654, -0.191599, -0.191599)
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive21_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default>
+                                                        point3f physics:localPos0 = (-0.0116897, -0.000368272, -0.00081146)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (0.7782577, -0.27138284, 0.3690768, -0.42947477)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (0.014571, -0.0133924, 0.00225)
+                                                    float3 physics:diagonalInertia = (8.05302e-7, 7.69492e-7, 1.05941e-7)
+                                                    float physics:mass = 0.00540375
+                                                    quatf physics:principalAxes = (0.63304305, 0.63304305, 0.31505004, 0.31505004)
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" (
+                                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                    )
+                                                    {
+                                                        point3f physics:centerOfMass = (-0.0249171, -0.00392936, 0.0052354)
+                                                        float3 physics:diagonalInertia = (0.00000252879, 0.0000023577, 4.95853e-7)
+                                                        float physics:mass = 0.0101851
+                                                        quatf physics:principalAxes = (0.50254625, 0.50346524, 0.49654222, 0.4974092)
+
+                                                        def PhysicsRevoluteJoint "tn__ah_passive_51_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        )
+                                                        {
+                                                            uniform token physics:axis = "Z"
+                                                            custom rel physics:body0
+                                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999>
+                                                            custom rel physics:body1
+                                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b>
+                                                            point3f physics:localPos0 = (-0.000346366, -0.00598999, 0.00655)
+                                                            point3f physics:localPos1 = (0, 0, 0)
+                                                            quatf physics:localRot0 = (3.6082248e-16, -0.99999803, -0.0019816402, 0)
+                                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                                        }
+                                                    }
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive41_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999>
+                                                        point3f physics:localPos0 = (0.00373407, -0.0482013, -0.00704062)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (0.2713829, 0.77825767, -0.42947483, -0.36907685)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                def PhysicsSphericalJoint "ah_passive_ball2"
+                                                {
+                                                    uniform token physics:axis = "Z"
+                                                    custom rel physics:body0
+                                                    prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link>
+                                                    custom rel physics:body1
+                                                    prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball>
+                                                    point3f physics:localPos0 = (0, -0.033, -3.469447e-18)
+                                                    point3f physics:localPos1 = (0, 0, 0)
+                                                    quatf physics:localRot0 = (0.7071068, -4.1633363e-17, -0.7071067, 4.510281e-17)
+                                                    quatf physics:localRot1 = (1, 0, 0, 0)
+                                                }
+                                            }
+
+                                            def PhysicsSphericalJoint "ah_passive_ball1"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link>
+                                                point3f physics:localPos0 = (-0.005, 0, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (-0.0051014875, 0.88898355, -0.05445887, -0.45466077)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger1_motor1" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn>
+                                            point3f physics:localPos0 = (-0.00755, 0.03055, 0.0698)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (-0.5, -0.5, 0.5, 0.5)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_2" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_m2_rod_l18" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            def PhysicsSphericalJoint "ah_passive_ball3"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18>
+                                                point3f physics:localPos0 = (-0.005, 5.551115e-17, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (0.4135188, -0.028231286, 0.9093815, 0.035078082)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger1_motor2" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2>
+                                            point3f physics:localPos0 = (-0.00755, 0.01845, 0.0698)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (0.5, -0.5, -0.5, 0.5)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_2" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link_2" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            over "ah_rotule_ball_3" (
+                                                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                            )
+                                            {
+                                                point3f physics:centerOfMass = (0.000207771, -0.0141744, 0.00659195)
+                                                float3 physics:diagonalInertia = (8.12019e-7, 7.72187e-7, 8.4737e-8)
+                                                float physics:mass = 0.00277119
+                                                quatf physics:principalAxes = (0.6673597, 0.74159867, -0.043976877, -0.052234374)
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (-0.00530874, -0.00868244, 0.00225)
+                                                    float3 physics:diagonalInertia = (1.2124e-7, 1.16807e-7, 1.911e-8)
+                                                    float physics:mass = 0.00201325
+                                                    quatf physics:principalAxes = (0.680654, 0.680654, -0.191599, -0.191599)
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive22_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2>
+                                                        point3f physics:localPos0 = (0.00620709, -0.000368272, 0.00993876)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (-0.024793994, 0.5058878, -0.8609807, -0.046637382)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (0.014571, -0.0133924, 0.00225)
+                                                    float3 physics:diagonalInertia = (8.05302e-7, 7.69492e-7, 1.05941e-7)
+                                                    float physics:mass = 0.00540375
+                                                    quatf physics:principalAxes = (0.63304305, 0.63304305, 0.31505004, 0.31505004)
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2" (
+                                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                    )
+                                                    {
+                                                        point3f physics:centerOfMass = (-0.0249171, -0.00392936, 0.0052354)
+                                                        float3 physics:diagonalInertia = (0.00000252879, 0.0000023577, 4.95853e-7)
+                                                        float physics:mass = 0.0101851
+                                                        quatf physics:principalAxes = (0.50254625, 0.50346524, 0.49654222, 0.4974092)
+
+                                                        def PhysicsRevoluteJoint "tn__ah_passive_52_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        )
+                                                        {
+                                                            uniform token physics:axis = "Z"
+                                                            custom rel physics:body0
+                                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2>
+                                                            custom rel physics:body1
+                                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2>
+                                                            point3f physics:localPos0 = (-0.000346366, -0.00598999, 0.00655)
+                                                            point3f physics:localPos1 = (0, 0, 0)
+                                                            quatf physics:localRot0 = (1.6653345e-16, 0.99999803, 0.0019816402, -5.551115e-17)
+                                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                                        }
+                                                    }
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive42_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2>
+                                                        point3f physics:localPos0 = (-0.00789165, -0.0482013, 0.00111154)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (0.5058878, 0.02479399, 0.046637386, -0.8609807)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                def PhysicsSphericalJoint "ah_passive_ball5"
+                                                {
+                                                    uniform token physics:axis = "Z"
+                                                    custom rel physics:body0
+                                                    prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2>
+                                                    custom rel physics:body1
+                                                    prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3>
+                                                    point3f physics:localPos0 = (1.3877788e-17, -0.033, 0)
+                                                    point3f physics:localPos1 = (0, 0, 0)
+                                                    quatf physics:localRot0 = (-0.7071068, 1.8041124e-16, 0.7071067, 3.2786274e-16)
+                                                    quatf physics:localRot1 = (1, 0, 0, 0)
+                                                }
+                                            }
+
+                                            def PhysicsSphericalJoint "ah_passive_ball4"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2>
+                                                point3f physics:localPos0 = (-0.005, -5.551115e-17, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (-0.050831717, -0.0011417203, -0.020197406, -0.9985023)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger2_motor1" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2>
+                                            point3f physics:localPos0 = (-0.00755, 0.00110358, 0.0645642)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (-0.47314677, -0.5254828, 0.47314677, 0.5254828)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_4" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link_3" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            def PhysicsSphericalJoint "ah_passive_ball6"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3>
+                                                point3f physics:localPos0 = (-0.005, -1.110223e-16, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (0.99898565, 0.020229591, 0.00040533085, 0.04022778)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger2_motor2" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4>
+                                            point3f physics:localPos0 = (-0.00755, -0.0109301, 0.0632994)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (0.5254828, -0.47314677, -0.5254828, 0.47314677)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_3" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link_4" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            over "ah_rotule_ball_5" (
+                                                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                            )
+                                            {
+                                                point3f physics:centerOfMass = (-0.00392912, -0.0141744, -0.00529707)
+                                                float3 physics:diagonalInertia = (8.1202e-7, 7.72187e-7, 8.4737e-8)
+                                                float physics:mass = 0.00277119
+                                                quatf physics:principalAxes = (0.692135, 0.650026, 0.271378, -0.157383)
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (-0.00530874, -0.00868244, 0.00225)
+                                                    float3 physics:diagonalInertia = (1.2124e-7, 1.16807e-7, 1.911e-8)
+                                                    float physics:mass = 0.00201325
+                                                    quatf physics:principalAxes = (0.680654, 0.680654, -0.191599, -0.191599)
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive23_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3>
+                                                        point3f physics:localPos0 = (-0.010766, -0.000368272, -0.00462606)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (0.8290768, -0.19562495, 0.23352692, -0.46885782)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (0.014571, -0.0133924, 0.00225)
+                                                    float3 physics:diagonalInertia = (8.05302e-7, 7.69492e-7, 1.05941e-7)
+                                                    float physics:mass = 0.00540375
+                                                    quatf physics:principalAxes = (0.63304305, 0.63304305, 0.31505004, 0.31505004)
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3" (
+                                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                    )
+                                                    {
+                                                        point3f physics:centerOfMass = (-0.0249171, -0.00392936, 0.0052354)
+                                                        float3 physics:diagonalInertia = (0.00000252879, 0.0000023577, 4.95853e-7)
+                                                        float physics:mass = 0.0101851
+                                                        quatf physics:principalAxes = (0.50254625, 0.50346524, 0.49654222, 0.4974092)
+
+                                                        def PhysicsRevoluteJoint "tn__ah_passive_53_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        )
+                                                        {
+                                                            uniform token physics:axis = "Z"
+                                                            custom rel physics:body0
+                                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3>
+                                                            custom rel physics:body1
+                                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3>
+                                                            point3f physics:localPos0 = (-0.000346366, -0.00598999, 0.00655)
+                                                            point3f physics:localPos1 = (0, 0, 0)
+                                                            quatf physics:localRot0 = (1.110223e-16, 0.99999803, 0.0019816402, 5.551115e-17)
+                                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                                        }
+                                                    }
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive43_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3>
+                                                        point3f physics:localPos0 = (0.00584954, -0.0482013, -0.00541263)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (-0.19562496, -0.8290768, 0.46885788, 0.23352695)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                def PhysicsSphericalJoint "ah_passive_ball8"
+                                                {
+                                                    uniform token physics:axis = "Z"
+                                                    custom rel physics:body0
+                                                    prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4>
+                                                    custom rel physics:body1
+                                                    prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5>
+                                                    point3f physics:localPos0 = (5.551115e-17, -0.033, -1.3877788e-17)
+                                                    point3f physics:localPos1 = (0, 0, 0)
+                                                    quatf physics:localRot0 = (0.7071068, -5.551115e-17, -0.7071067, -2.0816682e-17)
+                                                    quatf physics:localRot1 = (1, 0, 0, 0)
+                                                }
+                                            }
+
+                                            def PhysicsSphericalJoint "ah_passive_ball7"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4>
+                                                point3f physics:localPos0 = (-0.005, 0, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (0.0040909797, 0.9525718, -0.054544188, -0.29935795)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger3_motor1" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3>
+                                            point3f physics:localPos0 = (-0.00755, -0.0270535, 0.0550493)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (-0.43776578, -0.55530274, 0.43776578, 0.55530274)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_6" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link_5" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            def PhysicsSphericalJoint "ah_passive_ball9"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5>
+                                                point3f physics:localPos0 = (-0.005, -1.110223e-16, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (0.9168433, 0.00260985, 0.3967, 0.044951804)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger3_motor2" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6>
+                                            point3f physics:localPos0 = (-0.00755, -0.0388192, 0.0522246)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (0.55530274, -0.43776578, -0.55530274, 0.43776578)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_4" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link_6" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            over "ah_rotule_ball_7" (
+                                                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                            )
+                                            {
+                                                point3f physics:centerOfMass = (0.000502397, -0.0141744, -0.00657609)
+                                                float3 physics:diagonalInertia = (8.1202e-7, 7.72186e-7, 8.4737e-8)
+                                                float physics:mass = 0.00277119
+                                                quatf physics:principalAxes = (0.74333483, 0.6640238, 0.012217998, 0.07985338)
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (-0.00530871, -0.00868246, 0.00225)
+                                                    float3 physics:diagonalInertia = (1.2124e-7, 1.16807e-7, 1.91101e-8)
+                                                    float physics:mass = 0.00201325
+                                                    quatf physics:principalAxes = (0.6806542, 0.6806542, -0.19159807, -0.19159807)
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive24_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4>
+                                                        point3f physics:localPos0 = (-0.00510212, -0.000368231, -0.0105487)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (0.8583954, -0.019323708, -0.071126334, -0.50766623)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4" (
+                                                    prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                )
+                                                {
+                                                    point3f physics:centerOfMass = (0.0145711, -0.0133923, 0.00225)
+                                                    float3 physics:diagonalInertia = (8.05302e-7, 7.69492e-7, 1.05941e-7)
+                                                    float physics:mass = 0.00540375
+                                                    quatf physics:principalAxes = (0.63304245, 0.63304245, 0.31505123, 0.31505123)
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4" (
+                                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                                    )
+                                                    {
+                                                        point3f physics:centerOfMass = (-0.0249171, -0.00392936, 0.0052354)
+                                                        float3 physics:diagonalInertia = (0.00000252879, 0.0000023577, 4.95853e-7)
+                                                        float physics:mass = 0.0101851
+                                                        quatf physics:principalAxes = (0.50254625, 0.50346524, 0.49654222, 0.4974092)
+
+                                                        def PhysicsRevoluteJoint "tn__ah_passive_54_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        )
+                                                        {
+                                                            uniform token physics:axis = "Z"
+                                                            custom rel physics:body0
+                                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4>
+                                                            custom rel physics:body1
+                                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4>
+                                                            point3f physics:localPos0 = (-0.00034635, -0.00599, 0.00655)
+                                                            point3f physics:localPos1 = (0, 0, 0)
+                                                            quatf physics:localRot0 = (1.8041124e-16, 0.99999803, 0.0019815401, 0)
+                                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                                        }
+                                                    }
+
+                                                    def PhysicsRevoluteJoint "tn__ah_passive44_tCV3T" (
+                                                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                    )
+                                                    {
+                                                        uniform token physics:axis = "Z"
+                                                        custom rel physics:body0
+                                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7>
+                                                        custom rel physics:body1
+                                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4>
+                                                        point3f physics:localPos0 = (0.00796529, -0.0482013, -0.000256421)
+                                                        point3f physics:localPos1 = (0, 0, 0)
+                                                        quatf physics:localRot0 = (-0.019323708, -0.8583954, 0.50766623, -0.071126334)
+                                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                                    }
+                                                }
+
+                                                def PhysicsSphericalJoint "ah_passive_ball11"
+                                                {
+                                                    uniform token physics:axis = "Z"
+                                                    custom rel physics:body0
+                                                    prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6>
+                                                    custom rel physics:body1
+                                                    prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7>
+                                                    point3f physics:localPos0 = (-5.2041704e-18, -0.033, 1.110223e-16)
+                                                    point3f physics:localPos1 = (0, 0, 0)
+                                                    quatf physics:localRot0 = (0.7071068, 0, -0.7071067, 0)
+                                                    quatf physics:localRot1 = (1, 0, 0, 0)
+                                                }
+                                            }
+
+                                            def PhysicsSphericalJoint "ah_passive_ball10"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6>
+                                                point3f physics:localPos0 = (-0.005, -1.3877788e-17, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (0.022905499, 0.9971149, -0.04966659, 0.052635193)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger4_motor1" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4>
+                                            point3f physics:localPos0 = (-0.000298971, 0.00773341, 0.03365)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (-3.8857806e-16, -0.5735732, -0.8191543, -5.551115e-17)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -89.99963
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_8" (
+                                        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                    )
+                                    {
+                                        point3f physics:centerOfMass = (-0.005, 0, -0.00655938)
+                                        float3 physics:diagonalInertia = (4.63584e-9, 4.63584e-9, 1e-9)
+                                        float physics:mass = 0.000410988
+                                        quatf physics:principalAxes = (1, 0, 0, 0)
+
+                                        over "ah_ball_link_7" (
+                                            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+                                        )
+                                        {
+                                            point3f physics:centerOfMass = (0, -0.0165, 0)
+                                            float3 physics:diagonalInertia = (6.40121e-8, 6.40121e-8, 1.59688e-9)
+                                            float physics:mass = 0.000463323
+                                            quatf physics:principalAxes = (0.7071068, 0.7071068, 0, 0)
+
+                                            def PhysicsSphericalJoint "ah_passive_ball12"
+                                            {
+                                                uniform token physics:axis = "Z"
+                                                custom rel physics:body0
+                                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8>
+                                                custom rel physics:body1
+                                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7>
+                                                point3f physics:localPos0 = (-0.005, 0, -0.0069)
+                                                point3f physics:localPos1 = (0, 0, 0)
+                                                quatf physics:localRot0 = (-0.00014065397, 0.04021639, -0.9989857, -0.020251395)
+                                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                            }
+                                        }
+
+                                        def PhysicsRevoluteJoint "ah_finger4_motor2" (
+                                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                        )
+                                        {
+                                            uniform token physics:axis = "Z"
+                                            custom rel physics:body0
+                                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                            custom rel physics:body1
+                                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8>
+                                            point3f physics:localPos0 = (-0.00443741, 0.0191037, 0.03365)
+                                            point3f physics:localPos1 = (0, 0, 0)
+                                            quatf physics:localRot0 = (9.7144515e-17, -0.81915224, 0.57357615, -4.9960036e-16)
+                                            quatf physics:localRot1 = (1, 0, 0, 0)
+                                            float physics:lowerLimit = -90.00021
+                                            float physics:upperLimit = 90.00021
+                                        }
+                                    }
+
+                                    def PhysicsFixedJoint "PhysicsFixedJoint"
+                                    {
+                                        custom rel physics:body0
+                                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw>
+                                        custom rel physics:body1
+                                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>
+                                        point3f physics:localPos0 = (0, -0.02, 0)
+                                        point3f physics:localPos1 = (0, 0, 0)
+                                        quatf physics:localRot0 = (0.7071053, 0.70710826, 1.5731096e-16, 2.7755576e-16)
+                                        quatf physics:localRot1 = (1, 0, 0, 0)
+                                    }
+                                }
+
+                                def PhysicsRevoluteJoint "Wrist_Roll" (
+                                    prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                )
+                                {
+                                    float drive:angular:physics:maxForce = 3.5
+                                    uniform token physics:axis = "Y"
+                                    custom rel physics:body0
+                                    prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll>
+                                    custom rel physics:body1
+                                    prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw>
+                                    point3f physics:localPos0 = (0, -0.0601, -1.3877788e-17)
+                                    point3f physics:localPos1 = (0, 0, 0)
+                                    quatf physics:localRot0 = (0.7071088, 1.2738984e-12, 0.70710474, 1.2738911e-12)
+                                    quatf physics:localRot1 = (1, 0, 0, 0)
+                                    float physics:lowerLimit = -159.85522
+                                    float physics:upperLimit = 159.85522
+                                }
+                            }
+
+                            def PhysicsRevoluteJoint "Wrist_Pitch" (
+                                prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                            )
+                            {
+                                float drive:angular:physics:maxForce = 3.5
+                                uniform token physics:axis = "X"
+                                custom rel physics:body0
+                                prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm>
+                                custom rel physics:body1
+                                prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll>
+                                point3f physics:localPos0 = (0, 0.0052, 0.1349)
+                                point3f physics:localPos1 = (0, 0, 0)
+                                quatf physics:localRot0 = (0.7071088, -0.70710474, 0, 0)
+                                quatf physics:localRot1 = (1, 0, 0, 0)
+                                float physics:lowerLimit = -95.11099
+                                float physics:upperLimit = 95.11099
+                            }
+                        }
+
+                        def PhysicsRevoluteJoint "Elbow" (
+                            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                        )
+                        {
+                            float drive:angular:physics:maxForce = 3.5
+                            uniform token physics:axis = "X"
+                            custom rel physics:body0
+                            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm>
+                            custom rel physics:body1
+                            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm>
+                            point3f physics:localPos0 = (0, 0.11257, 0.028)
+                            point3f physics:localPos1 = (0, 0, 0)
+                            quatf physics:localRot0 = (0.7071088, -0.70710474, 0, 0)
+                            quatf physics:localRot1 = (1, 0, 0, 0)
+                            float physics:lowerLimit = -9.969465
+                            float physics:upperLimit = 179.90875
+                        }
+                    }
+
+                    def PhysicsRevoluteJoint "Pitch" (
+                        prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                    )
+                    {
+                        float drive:angular:physics:maxForce = 3.5
+                        uniform token physics:axis = "X"
+                        custom rel physics:body0
+                        prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch>
+                        custom rel physics:body1
+                        prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm>
+                        point3f physics:localPos0 = (0, 0.1025, 0.0306)
+                        point3f physics:localPos1 = (0, 0, 0)
+                        quatf physics:localRot0 = (0.7071088, 0.70710474, 0, 0)
+                        quatf physics:localRot1 = (1, 0, 0, 0)
+                        float physics:lowerLimit = -190.22198
+                        float physics:upperLimit = 9.969465
+                    }
+                }
+
+                def PhysicsRevoluteJoint "Rotation" (
+                    prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                )
+                {
+                    float drive:angular:physics:maxForce = 3.5
+                    uniform token physics:axis = "Y"
+                    custom rel physics:body0
+                    prepend rel physics:body0 = </so_arm100/Geometry/Base>
+                    custom rel physics:body1
+                    prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch>
+                    point3f physics:localPos0 = (0, -0.0452, 0.0165)
+                    point3f physics:localPos1 = (0, 0, 0)
+                    quatf physics:localRot0 = (0.7071053, 0.70710826, 0, 0)
+                    quatf physics:localRot1 = (1, 0, 0, 0)
+                    float physics:lowerLimit = -110.0079
+                    float physics:upperLimit = 110.0079
+                }
+            }
+
+            def PhysicsFixedJoint "PhysicsFixedJoint"
+            {
+                custom rel physics:body0
+                prepend rel physics:body0 = </so_arm100>
+                custom rel physics:body1
+                prepend rel physics:body1 = </so_arm100/Geometry/Base>
+                point3f physics:localPos0 = (0, 0.13, 0)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        over "PhysicsMaterial" (
+            prepend apiSchemas = ["PhysicsMaterialAPI", "NewtonMaterialAPI"]
+        )
+        {
+            float newton:rollingFriction = 0.0001
+            float newton:torsionalFriction = 0.005
+            float physics:dynamicFriction = 1
+        }
+
+        def PhysicsSphericalJoint "Equality"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_closing_11_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_11_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_1"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_closing_11_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_11_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_2"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_closing_31_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_closing_31_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_3"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_closing_31_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_closing_31_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_4"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_closing_12_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_12_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_5"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_closing_12_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_12_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_6"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_closing_32_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_closing_32_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_7"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_closing_32_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_closing_32_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_8"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_closing_13_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_13_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_9"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_closing_13_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_13_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_10"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_closing_33_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_closing_33_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_11"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_closing_33_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_closing_33_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_12"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_closing_14_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_14_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_13"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_closing_14_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/tn__ah_closing_14_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_14"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_closing_34_1_xFu3X0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_closing_34_2_xFu3X0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_15"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_closing_34_1_z_zHf4Z0>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_closing_34_2_z_zHf4Z0>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_16"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_closing_ball1_1>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_closing_ball1_2>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_17"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_closing_ball2_1>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_closing_ball2_2>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_18"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_closing_ball3_1>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_closing_ball3_2>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsSphericalJoint "Equality_19"
+        {
+            uniform token physics:axis = "X"
+            custom rel physics:body0
+            prepend rel physics:body0 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_closing_ball4_1>
+            custom rel physics:body1
+            prepend rel physics:body1 = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_closing_ball4_2>
+            uniform bool physics:excludeFromArticulation = 1
+            point3f physics:localPos0 = (0, 0, 0)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+    }
+}
+
+def PhysicsScene "PhysicsScene" (
+    prepend apiSchemas = ["NewtonSceneAPI"]
+)
+{
+    uniform int newton:maxSolverIterations = 100
+    uniform int newton:timeStepsPerSecond = 500
+    vector3f physics:gravityDirection = (0, 0, -1)
+    float physics:gravityMagnitude = 9.81
+}
+

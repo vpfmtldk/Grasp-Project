@@ -1,0 +1,1845 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.2.0"
+    }
+    defaultPrim = "so_arm100"
+    doc = """Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\tmpwrurci8w\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\usdex_so101_amazinghand\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\temp_so101_amazinghand\\so101_amazinghand.usd
+
+
+Generated from Composed Stage of root layer C:\\Users\\135\\Downloads\\ggcnn\\robot\\sim\\isaac_usd\\so101_amazinghand\\payloads\\base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    subLayers = [
+        @./physics.usda@
+    ]
+    upAxis = "Z"
+)
+
+over "so_arm100"
+{
+    over "Geometry"
+    {
+        over "Base"
+        {
+            over "Rotation_Pitch"
+            {
+                over "Upper_Arm"
+                {
+                    over "Lower_Arm"
+                    {
+                        over "Wrist_Pitch_Roll"
+                        {
+                            over "Fixed_Jaw"
+                            {
+                                over "jaw_tool" (
+                                    prepend apiSchemas = ["MjcSiteAPI"]
+                                )
+                                {
+                                }
+
+                                over "ah_r_wrist_interface"
+                                {
+                                    over "tool" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                    }
+
+                                    over "tn__ah_closing_11_2_xFu3X0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_11_2_z_zHf4Z0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_12_2_xFu3X0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_12_2_z_zHf4Z0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_13_2_xFu3X0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_13_2_z_zHf4Z0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_14_2_xFu3X0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "tn__ah_closing_14_2_z_zHf4Z0" (
+                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                    )
+                                    {
+                                        uniform int mjc:group = 3
+                                    }
+
+                                    over "ah_custom_servo_horn"
+                                    {
+                                        over "ah_ball_link"
+                                        {
+                                            over "ah_rotule_ball"
+                                            {
+                                                over "ah_closing_ball1_2" (
+                                                    prepend apiSchemas = ["MjcSiteAPI"]
+                                                )
+                                                {
+                                                    uniform int mjc:group = 3
+                                                }
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"
+                                                {
+                                                    over "tn__ah_closing_11_1_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_11_1_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_31_2_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_31_2_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_passive21_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_gimbal"
+                                                    {
+                                                    }
+
+                                                    over "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"
+                                                    {
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                {
+                                                    over "ah_tip1" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"
+                                                    {
+                                                        over "tn__ah_closing_31_1_xFu3X0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_closing_31_1_z_zHf4Z0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_passive_51_vDe3V0" (
+                                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                            prepend apiSchemas = ["MjcJointAPI"]
+                                                        )
+                                                        {
+                                                            uniform double mjc:armature = 0.005
+                                                            uniform double mjc:frictionloss = 0.1
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                        {
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_1"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal_shell"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal"
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive41_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                    {
+                                                    }
+
+                                                    over "ah_distal"
+                                                    {
+                                                    }
+
+                                                    over "ah_distal_shell"
+                                                    {
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball2" (
+                                                    prepend apiSchemas = ["MjcJointAPI"]
+                                                )
+                                                {
+                                                    uniform double mjc:armature = 0.005
+                                                    uniform double mjc:frictionloss = 0.1
+                                                }
+
+                                                over "ah_link"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                                {
+                                                }
+
+                                                over "ah_rotule_ball"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_1"
+                                                {
+                                                }
+
+                                                over "ah_rotule_ball_1"
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball1" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger1_motor1" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_2"
+                                    {
+                                        over "ah_m2_rod_l18"
+                                        {
+                                            over "ah_closing_ball1_1" (
+                                                prepend apiSchemas = ["MjcSiteAPI"]
+                                            )
+                                            {
+                                                uniform int mjc:group = 3
+                                            }
+
+                                            over "ah_passive_ball3" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger1_motor2" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_2"
+                                    {
+                                        over "ah_ball_link_2"
+                                        {
+                                            over "ah_rotule_ball_3"
+                                            {
+                                                over "ah_closing_ball2_2" (
+                                                    prepend apiSchemas = ["MjcSiteAPI"]
+                                                )
+                                                {
+                                                    uniform int mjc:group = 3
+                                                }
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2"
+                                                {
+                                                    over "tn__ah_closing_12_1_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_12_1_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_32_2_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_32_2_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_passive22_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"
+                                                    {
+                                                    }
+
+                                                    over "ah_gimbal"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2"
+                                                {
+                                                    over "ah_tip2" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2"
+                                                    {
+                                                        over "tn__ah_closing_32_1_xFu3X0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_closing_32_1_z_zHf4Z0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_passive_52_vDe3V0" (
+                                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                            prepend apiSchemas = ["MjcJointAPI"]
+                                                        )
+                                                        {
+                                                            uniform double mjc:armature = 0.005
+                                                            uniform double mjc:frictionloss = 0.1
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"
+                                                        {
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                        {
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal_shell"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_1"
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive42_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_distal"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_distal_shell"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                    {
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball5" (
+                                                    prepend apiSchemas = ["MjcJointAPI"]
+                                                )
+                                                {
+                                                    uniform double mjc:armature = 0.005
+                                                    uniform double mjc:frictionloss = 0.1
+                                                }
+
+                                                over "ah_rotule_ball"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                                {
+                                                }
+
+                                                over "ah_link"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_1"
+                                                {
+                                                }
+
+                                                over "ah_rotule_ball_1"
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball4" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger2_motor1" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_4"
+                                    {
+                                        over "ah_ball_link_3"
+                                        {
+                                            over "ah_closing_ball2_1" (
+                                                prepend apiSchemas = ["MjcSiteAPI"]
+                                            )
+                                            {
+                                                uniform int mjc:group = 3
+                                            }
+
+                                            over "ah_passive_ball6" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger2_motor2" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_3"
+                                    {
+                                        over "ah_ball_link_4"
+                                        {
+                                            over "ah_rotule_ball_5"
+                                            {
+                                                over "ah_closing_ball3_2" (
+                                                    prepend apiSchemas = ["MjcSiteAPI"]
+                                                )
+                                                {
+                                                    uniform int mjc:group = 3
+                                                }
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3"
+                                                {
+                                                    over "tn__ah_closing_13_1_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_13_1_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_33_2_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_33_2_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_passive23_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_gimbal"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"
+                                                    {
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3"
+                                                {
+                                                    over "ah_tip3" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3"
+                                                    {
+                                                        over "tn__ah_closing_33_1_xFu3X0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_closing_33_1_z_zHf4Z0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_passive_53_vDe3V0" (
+                                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                            prepend apiSchemas = ["MjcJointAPI"]
+                                                        )
+                                                        {
+                                                            uniform double mjc:armature = 0.005
+                                                            uniform double mjc:frictionloss = 0.1
+                                                        }
+
+                                                        over "ah_proximal_shell"
+                                                        {
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"
+                                                        {
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_1"
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive43_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                    {
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+
+                                                    over "ah_distal"
+                                                    {
+                                                    }
+
+                                                    over "ah_distal_shell"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball8" (
+                                                    prepend apiSchemas = ["MjcJointAPI"]
+                                                )
+                                                {
+                                                    uniform double mjc:armature = 0.005
+                                                    uniform double mjc:frictionloss = 0.1
+                                                }
+
+                                                over "ah_rotule_ball"
+                                                {
+                                                }
+
+                                                over "ah_rotule_ball_1"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                                {
+                                                }
+
+                                                over "ah_link"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_1"
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball7" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger3_motor1" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_6"
+                                    {
+                                        over "ah_ball_link_5"
+                                        {
+                                            over "ah_closing_ball3_1" (
+                                                prepend apiSchemas = ["MjcSiteAPI"]
+                                            )
+                                            {
+                                                uniform int mjc:group = 3
+                                            }
+
+                                            over "ah_passive_ball9" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger3_motor2" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_4"
+                                    {
+                                        over "ah_ball_link_6"
+                                        {
+                                            over "ah_rotule_ball_7"
+                                            {
+                                                over "ah_closing_ball4_2" (
+                                                    prepend apiSchemas = ["MjcSiteAPI"]
+                                                )
+                                                {
+                                                    uniform int mjc:group = 3
+                                                }
+
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4"
+                                                {
+                                                    over "tn__ah_closing_14_1_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_14_1_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_34_2_xFu3X0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_closing_34_2_z_zHf4Z0" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "tn__ah_passive24_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+
+                                                    over "ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5"
+                                                    {
+                                                    }
+
+                                                    over "ah_gimbal"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4"
+                                                {
+                                                    over "ah_tip4" (
+                                                        prepend apiSchemas = ["MjcSiteAPI"]
+                                                    )
+                                                    {
+                                                        uniform int mjc:group = 3
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4"
+                                                    {
+                                                        over "tn__ah_closing_34_1_xFu3X0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_closing_34_1_z_zHf4Z0" (
+                                                            prepend apiSchemas = ["MjcSiteAPI"]
+                                                        )
+                                                        {
+                                                            uniform int mjc:group = 3
+                                                        }
+
+                                                        over "tn__ah_passive_54_vDe3V0" (
+                                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                            prepend apiSchemas = ["MjcJointAPI"]
+                                                        )
+                                                        {
+                                                            uniform double mjc:armature = 0.005
+                                                            uniform double mjc:frictionloss = 0.1
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"
+                                                        {
+                                                        }
+
+                                                        over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_1"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal_shell"
+                                                        {
+                                                        }
+
+                                                        over "ah_proximal"
+                                                        {
+                                                        }
+
+                                                        over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive44_tCV3T" (
+                                                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                                        prepend apiSchemas = ["MjcJointAPI"]
+                                                    )
+                                                    {
+                                                        uniform double mjc:armature = 0.005
+                                                        uniform double mjc:frictionloss = 0.1
+                                                    }
+
+                                                    over "ah_distal_shell"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default"
+                                                    {
+                                                    }
+
+                                                    over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                    {
+                                                    }
+
+                                                    over "ah_distal"
+                                                    {
+                                                    }
+
+                                                    over "ah_std00447_thermoplastique_m2_5x6__configuration_default_1"
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball11" (
+                                                    prepend apiSchemas = ["MjcJointAPI"]
+                                                )
+                                                {
+                                                    uniform double mjc:armature = 0.005
+                                                    uniform double mjc:frictionloss = 0.1
+                                                }
+
+                                                over "ah_rotule_ball"
+                                                {
+                                                }
+
+                                                over "ah_link"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                                {
+                                                }
+
+                                                over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed_1"
+                                                {
+                                                }
+
+                                                over "ah_rotule_ball_1"
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball10" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger4_motor1" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_8"
+                                    {
+                                        over "ah_ball_link_7"
+                                        {
+                                            over "ah_closing_ball4_1" (
+                                                prepend apiSchemas = ["MjcSiteAPI"]
+                                            )
+                                            {
+                                                uniform int mjc:group = 3
+                                            }
+
+                                            over "ah_passive_ball12" (
+                                                prepend apiSchemas = ["MjcJointAPI"]
+                                            )
+                                            {
+                                                uniform double mjc:armature = 0.005
+                                                uniform double mjc:frictionloss = 0.1
+                                            }
+
+                                            over "ah_rotule_lever"
+                                            {
+                                            }
+
+                                            over "ah_rotule_lever_1"
+                                            {
+                                            }
+
+                                            over "ah_m2_rod_l18"
+                                            {
+                                            }
+
+                                            over "ah_spacer"
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger4_motor2" (
+                                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                            prepend apiSchemas = ["MjcJointAPI"]
+                                        )
+                                        {
+                                            uniform double mjc:armature = 0.005
+                                            uniform double mjc:frictionloss = 0.1
+                                        }
+
+                                        over "ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed"
+                                        {
+                                        }
+
+                                        over "ah_rotule_ball"
+                                        {
+                                        }
+
+                                        over "ah_custom_servo_horn"
+                                        {
+                                        }
+                                    }
+
+                                    over "PhysicsFixedJoint"
+                                    {
+                                    }
+
+                                    over "ah_scs0009"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_1"
+                                    {
+                                    }
+
+                                    over "ah_r_hand_plate"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_1"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_2"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_2_1"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_1"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_2"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_3"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_2_2"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_2"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_3"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_2_3"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_4"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_5"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_1_1"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_4"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_6"
+                                    {
+                                    }
+
+                                    over "ah_r_wrist_interface"
+                                    {
+                                    }
+
+                                    over "ah_scs0009_7"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_5"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_6"
+                                    {
+                                    }
+
+                                    over "ah_bushing_0608_04_7"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_1_2"
+                                    {
+                                    }
+
+                                    over "ah_finger_frame_1_3"
+                                    {
+                                    }
+                                }
+
+                                over "Wrist_Roll" (
+                                    delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                    prepend apiSchemas = ["MjcJointAPI"]
+                                )
+                                {
+                                    uniform double mjc:armature = 0.1
+                                    uniform double mjc:frictionloss = 0.1
+                                }
+                            }
+
+                            over "Wrist_Pitch" (
+                                delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                                prepend apiSchemas = ["MjcJointAPI"]
+                            )
+                            {
+                                uniform double mjc:armature = 0.1
+                                uniform double mjc:frictionloss = 0.1
+                            }
+
+                            over "Wrist_Pitch_Roll"
+                            {
+                            }
+
+                            over "Wrist_Pitch_Roll_Motor"
+                            {
+                            }
+
+                            over "Wrist_Pitch_Roll_1"
+                            {
+                            }
+                        }
+
+                        over "Elbow" (
+                            delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                            prepend apiSchemas = ["MjcJointAPI"]
+                        )
+                        {
+                            uniform double mjc:armature = 0.1
+                            uniform double mjc:frictionloss = 0.1
+                        }
+
+                        over "Lower_Arm"
+                        {
+                        }
+
+                        over "Lower_Arm_Motor"
+                        {
+                        }
+
+                        over "Lower_Arm_1"
+                        {
+                        }
+                    }
+
+                    over "Pitch" (
+                        delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                        prepend apiSchemas = ["MjcJointAPI"]
+                    )
+                    {
+                        uniform double mjc:armature = 0.1
+                        uniform double mjc:frictionloss = 0.1
+                    }
+
+                    over "Upper_Arm"
+                    {
+                    }
+
+                    over "Upper_Arm_Motor"
+                    {
+                    }
+
+                    over "Upper_Arm_1"
+                    {
+                    }
+                }
+
+                over "Rotation" (
+                    delete apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+                    prepend apiSchemas = ["MjcJointAPI"]
+                )
+                {
+                    uniform double mjc:armature = 0.1
+                    uniform double mjc:frictionloss = 0.1
+                }
+
+                over "Rotation_Pitch"
+                {
+                }
+
+                over "Rotation_Pitch_Motor"
+                {
+                }
+
+                over "Rotation_Pitch_1"
+                {
+                }
+            }
+
+            over "PhysicsFixedJoint"
+            {
+            }
+
+            over "Base"
+            {
+            }
+
+            over "Base_Motor"
+            {
+            }
+
+            over "Base_1"
+            {
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        over "PhysicsMaterial" (
+            prepend apiSchemas = ["MjcMaterialAPI"]
+        )
+        {
+        }
+
+        over "Equality" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_1" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_2" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_3" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_4" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_5" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_6" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_7" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_8" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_9" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_10" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_11" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_12" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_13" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_14" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_15" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_16" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_17" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_18" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        over "Equality_19" (
+            prepend apiSchemas = ["MjcEqualityConnectAPI"]
+        )
+        {
+            uniform double[] mjc:solimp = [0.99, 0.999, 0.0005, 0.5, 2]
+            uniform double[] mjc:solref = [0.002, 1]
+        }
+
+        def MjcActuator "Rotation"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.92
+            uniform double mjc:ctrlRange:min = -1.92
+            uniform double mjc:forceRange:max = 3.5
+            uniform double mjc:forceRange:min = -3.5
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Rotation>
+        }
+
+        def MjcActuator "Pitch"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 0.174
+            uniform double mjc:ctrlRange:min = -3.32
+            uniform double mjc:forceRange:max = 3.5
+            uniform double mjc:forceRange:min = -3.5
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Pitch>
+        }
+
+        def MjcActuator "Elbow"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 3.14
+            uniform double mjc:ctrlRange:min = -0.174
+            uniform double mjc:forceRange:max = 3.5
+            uniform double mjc:forceRange:min = -3.5
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Elbow>
+        }
+
+        def MjcActuator "Wrist_Pitch"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.66
+            uniform double mjc:ctrlRange:min = -1.66
+            uniform double mjc:forceRange:max = 3.5
+            uniform double mjc:forceRange:min = -3.5
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Wrist_Pitch>
+        }
+
+        def MjcActuator "Wrist_Roll"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 2.79
+            uniform double mjc:ctrlRange:min = -2.79
+            uniform double mjc:forceRange:max = 3.5
+            uniform double mjc:forceRange:min = -3.5
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/Wrist_Roll>
+        }
+
+        def MjcActuator "ah_finger1_motor1"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_finger1_motor1>
+        }
+
+        def MjcActuator "ah_finger1_motor2"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_finger1_motor2>
+        }
+
+        def MjcActuator "ah_finger2_motor1"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_finger2_motor1>
+        }
+
+        def MjcActuator "ah_finger2_motor2"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_finger2_motor2>
+        }
+
+        def MjcActuator "ah_finger3_motor1"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_finger3_motor1>
+        }
+
+        def MjcActuator "ah_finger3_motor2"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_finger3_motor2>
+        }
+
+        def MjcActuator "ah_finger4_motor1"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.57079
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_finger4_motor1>
+        }
+
+        def MjcActuator "ah_finger4_motor2"
+        {
+            uniform double[] mjc:biasPrm = [0, -50, 1, 0, 0, 0, 0, 0, 0, 0]
+            uniform token mjc:biasType = "affine"
+            uniform double mjc:ctrlRange:max = 1.5708
+            uniform double mjc:ctrlRange:min = -1.5708
+            uniform double[] mjc:gainPrm = [50, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            custom rel mjc:target
+            prepend rel mjc:target = </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_finger4_motor2>
+        }
+    }
+
+    over "Materials"
+    {
+    }
+
+    over "VisualMaterials"
+    {
+    }
+}
+
+over "PhysicsScene" (
+    prepend apiSchemas = ["MjcSceneAPI"]
+)
+{
+    uniform token mjc:compiler:angle = "radian"
+    uniform bool mjc:flag:multiccd = 0
+    uniform token mjc:option:cone = "elliptic"
+    uniform double mjc:option:impratio = 10
+}
+

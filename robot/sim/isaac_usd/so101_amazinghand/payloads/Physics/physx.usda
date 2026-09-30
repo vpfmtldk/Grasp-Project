@@ -1,0 +1,336 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.2.0"
+    }
+    defaultPrim = "so_arm100"
+    doc = """Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\tmpwrurci8w\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\usdex_so101_amazinghand\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\temp_so101_amazinghand\\so101_amazinghand.usd
+
+
+Generated from Composed Stage of root layer C:\\Users\\135\\Downloads\\ggcnn\\robot\\sim\\isaac_usd\\so101_amazinghand\\payloads\\base.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    subLayers = [
+        @./physics.usda@
+    ]
+    upAxis = "Z"
+)
+
+over "so_arm100"
+{
+    over "Geometry"
+    {
+        over "Base"
+        {
+            over "Rotation_Pitch"
+            {
+                over "Upper_Arm"
+                {
+                    over "Lower_Arm"
+                    {
+                        over "Wrist_Pitch_Roll"
+                        {
+                            over "Fixed_Jaw"
+                            {
+                                over "ah_r_wrist_interface"
+                                {
+                                    over "ah_custom_servo_horn"
+                                    {
+                                        over "ah_ball_link"
+                                        {
+                                            over "ah_rotule_ball"
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default"
+                                                {
+                                                    over "tn__ah_passive21_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999"
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b"
+                                                    {
+                                                        over "tn__ah_passive_51_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                                        )
+                                                        {
+                                                            float physxJoint:armature = 0.005
+                                                            float physxJoint:jointFriction = 0.1
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive41_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        over "ah_finger1_motor1" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_2"
+                                    {
+                                        over "ah_finger1_motor2" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_2"
+                                    {
+                                        over "ah_ball_link_2"
+                                        {
+                                            over "ah_rotule_ball_3"
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2"
+                                                {
+                                                    over "tn__ah_passive22_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2"
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2"
+                                                    {
+                                                        over "tn__ah_passive_52_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                                        )
+                                                        {
+                                                            float physxJoint:armature = 0.005
+                                                            float physxJoint:jointFriction = 0.1
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive42_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        over "ah_finger2_motor1" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_4"
+                                    {
+                                        over "ah_finger2_motor2" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_3"
+                                    {
+                                        over "ah_ball_link_4"
+                                        {
+                                            over "ah_rotule_ball_5"
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3"
+                                                {
+                                                    over "tn__ah_passive23_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3"
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3"
+                                                    {
+                                                        over "tn__ah_passive_53_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                                        )
+                                                        {
+                                                            float physxJoint:armature = 0.005
+                                                            float physxJoint:jointFriction = 0.1
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive43_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        over "ah_finger3_motor1" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_6"
+                                    {
+                                        over "ah_finger3_motor2" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_4"
+                                    {
+                                        over "ah_ball_link_6"
+                                        {
+                                            over "ah_rotule_ball_7"
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4"
+                                                {
+                                                    over "tn__ah_passive24_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4"
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4"
+                                                    {
+                                                        over "tn__ah_passive_54_vDe3V0" (
+                                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                                        )
+                                                        {
+                                                            float physxJoint:armature = 0.005
+                                                            float physxJoint:jointFriction = 0.1
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive44_tCV3T" (
+                                                        prepend apiSchemas = ["PhysxJointAPI"]
+                                                    )
+                                                    {
+                                                        float physxJoint:armature = 0.005
+                                                        float physxJoint:jointFriction = 0.1
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        over "ah_finger4_motor1" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_8"
+                                    {
+                                        over "ah_finger4_motor2" (
+                                            prepend apiSchemas = ["PhysxJointAPI"]
+                                        )
+                                        {
+                                            float physxJoint:armature = 0.005
+                                            float physxJoint:jointFriction = 0.1
+                                        }
+                                    }
+                                }
+
+                                over "Wrist_Roll" (
+                                    prepend apiSchemas = ["PhysxJointAPI"]
+                                )
+                                {
+                                    float physxJoint:armature = 0.1
+                                    float physxJoint:jointFriction = 0.1
+                                }
+                            }
+
+                            over "Wrist_Pitch" (
+                                prepend apiSchemas = ["PhysxJointAPI"]
+                            )
+                            {
+                                float physxJoint:armature = 0.1
+                                float physxJoint:jointFriction = 0.1
+                            }
+                        }
+
+                        over "Elbow" (
+                            prepend apiSchemas = ["PhysxJointAPI"]
+                        )
+                        {
+                            float physxJoint:armature = 0.1
+                            float physxJoint:jointFriction = 0.1
+                        }
+                    }
+
+                    over "Pitch" (
+                        prepend apiSchemas = ["PhysxJointAPI"]
+                    )
+                    {
+                        float physxJoint:armature = 0.1
+                        float physxJoint:jointFriction = 0.1
+                    }
+                }
+
+                over "Rotation" (
+                    prepend apiSchemas = ["PhysxJointAPI"]
+                )
+                {
+                    float physxJoint:armature = 0.1
+                    float physxJoint:jointFriction = 0.1
+                }
+            }
+        }
+    }
+}
+

@@ -108,19 +108,30 @@ class _ArmView:
         return list(q * R2D)
 
 
+# AmazingHand grip: c in [0 (open) .. AH_CLOSE (fully flexed)].
+# flexion convention (empirical): fingers 1-3  motor1=+c motor2=-c ;
+# thumb (finger4)  motor1=-c motor2=+c.
+AH_CLOSE = 1.5
+
+
 class _HandView:
-    """Parallel jaw (menagerie 'Jaw') or AmazingHand (finger1..8)."""
+    """Grip control. Prefers the OFFICIAL AmazingHand finger motors
+    (ah_finger1_motor1..) on the merged SO-101+AmazingHand model (real linkage +
+    added phalanx collision), else the menagerie parallel 'Jaw'.
+    """
 
     def __init__(self, p):
         self.p = p
         self.jaw = p.aid_or_none("Jaw")
-        # AmazingHand (merged model): 4 fingers x 2 motors, prefixed "ah_"
-        self.ah = [(p.aid_or_none(f"ah_finger{f}_motor1"), p.aid_or_none(f"ah_finger{f}_motor2"))
-                   for f in range(1, 5)]
-        if self.jaw is not None:
-            self.mode = "jaw"
-        elif self.ah[0][0] is not None:
+        # AmazingHand (merged model): 4 fingers x 2 motors, prefixed "ah_".
+        # (m1_aid, m2_aid, sign) -- sign flips for the opposed thumb.
+        self.ah = [(p.aid_or_none(f"ah_finger{f}_motor1"),
+                    p.aid_or_none(f"ah_finger{f}_motor2"),
+                    (+1.0 if f == 4 else +1.0)) for f in range(1, 5)]
+        if self.ah[0][0] is not None:
             self.mode = "ah"
+        elif self.jaw is not None:
+            self.mode = "jaw"
         else:
             self.mode = "none"
 
@@ -131,17 +142,16 @@ class _HandView:
     def set_opening(self, frac, secs=0.6):
         """frac 0 = closed/flexed .. 1 = open."""
         frac = float(np.clip(frac, 0.0, 1.0))
-        if self.mode == "jaw":
+        if self.mode == "ah":
+            c = (1.0 - frac) * AH_CLOSE                   # frac 1 -> open, 0 -> flexed
+            for m1, m2, sgn in self.ah:
+                if m1 is not None:
+                    self.p.data.ctrl[m1] = +sgn * c
+                if m2 is not None:
+                    self.p.data.ctrl[m2] = -sgn * c
+        elif self.mode == "jaw":
             lo, hi = self.p.model.actuator_ctrlrange[self.jaw]
             self.p.data.ctrl[self.jaw] = lo + frac * (hi - lo)
-        elif self.mode == "ah":
-            # this MJCF's linkage curls the finger when BOTH motors turn the same way
-            flex = (1.0 - frac) * 1.45                    # rad
-            for m1, m2 in self.ah:
-                if m1 is not None:
-                    self.p.data.ctrl[m1] = flex
-                if m2 is not None:
-                    self.p.data.ctrl[m2] = flex
         self._settle(secs)
 
     def open(self, secs=0.6):

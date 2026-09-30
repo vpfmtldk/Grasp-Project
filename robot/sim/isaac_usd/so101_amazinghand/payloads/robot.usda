@@ -1,0 +1,540 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "MuJoCo USD Converter v0.2.0"
+    }
+    defaultPrim = "so_arm100"
+    doc = """Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\tmpwrurci8w\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\usdex_so101_amazinghand\\so_arm100.usdc
+
+
+Generated from Composed Stage of root layer C:\\Users\\Public\\Documents\\ESTsoft\\CreatorTemp\\mjcf_import_so101_amazinghand_4p7r5awn\\temp_so101_amazinghand\\so101_amazinghand.usd
+"""
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+over "so_arm100" (
+    prepend apiSchemas = ["IsaacRobotAPI"]
+)
+{
+    prepend rel isaac:physics:robotJoints = [
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_finger1_motor1>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_finger1_motor2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_finger2_motor1>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_finger2_motor2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_finger3_motor1>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_finger3_motor2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_finger4_motor1>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_finger4_motor2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/PhysicsFixedJoint>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_passive_ball1>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_passive_ball2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default/tn__ah_passive21_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/tn__ah_passive41_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b/tn__ah_passive_51_vDe3V0>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18/ah_passive_ball3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_passive_ball4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_passive_ball5>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2/tn__ah_passive22_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/tn__ah_passive42_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2/tn__ah_passive_52_vDe3V0>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3/ah_passive_ball6>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_passive_ball7>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_passive_ball8>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3/tn__ah_passive23_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/tn__ah_passive43_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3/tn__ah_passive_53_vDe3V0>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5/ah_passive_ball9>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_passive_ball10>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_passive_ball11>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4/tn__ah_passive24_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/tn__ah_passive44_tCV3T>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4/tn__ah_passive_54_vDe3V0>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7/ah_passive_ball12>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/Wrist_Roll>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Wrist_Pitch>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Elbow>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Pitch>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Rotation>,
+        </so_arm100/Geometry/Base/PhysicsFixedJoint>,
+    ]
+    prepend rel isaac:physics:robotLinks = [
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn/ah_ball_link/ah_rotule_ball/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_2/ah_m2_rod_l18>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_2/ah_ball_link_2/ah_rotule_ball_3/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_4/ah_ball_link_3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_3/ah_ball_link_4/ah_rotule_ball_5/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_6/ah_ball_link_5>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_custom_servo_horn_4/ah_ball_link_6/ah_rotule_ball_7/ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4/ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw/ah_r_wrist_interface/ah_rotule_ball_8/ah_ball_link_7>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll/Fixed_Jaw>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm/Wrist_Pitch_Roll>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm/Lower_Arm>,
+        </so_arm100/Geometry/Base/Rotation_Pitch/Upper_Arm>,
+        </so_arm100/Geometry/Base/Rotation_Pitch>,
+        </so_arm100/Geometry/Base>,
+    ]
+    token isaac:robotType = "Default"
+
+    over "Geometry"
+    {
+        over "Base" (
+            prepend apiSchemas = ["IsaacLinkAPI"]
+        )
+        {
+            over "Rotation_Pitch" (
+                prepend apiSchemas = ["IsaacLinkAPI"]
+            )
+            {
+                over "Upper_Arm" (
+                    prepend apiSchemas = ["IsaacLinkAPI"]
+                )
+                {
+                    over "Lower_Arm" (
+                        prepend apiSchemas = ["IsaacLinkAPI"]
+                    )
+                    {
+                        over "Wrist_Pitch_Roll" (
+                            prepend apiSchemas = ["IsaacLinkAPI"]
+                        )
+                        {
+                            over "Fixed_Jaw" (
+                                prepend apiSchemas = ["IsaacLinkAPI"]
+                            )
+                            {
+                                over "ah_r_wrist_interface" (
+                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                )
+                                {
+                                    over "ah_custom_servo_horn" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_rotule_ball" (
+                                                prepend apiSchemas = ["IsaacLinkAPI"]
+                                            )
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "tn__ah_passive21_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" (
+                                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                                    )
+                                                    {
+                                                        over "tn__ah_passive_51_vDe3V0" (
+                                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                                        )
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive41_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball2" (
+                                                    prepend apiSchemas = ["IsaacJointAPI"]
+                                                )
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball1" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger1_motor1" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_2" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_m2_rod_l18" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_passive_ball3" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger1_motor2" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_2" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link_2" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_rotule_ball_3" (
+                                                prepend apiSchemas = ["IsaacLinkAPI"]
+                                            )
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_2" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "tn__ah_passive22_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_2" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_2" (
+                                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                                    )
+                                                    {
+                                                        over "tn__ah_passive_52_vDe3V0" (
+                                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                                        )
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive42_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball5" (
+                                                    prepend apiSchemas = ["IsaacJointAPI"]
+                                                )
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball4" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger2_motor1" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_4" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link_3" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_passive_ball6" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger2_motor2" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_3" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link_4" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_rotule_ball_5" (
+                                                prepend apiSchemas = ["IsaacLinkAPI"]
+                                            )
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_3" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "tn__ah_passive23_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_3" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_3" (
+                                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                                    )
+                                                    {
+                                                        over "tn__ah_passive_53_vDe3V0" (
+                                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                                        )
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive43_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball8" (
+                                                    prepend apiSchemas = ["IsaacJointAPI"]
+                                                )
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball7" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger3_motor1" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_6" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link_5" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_passive_ball9" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger3_motor2" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_custom_servo_horn_4" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link_6" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_rotule_ball_7" (
+                                                prepend apiSchemas = ["IsaacLinkAPI"]
+                                            )
+                                            {
+                                                over "ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default_4" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "tn__ah_passive24_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999_4" (
+                                                    prepend apiSchemas = ["IsaacLinkAPI"]
+                                                )
+                                                {
+                                                    over "ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b_4" (
+                                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                                    )
+                                                    {
+                                                        over "tn__ah_passive_54_vDe3V0" (
+                                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                                        )
+                                                        {
+                                                        }
+                                                    }
+
+                                                    over "tn__ah_passive44_tCV3T" (
+                                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                                    )
+                                                    {
+                                                    }
+                                                }
+
+                                                over "ah_passive_ball11" (
+                                                    prepend apiSchemas = ["IsaacJointAPI"]
+                                                )
+                                                {
+                                                }
+                                            }
+
+                                            over "ah_passive_ball10" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger4_motor1" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "ah_rotule_ball_8" (
+                                        prepend apiSchemas = ["IsaacLinkAPI"]
+                                    )
+                                    {
+                                        over "ah_ball_link_7" (
+                                            prepend apiSchemas = ["IsaacLinkAPI"]
+                                        )
+                                        {
+                                            over "ah_passive_ball12" (
+                                                prepend apiSchemas = ["IsaacJointAPI"]
+                                            )
+                                            {
+                                            }
+                                        }
+
+                                        over "ah_finger4_motor2" (
+                                            prepend apiSchemas = ["IsaacJointAPI"]
+                                        )
+                                        {
+                                        }
+                                    }
+
+                                    over "PhysicsFixedJoint" (
+                                        prepend apiSchemas = ["IsaacJointAPI"]
+                                    )
+                                    {
+                                    }
+                                }
+
+                                over "Wrist_Roll" (
+                                    prepend apiSchemas = ["IsaacJointAPI"]
+                                )
+                                {
+                                }
+                            }
+
+                            over "Wrist_Pitch" (
+                                prepend apiSchemas = ["IsaacJointAPI"]
+                            )
+                            {
+                            }
+                        }
+
+                        over "Elbow" (
+                            prepend apiSchemas = ["IsaacJointAPI"]
+                        )
+                        {
+                        }
+                    }
+
+                    over "Pitch" (
+                        prepend apiSchemas = ["IsaacJointAPI"]
+                    )
+                    {
+                    }
+                }
+
+                over "Rotation" (
+                    prepend apiSchemas = ["IsaacJointAPI"]
+                )
+                {
+                }
+            }
+
+            over "PhysicsFixedJoint" (
+                prepend apiSchemas = ["IsaacJointAPI"]
+            )
+            {
+            }
+        }
+    }
+}
+

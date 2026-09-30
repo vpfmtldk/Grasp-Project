@@ -29,9 +29,9 @@
 
     <camera name="table_cam" pos="0 -0.55 0.42" xyaxes="1 0 0 0 0.68 0.73" fovy="58"/>
 
-    <body name="cube" pos="0 -0.10 0.015">
+    <body name="cube" pos="0 -0.10 0.020">
       <freejoint/>
-      <geom type="box" size="0.015 0.015 0.015" material="cube_mat" mass="0.04"
+      <geom type="box" size="0.020 0.020 0.020" material="cube_mat" mass="0.06"
             friction="1 0.05 0.001"/>
     </body>
   </worldbody>

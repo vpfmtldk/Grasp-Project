@@ -129,29 +129,29 @@
     <mesh name="Moving_Jaw_Collision_1" file="so_arm100/assets/Moving_Jaw_Collision_1.stl"/>
     <mesh name="Moving_Jaw_Collision_2" file="so_arm100/assets/Moving_Jaw_Collision_2.stl"/>
     <mesh name="Moving_Jaw_Collision_3" file="so_arm100/assets/Moving_Jaw_Collision_3.stl"/>
-    <mesh name="ah_proximal_shell" file="amazing_hand/assets/proximal_shell.stl"/>
-    <mesh name="ah_link" file="amazing_hand/assets/link.stl"/>
-    <mesh name="ah_spacer" file="amazing_hand/assets/spacer.stl"/>
-    <mesh name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" file="amazing_hand/assets/parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b.stl"/>
-    <mesh name="ah_bushing_0608_04" file="amazing_hand/assets/bushing_0608_04.stl"/>
-    <mesh name="ah_finger_frame_2" file="amazing_hand/assets/finger_frame_2.stl"/>
-    <mesh name="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed" file="amazing_hand/assets/ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed.stl"/>
-    <mesh name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" file="amazing_hand/assets/parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999.stl"/>
-    <mesh name="ah_distal" file="amazing_hand/assets/distal.stl"/>
-    <mesh name="ah_finger_frame_1" file="amazing_hand/assets/finger_frame_1.stl"/>
-    <mesh name="ah_std00447_thermoplastique_m2_5x6__configuration_default" file="amazing_hand/assets/std00447_thermoplastique_m2_5x6__configuration_default.stl"/>
-    <mesh name="ah_custom_servo_horn" file="amazing_hand/assets/custom_servo_horn.stl"/>
-    <mesh name="ah_scs0009" file="amazing_hand/assets/scs0009.stl"/>
-    <mesh name="ah_m2_rod_l18" file="amazing_hand/assets/m2_rod_l18.stl"/>
-    <mesh name="ah_proximal" file="amazing_hand/assets/proximal.stl"/>
-    <mesh name="ah_rotule_lever" file="amazing_hand/assets/rotule_lever.stl"/>
-    <mesh name="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5" file="amazing_hand/assets/plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5.stl"/>
-    <mesh name="ah_rotule_ball" file="amazing_hand/assets/rotule_ball.stl"/>
-    <mesh name="ah_r_hand_plate" file="amazing_hand/assets/r_hand_plate.stl"/>
-    <mesh name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" file="amazing_hand/assets/std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default.stl"/>
-    <mesh name="ah_gimbal" file="amazing_hand/assets/gimbal.stl"/>
-    <mesh name="ah_distal_shell" file="amazing_hand/assets/distal_shell.stl"/>
-    <mesh name="ah_r_wrist_interface" file="amazing_hand/assets/r_wrist_interface.stl"/>
+    <mesh name="ah_proximal_shell" file="ah_official/assets/proximal_shell.stl"/>
+    <mesh name="ah_link" file="ah_official/assets/link.stl"/>
+    <mesh name="ah_spacer" file="ah_official/assets/spacer.stl"/>
+    <mesh name="ah_parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b" file="ah_official/assets/parallel_pin_2_x_16__da4b7ddbe9d803fe3fbc70f2e822b99b.stl"/>
+    <mesh name="ah_bushing_0608_04" file="ah_official/assets/bushing_0608_04.stl"/>
+    <mesh name="ah_finger_frame_2" file="ah_official/assets/finger_frame_2.stl"/>
+    <mesh name="ah_ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed" file="ah_official/assets/ph_pan_head_screw_m2x0_40_x_10__2803432263e518bbd16bccbbef8784ed.stl"/>
+    <mesh name="ah_parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999" file="ah_official/assets/parallel_pin_2_x_10__fee063fca0c8b40e46bbc4ffff61d999.stl"/>
+    <mesh name="ah_distal" file="ah_official/assets/distal.stl"/>
+    <mesh name="ah_finger_frame_1" file="ah_official/assets/finger_frame_1.stl"/>
+    <mesh name="ah_std00447_thermoplastique_m2_5x6__configuration_default" file="ah_official/assets/std00447_thermoplastique_m2_5x6__configuration_default.stl"/>
+    <mesh name="ah_custom_servo_horn" file="ah_official/assets/custom_servo_horn.stl"/>
+    <mesh name="ah_scs0009" file="ah_official/assets/scs0009.stl"/>
+    <mesh name="ah_m2_rod_l18" file="ah_official/assets/m2_rod_l18.stl"/>
+    <mesh name="ah_proximal" file="ah_official/assets/proximal.stl"/>
+    <mesh name="ah_rotule_lever" file="ah_official/assets/rotule_lever.stl"/>
+    <mesh name="ah_plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5" file="ah_official/assets/plain_washer_large_grade_a_m2_5__9a369f0dc77bf9c598cdf3fb468977e5.stl"/>
+    <mesh name="ah_rotule_ball" file="ah_official/assets/rotule_ball.stl"/>
+    <mesh name="ah_r_hand_plate" file="ah_official/assets/r_hand_plate.stl"/>
+    <mesh name="ah_std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default" file="ah_official/assets/std00333_plast_tcb_torx_2_5x8__configuration_copy_of_default.stl"/>
+    <mesh name="ah_gimbal" file="ah_official/assets/gimbal.stl"/>
+    <mesh name="ah_distal_shell" file="ah_official/assets/distal_shell.stl"/>
+    <mesh name="ah_r_wrist_interface" file="ah_official/assets/r_wrist_interface.stl"/>
   </asset>
 
   <worldbody>
@@ -186,7 +186,9 @@
               <body name="Fixed_Jaw" pos="0 -0.0601 0" quat="0.707109 0 0.707105 0">
                 <inertial pos="0.00552377 -0.0280167 0.000483583" quat="0.41836 0.620891 -0.350644 0.562599" mass="0.0929859" diaginertia="5.03136e-05 4.64098e-05 2.72961e-05"/>
                 <joint name="Wrist_Roll" class="Wrist_Roll"/>
-                <body name="ah_r_wrist_interface" childclass="ah_mjcf" quat="0.499998 0.5 0.500002 -0.5">
+                <site name="jaw_tool" size="0.004" pos="-0.005 -0.085 0" rgba="1 0 0 1"/>
+                <body name="ah_r_wrist_interface" childclass="ah_mjcf" pos="0 -0.02 0" quat="0.707105 0.707108 0 0">
+    <site name="tool" pos="0.045 0.0 0.082" size="0.004" rgba="1 0 0 0.7"/>
                   <inertial pos="0 0 0" mass="1e-09" diaginertia="1e-09 1e-09 1e-09"/>
                   <geom class="ah_visual" pos="-0.022075 0.03055 0.0698" quat="0.707107 0 0 0.707107" material="ah_scs0009_material" mesh="ah_scs0009"/>
                   <geom class="ah_visual" pos="-0.0115 0.0245 0.1022" quat="0.5 0.5 -0.5 -0.5" material="ah_finger_frame_1_material" mesh="ah_finger_frame_1"/>
@@ -222,7 +224,6 @@
                   <site name="ah_closing_1 (3)_2_z" quat="0.437766 0.555303 -0.437766 -0.555303" group="3" pos="-0.115 -0.0405 0.0851417"/>
                   <site name="ah_closing_1 (4)_2" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 0.0262"/>
                   <site name="ah_closing_1 (4)_2_z" quat="0 0.573576 0.819152 0" group="3" pos="0.0280778 0.0245 -0.0738"/>
-                  <site name="tool" pos="0.04 0 0.08"/>
                   <body name="ah_custom_servo_horn" pos="-0.00755 0.03055 0.0698" quat="0.5 0.5 -0.5 -0.5">
                     <inertial pos="-0.005 0 -0.00655938" mass="0.000410988" diaginertia="4.63584e-09 4.63584e-09 1e-09"/>
                     <joint name="ah_finger1_motor1" range="-1.5708 1.5708"/>
