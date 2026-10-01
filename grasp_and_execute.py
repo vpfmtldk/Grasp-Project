@@ -55,7 +55,7 @@ def sim_cam_cfg(sim):
 # ------------------------------------------------------------------- one attempt
 def execute_grasp(rgb, predictor, he, arm, hand, vis_path=None, secs=2.5, px_per_mm=2.0,
                   grasp_lift_m=0.025, approach_m=0.08, confirm=True, grip="auto", result_fn=None,
-                  center_object=True):
+                  center_object=True, use_theta=False):
     """One real-robot attempt using the pixel->joint-angle direct interpolation
     calibration (robot/calib/pixel_to_arm.HandEye) -- NOT the camera-3D/IK path
     (that's what run_sim still uses; the two backends deliberately differ, see
@@ -80,7 +80,9 @@ def execute_grasp(rgb, predictor, he, arm, hand, vis_path=None, secs=2.5, px_per
             g = ng
     u, v = float(g["x"]), float(g["y"])
     inside = he.in_range(u, v)
-    q = he.joints_for_pixel(u, v, theta_img_deg=g["angle_deg"])
+    # wrist_roll is now powered, but the image-angle -> roll mapping (collect_theta.py) has never been
+    # verified: keep the calibration roll unless --use-theta says otherwise
+    q = he.joints_for_pixel(u, v, theta_img_deg=g["angle_deg"] if use_theta else None)
     print(f"  pixel=({u:.0f},{v:.0f}) angle={g['angle_deg']:+.1f}deg width={g['width_px']:.0f}px  "
           f"in_range={inside}")
     print("  target joints: " + "  ".join(f"{n}={a:+.1f}" for n, a in zip(ALL_JOINTS, q)))
@@ -279,6 +281,8 @@ def run_real(args):
         cap.read()
     os.makedirs(args.outdir, exist_ok=True)
     cfg = Config()
+    if args.no_roll:
+        cfg.arm_disabled_ids = [5]
     arm, hand = SO101(cfg), AmazingHand(cfg)
     arm.connect(); hand.connect()
     predictor = GraspPredictor(args.network, use_rgb=1, use_depth=0)
@@ -400,7 +404,7 @@ def run_real(args):
                                          secs=args.secs, px_per_mm=args.px_per_mm,
                                          grasp_lift_m=args.grasp_lift, approach_m=args.approach,
                                          confirm=(False if args.no_confirm else window_confirm),
-                                         grip=args.grip, center_object=not args.no_center,
+                                         grip=args.grip, center_object=not args.no_center, use_theta=args.use_theta,
                                          result_fn=(lambda g_, *_: window_confirm("result", g_)) if trials > 1 else None)
             if msg == "recapture":
                 continue                          # same trial number, new photo
@@ -463,6 +467,8 @@ def run_auto(args):
         cap.read()
     os.makedirs(args.outdir, exist_ok=True)
     cfg = Config()
+    if args.no_roll:
+        cfg.arm_disabled_ids = [5]
     arm, hand = SO101(cfg), AmazingHand(cfg)
     arm.connect(); hand.connect()
     predictor = GraspPredictor(args.network, use_rgb=1, use_depth=0)
@@ -565,7 +571,7 @@ def run_auto(args):
                                          vis_path=os.path.join(args.outdir, f"auto_pred_{k:02d}.png"),
                                          secs=args.secs, px_per_mm=args.px_per_mm,
                                          grasp_lift_m=args.grasp_lift, approach_m=args.approach,
-                                         confirm=False, grip=args.grip, center_object=not args.no_center,
+                                         confirm=False, grip=args.grip, center_object=not args.no_center, use_theta=args.use_theta,
                                          result_fn=check_result)
             if g is not None:
                 last_xy = (g["x"], g["y"])
@@ -611,6 +617,9 @@ def main():
     p.add_argument("--auto-max", type=int, default=20, help="real --auto: stop after this many attempts")
     p.add_argument("--real-trials", type=int, default=1,
                    help="real: repeat N attempts, operator marks each S/F, object put back; logs a CSV")
+    p.add_argument("--no-roll", action="store_true", help="real: leave wrist_roll (id5) unpowered")
+    p.add_argument("--use-theta", action="store_true",
+                   help="real: turn the wrist to the predicted grasp angle (mapping not yet verified)")
     p.add_argument("--grip", default="auto", choices=["auto", "pinch", "power", "power_splay"],
                    help="real: hand preset; auto = from the predicted width (parallel-jaw), power = wrap all fingers")
     p.add_argument("--secs", type=float, default=2.5, help="real: seconds per arm move stage")

@@ -88,9 +88,9 @@ class Config:
     # and lost torque (2026-09-22/30, 3 times, also at limit 200, unloaded, new cable) --
     # the CAUSE IS NOT ESTABLISHED (servo / power branch / settings / my test procedure;
     # the user reports id5 works with other tools). The teammate also leaves it frozen
-    # (~19 deg). Kept off by default because a repeat drops the shoulder (id2); remove 5
-    # from this list once robot/roll_check.py passes.
-    arm_disabled_ids: list = field(default_factory=lambda: [5])
+    # (~19 deg). ENABLED by default as of 2026-10-01 at the user's request (they report id5
+    # works). If a repeat drops the shoulder (id2), put 5 back here or pass --no-roll.
+    arm_disabled_ids: list = field(default_factory=list)
     # stow pose = the teammate's PARK_POSE (arm_ui_poses.py): folded, 12 deg back
     # from the soft limits so no joint pushes a hard stop. Also used as the photo
     # pose (folded arm is out of the overhead camera's view) until a separate

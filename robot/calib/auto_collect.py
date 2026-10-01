@@ -77,12 +77,12 @@ ROLL_FIXED = -1.0     # wrist_roll angle reported while that servo is left off (
 
 
 def make_arm(args):
-    """wrist_roll (id5) is left OFF by default: enabling its torque made ids 2/4/5 stop
-    answering in my tests (cause not established, see robot_control.Config). Roll is
-    constant during calibration anyway, so it's reported as ROLL_FIXED and never written."""
+    """wrist_roll (id5) is ON by default now (Config.arm_disabled_ids is empty); --no-roll leaves it off
+    (it's then reported as ROLL_FIXED and never written)."""
     cfg = Config()
     roll_id = cfg.arm_joints[WROLL].servo_id
-    cfg.arm_disabled_ids = sorted(set(cfg.arm_disabled_ids) | {roll_id}) if not args.with_roll else         [i for i in cfg.arm_disabled_ids if i != roll_id]
+    if getattr(args, "no_roll", False):
+        cfg.arm_disabled_ids = sorted(set(cfg.arm_disabled_ids) | {roll_id})
     arm = SO101(cfg)
     arm.connect()
     return arm
@@ -351,7 +351,7 @@ if __name__ == "__main__":
     g.add_argument("--probe", action="store_true")
     g.add_argument("--run", action="store_true")
     ap.add_argument("--cam", type=int, default=2)
-    ap.add_argument("--with-roll", action="store_true", help="wrist_roll(id5) 도 켬 (배선 고친 뒤)")
+    ap.add_argument("--no-roll", action="store_true", help="wrist_roll(id5) 을 끔 (기본은 켬)")
     ap.add_argument("--np", type=int, default=5, help="행마다 pan 점 수")
     ap.add_argument("--ne", type=int, default=4, help="행 수 (가까운 쪽 -> 먼 쪽)")
     ap.add_argument("--confirm", type=int, default=2, help="처음 N점은 이동 전 Enter 확인")
