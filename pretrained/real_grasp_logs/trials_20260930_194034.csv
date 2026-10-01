@@ -1,0 +1,5 @@
+trial,time,result,note,grip,u,v,angle_deg,width_px,quality,in_range
+1,19:41:13,success,,power,683,399,-5.7,145,0.799,True
+2,19:42:15,fail,,power,738,374,36.4,144,0.767,True
+3,19:43:12,fail,,power,653,402,-3.5,145,0.907,True
+4,19:44:02,fail,,power,625,454,-49.4,138,0.964,True

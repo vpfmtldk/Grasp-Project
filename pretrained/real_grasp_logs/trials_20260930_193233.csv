@@ -1,0 +1,8 @@
+trial,time,result,note,grip,u,v,angle_deg,width_px,quality,in_range
+1,19:33:22,fail,,power,636,381,-3.8,101,0.907,True
+2,19:34:18,fail,,power,717,435,77.4,97,0.881,True
+3,19:34:39,skipped,aborted by operator before moving,power,697,457,-9.4,71,0.69,True
+4,19:34:45,skipped,aborted by operator before moving,power,705,263,82.3,114,0.975,True
+5,19:34:49,skipped,aborted by operator before moving,power,706,264,81.9,114,0.982,True
+6,19:34:52,skipped,aborted by operator before moving,power,705,264,82.1,113,0.971,True
+7,19:35:23,skipped,aborted by operator before moving,power,706,264,82.1,114,0.979,True

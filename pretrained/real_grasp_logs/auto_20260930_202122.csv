@@ -1,0 +1,4 @@
+attempt,time,result,note,grip,u,v,angle_deg
+1,20:22:01,success,,power,638,391,-4.4
+2,20:23:01,fail,,power,429,401,0.0
+3,20:23:58,fail,,power,818,445,-5.0

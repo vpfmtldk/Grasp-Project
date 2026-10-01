@@ -1,0 +1,2 @@
+trial,time,result,note,grip,u,v,angle_deg,width_px,quality,in_range
+1,19:59:29,fail,,pinch,590,313,74.2,122,0.709,True

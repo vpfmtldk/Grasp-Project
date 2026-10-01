@@ -35,6 +35,41 @@ RGB 카메라 **한 대**로 책상 위 물체를 **어디서, 몇 도로** 집�
   <em>강화학습 정책이 355 ml 캔을 쥐는 모습 (왼쪽: 서 있는 캔, 오른쪽: 누운 캔). 손가락 마찰만으로 들고 있습니다.</em>
 </p>
 
+## 새 컴퓨터에서 시작하기
+
+`pretrained/`에 학습된 모델이 들어 있어서, 저장소를 받은 뒤 바로 예측과 시뮬레이션 재생까지 됩니다.
+
+| 폴더 | 내용 |
+|---|---|
+| `pretrained/grconvnet_rgb/` | 배포 GR-ConvNet 가중치(`weights.pt`, RGB, Cornell 학습), `MODEL.md` |
+| `pretrained/ppo_can/` | 학습된 잔차 PPO 정책(`model.zip`, `vecnormalize.pkl`) |
+| `pretrained/cam.json` | 이 책상 카메라의 내부·외부 파라미터 (카메라가 다르면 `camera_calib.py`로 다시) |
+| `pretrained/real_grasp_logs/` | 실물 파지 시도 기록(CSV) |
+
+```bash
+git clone https://github.com/vpfmtldk/Grasp-Project.git && cd Grasp-Project
+python -m venv venv && venv\Scripts\activate
+pip install -r requirements.txt            # 정확한 버전은 requirements-tested.txt (Python 3.14, Windows)
+
+# 1) 예측 (카메라 없이 사진 한 장)
+python predict_grasp.py --network pretrained/grconvnet_rgb/weights.pt --image <사진>
+
+# 2) 강화학습 정책 재생 / 평가 (MuJoCo)
+python -m robot.rl.eval_policy --model pretrained/ppo_can --view --mode mixed
+python -m robot.rl.eval_policy --model pretrained/ppo_can --episodes 80 --mode upright
+
+# 3) 시뮬레이션 장면 만들기 (robot/rl/so101_rlhand_can.xml 는 저장소에 포함돼 있음)
+python robot/rl/build_can_scene.py
+```
+
+**하드웨어가 없으면 여기까지만 됩니다.** 실물 로봇은 다음이 이 로봇·이 책상에 맞춰져 있어서 그대로는 안 됩니다.
+
+- 시리얼 포트 `COM9`(팔) · `COM8`(손), 카메라 번호 2 → `robot/robot_control.py`의 `Config`와 `--camera`
+- 서보 내부 영점과 카메라 위치 → `robot/calib/handeye_teammate.json`은 **같은 팔·같은 카메라 자리**에서만 유효합니다. 다른 로봇이면 캘리브레이션을 다시 해야 합니다.
+- 실물 파지: `python grasp_and_execute.py --backend real --network pretrained/grconvnet_rgb/weights.pt --grip power --auto` (자세한 사용법은 `HANDOFF.md`)
+
+학습 데이터(Cornell 등)는 포함하지 않습니다. 재학습하려면 [Cornell](http://pr.cs.cornell.edu/grasping/rect_data/data.php)을 받아 `train_ggcnn.py`로 학습하세요.
+
 ## 설계 원칙
 
 | 선택 | 이유 |

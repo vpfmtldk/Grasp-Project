@@ -1,3 +1,4 @@
+# GG-CNN / GR-ConvNet (original)
 numpy
 opencv-python
 matplotlib
@@ -8,8 +9,12 @@ torchvision
 torchsummary
 tensorboardX
 
-# added for this project
-mujoco>=3.0        # sim backend (robot/mujoco_backend.py)
-feetech-servo-sdk  # real SO-101 + AmazingHand serial driver
+# this project
+scipy                  # sim<->real map fit, IK helpers
+pillow                 # GIF captions
+mujoco>=3.0            # simulation, RL scene
+gymnasium              # RL environment
+stable-baselines3      # PPO
+feetech-servo-sdk      # real SO-101 + AmazingHand serial driver (import name: scservo_sdk)
 pyserial
-ikpy               # optional: ee_pose -> joints IK
+ikpy                   # optional

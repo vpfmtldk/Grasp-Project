@@ -16,6 +16,8 @@ from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
 from robot.rl.can_grasp_env import CanGraspEnv, FRAME_SKIP
 
 OUT = os.path.join("output", "rl", "ppo_can")
+if not os.path.exists(os.path.join(OUT, "model.zip")):          # fresh clone: use the shipped policy
+    OUT = os.path.join("pretrained", "ppo_can")
 
 
 def load(model_dir, mode="mixed"):
