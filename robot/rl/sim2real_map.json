@@ -1,0 +1,43 @@
+{
+  "note": "sim_deg = sign * real_deg + offset (real = robot_control / teammate frame); sim_xyz = Rz(yaw) @ real_xyz + t. From FK only (fit_sim2real.py).",
+  "joints": [
+    "shoulder_pan",
+    "shoulder_lift",
+    "elbow_flex",
+    "wrist_flex",
+    "wrist_roll"
+  ],
+  "sign": [
+    -1,
+    1,
+    1,
+    1,
+    -1
+  ],
+  "offset_deg": [
+    -7.166051077636684,
+    -93.8418092071243,
+    90.98892749235945,
+    64.80537534054945,
+    -170.48261619133055
+  ],
+  "yaw_deg": 180.0,
+  "t_m": [
+    -0.041846839835982315,
+    0.07293680865032878,
+    0.004359906731653313
+  ],
+  "wrist_origin_residual_mm": {
+    "mean": 2.971958476583233,
+    "max": 8.338666624139673
+  },
+  "tool_residual_mm": {
+    "mean": 149.99400265425913,
+    "max": 152.98698747620807
+  },
+  "sim_tool_in_real_link5_mm": [
+    1.6426932838161794,
+    76.24045776709681,
+    -56.867647193757726
+  ]
+}
