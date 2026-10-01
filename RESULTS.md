@@ -242,7 +242,7 @@ python -m robot.rl.eval_policy --episodes 80 --mode upright
     서로의 통신을 깨뜨립니다 → 매 통신 전에 다시 설정(팀원도 같은 해결).
   - **wrist_roll(id5)**: 내 스크립트로 토크를 켜면 id2·4·5가 곧바로 응답을 끊습니다(토크 한계 200, 다른 서보
     무부하, 케이블 교체 후에도 동일, 3회). **원인은 미확정**(서보·전원 구간·설정·테스트 절차 모두 후보)이라
-    안전을 위해 기본 비활성으로 두고, 재확인합니다(`robot/roll_check.py`).
+    처음엔 기본 비활성으로 두었다가 2026-10-01 사용자 요청으로 기본 활성으로 바꿨습니다(`--no-roll`로 끔, `robot/roll_check.py`로 점검).
 
 ---
 
@@ -294,6 +294,8 @@ python -m robot.rl.eval_policy --episodes 80 --mode upright
 | `robot/team_fk.py` | 팀원 순기구학 이식 — 손끝 수직 띄우기 (7장) |
 | `object_center.py` | 물체 윤곽 → 중심 · 짧은 축 (파지 목표 보정, 8장) |
 | `robot/recover.py`, `robot/roll_check.py` | 중단 후 안전 복귀, wrist_roll 단계별 점검 |
+| `robot/rl/fit_sim2real.py`, `sim2real.py` | 시뮬레이션 ↔ 실물 관절 대응표(FK로 계산) |
+| `robot/rl/real_pose_sweep.py` | 실물 파지 자세를 시뮬레이션에 옮겨 들리는지 시험 |
 | `robot/rl/` | 강화학습: 힘 전달 손, 캔 장면, 잔차 PPO (6장) |
 | `grasp_and_execute.py` | 전체 루프: 이미지 → 파지 → 관절각 → 이동 → 쥐기 → 들기 (수동·반복 측정·자동 모드, 8장) |
 
@@ -308,6 +310,7 @@ python -m robot.rl.eval_policy --episodes 80 --mode upright
 
 **남은 일:**
 
-- **wrist_roll(id5) 서보 교체** — 교체 후 `roll_check.py`로 확인하고, 예측한 파지 각도로 손목을 돌리기.
+- **wrist_roll(id5) 사용** — 2026-10-01부터 기본으로 켬(팔을 받치고 첫 연결). `roll_check.py` 확인 →
+  `collect_theta.py`로 각도 대응 → 예측한 파지 각도로 손목 회전(`--use-theta`).
 - **실물 성공률 표본 늘리기** — 물체 종류·위치별로 20회 이상, 가장자리 오차 보정.
 - **시뮬레이션 → 실물** — 강화학습 정책의 실물 적용.
