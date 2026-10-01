@@ -59,8 +59,8 @@ def main():
     bus, jroll = arm.bus, arm.joints[ROLL_IDX]
     manual = not args.motor
     if args.motor and jroll.servo_id in cfg.arm_disabled_ids:
-        print(f"!! id{jroll.servo_id} 는 arm_disabled_ids 에 있다 (goal 쓰기에 리셋되는 고장). "
-              "버튼을 눌러도 안 돌 수 있다.")
+        print(f"!! id{jroll.servo_id} 는 arm_disabled_ids 에 있다 (토크를 켜면 id2·4·5 가 응답을 끊는 증상, "
+              "원인 미확정). 버튼을 눌러도 안 돌 수 있다.")
 
     samples = []            # (wrist_roll_deg, theta_img_deg)
     frozen = {"img": None, "roll": None, "p1": None}
@@ -76,7 +76,7 @@ def main():
     last_roll = {"v": None}
 
     def read_roll(retries=8):
-        """wrist_roll 은 읽기만 한다. id5 는 goal 쓰기에 리셋되는 고장이라
+        """wrist_roll 은 읽기만 한다. id5 는 토크를 켜면 id2·4·5 가 응답을 끊는 증상이 있어
         버스(ids)에서 빠져 있으므로 id 를 직접 지정해 위치만 읽는다."""
         s = bus.read_one(jroll.servo_id, retries=retries)
         if s is not None:

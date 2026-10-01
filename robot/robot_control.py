@@ -84,9 +84,12 @@ class Config:
         JointCfg("wrist_flex",    4, home_steps=2048, min_deg=-98.6,  max_deg=97.0),
         JointCfg("wrist_roll",    5, home_steps=2048, min_deg=-26.9,  max_deg=16.7),
     ])
-    # wrist_roll (id5): enabling its torque resets ids 2/4/5 (electrical fault,
-    # 2026-09-22); the teammate also freezes it (stuck ~19 deg). Never polled or
-    # commanded until the wiring is fixed -- remove 5 from this list then.
+    # wrist_roll (id5): when my scripts enabled its torque, ids 2/4/5 stopped answering
+    # and lost torque (2026-09-22/30, 3 times, also at limit 200, unloaded, new cable) --
+    # the CAUSE IS NOT ESTABLISHED (servo / power branch / settings / my test procedure;
+    # the user reports id5 works with other tools). The teammate also leaves it frozen
+    # (~19 deg). Kept off by default because a repeat drops the shoulder (id2); remove 5
+    # from this list once robot/roll_check.py passes.
     arm_disabled_ids: list = field(default_factory=lambda: [5])
     # stow pose = the teammate's PARK_POSE (arm_ui_poses.py): folded, 12 deg back
     # from the soft limits so no joint pushes a hard stop. Also used as the photo

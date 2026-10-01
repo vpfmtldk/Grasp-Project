@@ -77,9 +77,9 @@ ROLL_FIXED = -1.0     # wrist_roll angle reported while that servo is left off (
 
 
 def make_arm(args):
-    """wrist_roll (id5) is left OFF by default: enabling its torque resets id2/4/5
-    (electrical fault on that branch, found 2026-09-22). Roll is constant during
-    calibration anyway, so it's reported as ROLL_FIXED and never written."""
+    """wrist_roll (id5) is left OFF by default: enabling its torque made ids 2/4/5 stop
+    answering in my tests (cause not established, see robot_control.Config). Roll is
+    constant during calibration anyway, so it's reported as ROLL_FIXED and never written."""
     cfg = Config()
     roll_id = cfg.arm_joints[WROLL].servo_id
     cfg.arm_disabled_ids = sorted(set(cfg.arm_disabled_ids) | {roll_id}) if not args.with_roll else         [i for i in cfg.arm_disabled_ids if i != roll_id]
